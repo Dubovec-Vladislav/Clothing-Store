@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Integral CF';
+  src: url('./fonts/IntegralCF-Bold.eot');
+  src: local('Integral CF'), local('IntegralCF'),
+    url('./fonts/IntegralCF-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/IntegralCF-Bold.woff2') format('woff2'),
+    url('./fonts/IntegralCF-Bold.woff') format('woff'),
+    url('./fonts/IntegralCF-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Bold.eot');
+  src: local('Satoshi'), local('Satoshi'),
+    url('./fonts/Satoshi-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Satoshi-Bold.woff2') format('woff2'),
+    url('./fonts/Satoshi-Bold.woff') format('woff'),
+    url('./fonts/Satoshi-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Medium.eot');
+  src: local('Satoshi'), local('Satoshi'),
+    url('./fonts/Satoshi-Medium.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Satoshi-Medium.woff2') format('woff2'),
+    url('./fonts/Satoshi-Medium.woff') format('woff'),
+    url('./fonts/Satoshi-Medium.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./fonts/Satoshi-Regular.eot');
+  src: local('Satoshi'), local('Satoshi'),
+    url('./fonts/Satoshi-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Satoshi-Regular.woff2') format('woff2'),
+    url('./fonts/Satoshi-Regular.woff') format('woff'),
+    url('./fonts/Satoshi-Regular.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
