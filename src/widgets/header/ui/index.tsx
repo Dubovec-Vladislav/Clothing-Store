@@ -2,12 +2,12 @@ import React, { FC, useState } from 'react'
 import style from './index.module.scss'
 import { Link } from 'react-router-dom'
 // Images
-import logo from './img/logo.svg'
-import search1 from './img/search1.svg'
-import cart from './img/cart.svg'
-import search2 from './img/search2.svg'
+import logo from '../img/logo.svg'
+import search1 from '../img/search1.svg'
+import cart from '../img/cart.svg'
+import search2 from '../img/search2.svg'
 
-const Header: FC = (props) => {
+export const Header: FC = (props) => {
   const [isBurgerActive, changeBurgerActive] = useState(false);
 
   const handleBurgerClick = () => {
@@ -16,7 +16,7 @@ const Header: FC = (props) => {
   }
 
   return (
-    <section className={style.block}>
+    <header className={style.block}>
       <div className={style.body}>
         <div className={style.burger} onClick={handleBurgerClick}><span></span></div>
         <Link to="/" className={style.logo}><img src={logo} alt="logo" /></Link>
@@ -33,8 +33,6 @@ const Header: FC = (props) => {
         <div className={style.searchIcon}><img src={search2} alt="search2" /></div>
         <Link to="#" className={style.cart}><img src={cart} alt="cart" /></Link>
       </div>
-    </section>
+    </header>
   );
 };
-
-export default Header;
