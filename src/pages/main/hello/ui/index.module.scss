@@ -1,13 +1,19 @@
 .block {
   background-color: #F2F0F1;
-  margin: 0px -6.95vw;
-  padding: 0px 6.95vw;
+  margin: 0px calc(-1 * (16px + 84 * (100vw / 1440)));
+  padding: 0px calc(16px + 84 * (100vw / 1440));
+
+  @media (max-width: 769px) {
+    margin: 0px calc(-1 * (16px + 84 * ((100vw - 320px)/ 1440)));
+    padding: 0px calc(16px + 84 * ((100vw - 320px) / 1440));
+  }
 }
 
 .body {
   display: flex;
   max-height: 663px;
   margin: 0px -25px;
+  overflow: hidden;
 }
 
 .imgBlock {
@@ -98,8 +104,12 @@
 
 .numbers {
   display: flex;
-  margin: 0px -32px;
+  margin: 0px -32px calc(40px + 76 * (100vw / 1440)) -32px;
   align-items: center;
+
+  @media (max-width: 769px) {
+    margin: 0px 0px calc(40px + 76 * ((100vw - 320px) / 1440)) 0px;
+  }
 }
 
 .numbersItem {
