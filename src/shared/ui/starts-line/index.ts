@@ -1,0 +1,1 @@
+export { StarsLine } from './ui'

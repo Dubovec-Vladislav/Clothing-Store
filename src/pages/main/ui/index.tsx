@@ -3,6 +3,7 @@ import style from './index.module.scss'
 import { Hello } from '../hello'
 import { Header } from 'widgets/header'
 import { BrandsLine } from 'shared/ui'
+import { Card } from 'entities/card'
 
 export const Main: FC = (props) => {
   return (
@@ -11,6 +12,7 @@ export const Main: FC = (props) => {
         <Header/>
         <Hello/>
         <BrandsLine/>
+        <Card/>
       </div>
     </main>
   );

@@ -1,0 +1,31 @@
+.block {
+  display: flex;
+}
+
+.star {
+  margin: 0px 6px 0px 0px;
+
+  &:last-child {
+    margin: 0px 13px 0px 0px;
+  }
+}
+
+.totalGrade {
+  color: #000;
+  font-family: 'Satoshi';
+  line-height: normal;
+
+  @media (max-width: 425px) {
+    font-size: 12px;
+  }
+
+  span {
+    color: rgba(0, 0, 0, 0.60);
+    font-family: 'Satoshi';
+    line-height: normal;
+
+    @media (max-width: 425px) {
+      font-size: 12px;
+    }
+  }
+}
