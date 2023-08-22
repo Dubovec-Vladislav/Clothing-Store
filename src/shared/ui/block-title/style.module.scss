@@ -1,0 +1,12 @@
+.block {
+  color: #000;
+  font-family: 'Integral CF';
+  font-size: calc(32px + 16 * (100vw / 1440));
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+
+  @media (max-width: 769px) {
+    font-size: calc(32px + 16 * ((100vw - 320px) / 1440));
+  }
+}

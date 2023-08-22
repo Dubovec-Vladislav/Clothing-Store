@@ -1,0 +1,103 @@
+.block {}
+
+.body {}
+
+.img {
+  background-color: #F0EEED;
+  margin: 0px 0px 16px 0px;
+  border-radius: 20px;
+  overflow: hidden;
+
+  @media (max-width: 426px) {
+    margin: 0px 0px 10px 0px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.title {
+  color: #000;
+  margin: 0px 0px 8px 0px;
+
+  font-family: 'Satoshi';
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+
+  @media (max-width: 426px) {
+    margin: 0px 0px 4px 0px;
+    font-size: 16px;
+  }
+}
+
+.rating {
+  margin: 0px 0px 8px 0px;
+
+  @media (max-width: 426px) {
+    margin: 0px 0px 4px 0px;
+  }
+}
+
+.priceBlock {
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  color: #000;
+  margin: 0px 10px 0px 0px;
+
+  font-family: 'Satoshi';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+
+  @media (max-width: 426px) {
+    margin: 0px 5px 0px 0px;
+    font-size: 20px;
+  }
+}
+
+.prevPrice {
+  position: relative;
+  color: rgba(0, 0, 0, 0.4);
+  margin: 0px 10px 0px 0px;
+
+  font-family: 'Satoshi';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+
+  @media (max-width: 426px) {
+    margin: 0px 5px 0px 0px;
+    font-size: 20px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 1px;
+  }
+}
+
+.percent {
+  color: #F33;
+  background-color: rgba(255, 51, 51, 0.10);
+  padding: 6px 14px;
+  border-radius: 62px;
+
+  font-family: 'Satoshi';
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+
+  @media (max-width: 426px) {
+    font-size: 10px
+  }
+}

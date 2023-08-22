@@ -8,7 +8,7 @@ import calvinKlein from '../img/calvin-klein.png'
 
 export const BrandsLine: FC = (props) => {
   return (
-    <div className={style.block}>
+    <section className={style.block}>
       <div className={style.body}>
         <div className={style.item}><img src={versace} alt="versace" /></div>
         <div className={style.item}><img src={zara} alt="zara" /></div>
@@ -16,6 +16,6 @@ export const BrandsLine: FC = (props) => {
         <div className={style.item}><img src={prada} alt="prada" /></div>
         <div className={style.item}><img src={calvinKlein} alt="calvinKlein" /></div>
       </div>
-    </div>
+    </section>
   );
 };

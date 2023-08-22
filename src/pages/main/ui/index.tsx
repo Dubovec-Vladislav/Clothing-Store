@@ -3,7 +3,7 @@ import style from './index.module.scss'
 import { Hello } from '../hello'
 import { Header } from 'widgets/header'
 import { BrandsLine } from 'shared/ui'
-import { Card } from 'entities/card'
+import { ClothRow } from 'features/cloth-row'
 
 export const Main: FC = (props) => {
   return (
@@ -12,7 +12,7 @@ export const Main: FC = (props) => {
         <Header/>
         <Hello/>
         <BrandsLine/>
-        <Card/>
+        <ClothRow/>
       </div>
     </main>
   );

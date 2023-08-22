@@ -1,8 +1,6 @@
 .block {
   display: flex;
-  color: #FFF;
-  background-color: #000;
-  padding: 16px 54px;
+  padding: 16px 66px;
   border-radius: 62px;
   align-items: center;
   justify-content: center;
@@ -14,6 +12,24 @@
   font-weight: 500;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    animation: anim 1.2s ease;
+
+    @keyframes anim {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(2deg);
+      }
+
+      50% {
+        transform: rotate(-2deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
   }
 }
