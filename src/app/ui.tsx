@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import "./index.scss"
+import "./style.scss"
 import { withProviders } from "./providers"
 import { Routing } from "pages"
 

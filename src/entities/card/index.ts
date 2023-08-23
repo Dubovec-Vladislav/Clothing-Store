@@ -1,1 +1,0 @@
-export { ClothCard } from './ui/cloth-card'
