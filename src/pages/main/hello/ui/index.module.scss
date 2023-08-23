@@ -145,11 +145,27 @@
   @media (max-width: 945px) {
     margin: 0px -32px 0px -32px;
   }
+
+  @media (max-width: 445px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: -7px -32px;
+  }
 }
 
 .numbersItem {
   position: relative;
   padding: 0px 32px;
+
+  @media (max-width: 445px) {
+    padding: 7px 32px;
+
+    &:nth-child(2) {
+      &::before {
+        display: none;
+      }
+    }
+  }
 
   &::before {
     content: '';
@@ -159,6 +175,7 @@
     background-color: rgba(0, 0, 0, 0.1);
     width: 1px;
     height: 100%;
+    max-height: 46px;
   }
 
   &:last-child {
