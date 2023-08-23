@@ -98,15 +98,15 @@
   margin: 0px 0px calc(20px + 12 * (100vw / 1440)) 0px;
   padding: calc(40px + 63 * (100vw / 1440)) 0px 0px 0px;
 
-  font-family: 'Integral CF';
-  font-size: calc(34px + 30 * (100vw / 1440));
+  font-family: 'Montserrat';
+  font-size: calc(29px + 20 * (100vw / 1440));
   font-weight: 700;
   line-height: 90%;
 
   @media (max-width: 769px) {
     margin: 0px 0px calc(20px + 12 * ((100vw - 320px) / 1440)) 0px;
     padding: calc(40px + 63 * ((100vw - 320px) / 1440)) 0px 0px 0px;
-    font-size: calc(34px + 30 * ((100vw - 320px) / 1440));
+    font-size: calc(29px + 20 * ((100vw - 320px) / 1440));
   }
 
   span {

@@ -21,6 +21,10 @@
     margin: 0px -17px;
     padding: 39px 0px;
   }
+
+  @media (max-width: 426px) {
+    padding: 9px 0px;
+  }
 }
 
 .item {

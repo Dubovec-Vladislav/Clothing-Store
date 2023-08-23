@@ -1,16 +1,19 @@
 import React, { FC } from 'react'
 import style from './index.module.scss'
-import { ClothCard } from 'entities/cloth-card'
+import { ClothCard, ClothInterface } from 'entities/cloth-card'
 import { BlockTitle, Button } from 'shared/ui'
-import { useGetClothQuery } from '../api'
+import { useGetNewClothQuery, useGetTopSellingClothQuery } from '../api'
 
-export const ClothRow: FC = (props) => {
-  const { data, isLoading } = useGetClothQuery('');
-  console.log(data, isLoading);
+interface ClothRowProps {
+  titleText: string,
+  data: ClothInterface[] | undefined,
+  isLoading: boolean,
+}
 
+export const ClothRow: FC<ClothRowProps> = ({ titleText, data, isLoading }) => {
   return (
     <section className={style.block}>
-      <div className={style.title}><BlockTitle text={'NEW ARRIVALS'} /></div>
+      <div className={style.title}><BlockTitle text={titleText} /></div>
       <div className={style.body}>
         <div className={style.row}>
           {isLoading

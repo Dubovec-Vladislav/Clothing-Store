@@ -6,12 +6,15 @@ export const clothApi = createApi({
   reducerPath: 'clothApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://64de1332825d19d9bfb20329.mockapi.io' }),
   endpoints: (builder) => ({
-    getCloth: builder.query<ClothInterface[], string>({
-      query: () => `/items`,
+    getNewCloth: builder.query<ClothInterface[], string>({
+      query: () => `/new-items`,
+    }),
+    getTopSellingCloth: builder.query<ClothInterface[], string>({
+      query: () => `/top-selling-items`,
     }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetClothQuery } = clothApi
+export const { useGetNewClothQuery, useGetTopSellingClothQuery } = clothApi

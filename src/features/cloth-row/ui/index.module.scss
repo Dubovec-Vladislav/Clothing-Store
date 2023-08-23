@@ -33,7 +33,7 @@
   display: flex;
   margin: -10px -10px calc(24px + 12 * (100vw / 1440)) -10px;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 
   @media (max-width: 769px) {
@@ -46,11 +46,11 @@
   padding: 10px;
 
   @media (max-width: 1025px) {
-    flex: 1 1 50%;
+    flex: 0 1 50%;
   }
 
-  @media (max-width: 426px) {
-    flex: 1 1 100%;
+  @media (max-width: 484px) {
+    flex: 0 1 100%;
   }
 }
 

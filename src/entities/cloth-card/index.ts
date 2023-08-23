@@ -1,2 +1,2 @@
-export { ClothCard } from './ui/cloth-card'
+export { ClothCard } from './ui'
 export type { Cloth as ClothInterface } from './interface'

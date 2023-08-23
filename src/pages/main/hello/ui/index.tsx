@@ -11,10 +11,10 @@ export const Hello: FC = (props) => {
     <section className={style.block}>
       <div className={style.body}>
         <div className={style.textBlock}>
-          <div className={style.title}><span>FIND CLOTHES</span> <span>THAT MATCHES</span> <span>YOUR STYLE</span></div>
+          <div className={style.title}><span>НАЙДИТЕ ОДЕЖДУ</span> <span>СООТВЕТСТВУЮЩУЮ</span> <span>ВАШЕМУ СТИЛЮ</span></div>
           <div className={style.subtitle}>
-            Browse through our diverse range of meticulously crafted garments,
-            designed to bring out your individuality and cater to your sense of style.
+            Просмотрите наш разнообразный ассортимент тщательно созданной одежды,
+            призванной подчеркнуть вашу индивидуальность и удовлетворить ваше чувство стиля.
           </div>
           <div className={style.btn}><Button text={'Shop Now'} /></div>
           <div className={style.numbers}>
