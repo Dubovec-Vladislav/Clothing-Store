@@ -4,6 +4,7 @@ import { Hello } from '../hello'
 import { Header } from 'widgets/header'
 import { BrandsLine } from 'shared/ui'
 import { NewCloseRow, TopSellingCloseRow } from 'features/cloth-row'
+import { CategoryBlock } from 'shared/ui'
 
 export const Main: FC = (props) => {
   return (
@@ -12,8 +13,9 @@ export const Main: FC = (props) => {
         <Header />
         <Hello />
         <BrandsLine />
-        <NewCloseRow titleText={'Новые поступления'} />
+        <NewCloseRow titleText={'Новые поступления'} endBlockLine/>
         <TopSellingCloseRow titleText={'Лучшие продажи'} />
+        <CategoryBlock />
       </div>
     </main>
   );

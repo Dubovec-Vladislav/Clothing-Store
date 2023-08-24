@@ -1,16 +1,16 @@
 import React, { FC } from 'react'
-import style from './index.module.scss'
 import { ClothRow } from '../ui'
 import { useGetNewClothQuery } from '../api'
 
 interface NewCloseRowProps {
   titleText: string,
+  endBlockLine?: boolean,
 }
 
-export const NewCloseRow: FC<NewCloseRowProps> = ({ titleText }) => {
+export const NewCloseRow: FC<NewCloseRowProps> = ({ titleText, endBlockLine }) => {
   const { data, isLoading } = useGetNewClothQuery('');
 
   return (
-    <ClothRow titleText={titleText} data={data} isLoading={isLoading}/>
+    <ClothRow titleText={titleText} endBlockLine={endBlockLine} data={data} isLoading={isLoading}/>
   );
 };

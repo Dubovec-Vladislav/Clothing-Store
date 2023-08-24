@@ -1,16 +1,16 @@
 import React, { FC } from 'react'
-import style from './index.module.scss'
 import { ClothRow } from '../ui'
 import { useGetTopSellingClothQuery } from '../api'
 
 interface TopSellingCloseRowProps {
   titleText: string,
+  endBlockLine?: boolean,
 }
 
-export const TopSellingCloseRow: FC<TopSellingCloseRowProps> = ({ titleText }) => {
+export const TopSellingCloseRow: FC<TopSellingCloseRowProps> = ({ titleText, endBlockLine }) => {
   const { data, isLoading } = useGetTopSellingClothQuery('');
 
   return (
-    <ClothRow titleText={titleText} data={data} isLoading={isLoading} />
+    <ClothRow titleText={titleText} endBlockLine={endBlockLine} data={data} isLoading={isLoading} />
   );
 };
