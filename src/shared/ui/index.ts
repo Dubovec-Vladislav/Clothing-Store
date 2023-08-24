@@ -1,5 +1,5 @@
 export { Button } from './button'
 export { BrandsLine } from './brands-line'
-export { StarsLine } from './starts-line'
+export { Rating } from './rating'
 export { BlockTitle } from './block-title'
-export { CategoryBlock } from './categoty-block'
+export { CategoryBlock } from './category-block'

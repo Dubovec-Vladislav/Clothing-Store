@@ -5,6 +5,7 @@ import { Header } from 'widgets/header'
 import { BrandsLine } from 'shared/ui'
 import { NewCloseRow, TopSellingCloseRow } from 'features/cloth-row'
 import { CategoryBlock } from 'shared/ui'
+import { CommentSlider } from 'features/comment-slider'
 
 export const Main: FC = (props) => {
   return (
@@ -13,9 +14,10 @@ export const Main: FC = (props) => {
         <Header />
         <Hello />
         <BrandsLine />
-        <NewCloseRow titleText={'Новые поступления'} endBlockLine/>
+        <NewCloseRow titleText={'Новые поступления'} endBlockLine />
         <TopSellingCloseRow titleText={'Лучшие продажи'} />
         <CategoryBlock />
+        <CommentSlider />
       </div>
     </main>
   );

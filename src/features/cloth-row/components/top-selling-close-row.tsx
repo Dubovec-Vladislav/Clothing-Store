@@ -11,6 +11,6 @@ export const TopSellingCloseRow: FC<TopSellingCloseRowProps> = ({ titleText, end
   const { data, isLoading } = useGetTopSellingClothQuery('');
 
   return (
-    <ClothRow titleText={titleText} endBlockLine={endBlockLine} data={data} isLoading={isLoading} />
+    <></>
   );
 };

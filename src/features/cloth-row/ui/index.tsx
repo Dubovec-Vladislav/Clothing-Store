@@ -19,9 +19,10 @@ export const ClothRow: FC<ClothRowProps> = ({ titleText, endBlockLine, data, isL
           {isLoading
             ? <div>Идет загрузка...</div>
             : data
-              ? data.map(item =>
+              ? data.map(item => 
                 <div className={style.item}>
                   <ClothCard
+                    key={item.id}
                     imageUrl={item.imageUrl}
                     name={item.name}
                     price={item.price}

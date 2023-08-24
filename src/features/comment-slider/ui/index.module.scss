@@ -1,0 +1,21 @@
+.block {
+  margin: 0px calc(-1 * (16px + 84 * (100vw / 1440)));
+  padding: 0px calc(16px + 84 * (100vw / 1440));
+
+  @media (max-width: 769px) {
+    margin: 0px calc(-1 * (16px + 84 * ((100vw - 320px)/ 1440)));
+    padding: 0px calc(16px + 84 * ((100vw - 320px) / 1440));
+  }
+}
+
+.title {
+  * {
+    text-align: start;
+  }
+}
+
+.body {}
+
+.slider {}
+
+.slide {}

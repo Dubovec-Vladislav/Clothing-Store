@@ -39,9 +39,13 @@
     flex: 0 1 100%;
   }
 
-  &:hover {
-    transform: scale(1.04);
-  }
+  // &:hover {
+  //   transform: scale(1.04);
+  // }
+}
+
+._anim {
+  transform: scale(1.04);
 }
 
 .itemBody {

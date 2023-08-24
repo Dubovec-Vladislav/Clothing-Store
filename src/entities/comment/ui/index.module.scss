@@ -1,0 +1,36 @@
+.block {
+  // padding: 0px 10px;
+}
+
+.body {
+  padding: 28px 32px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+.rating {
+  margin: 0px 0px 20px 0px;
+}
+
+.name {
+  display: flex;
+  color: #000;
+  margin: 0px 0px 12px 0px;
+  align-items: center;
+
+  font-family: 'Satoshi';
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 110%;
+
+  img {
+    margin: 0px 0px 0px 4px;
+  }
+}
+
+.text {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: 'Satoshi';
+  font-size: 16px;
+  line-height: 137.5%;
+}

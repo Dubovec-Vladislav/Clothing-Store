@@ -3,15 +3,15 @@ import style from './index.module.scss'
 import star from '../img/star.svg'
 import halfStar from '../img/half-star.svg'
 
-interface StarsLineProps {
+interface RatingProps {
   rating: number,
 }
 
-export const StarsLine: FC<StarsLineProps> = ({ rating }) => {
+export const Rating: FC<RatingProps> = ({ rating }) => {
 
   return (
     <div className={style.block}>
-      <div className={style.starsLine}>
+      <div className={style.Rating}>
         {[...new Array(Math.floor(rating))].map((_, i) => <img key={i} className={style.star} src={star} alt="star" />)}
         {Number.isInteger(rating)
           ? <></>
