@@ -5,20 +5,19 @@ import check from '../img/check.svg'
 
 export interface Comment {
   id: string,
+  rating: number
   name: string,
   text: string,
-  rating: number
 }
 
-export const Comment: FC = (props) => {
+export const CommentCard: FC<Omit<Comment, 'id'>> = ({ rating, name, text }) => {
   return (
     <div className={style.block}>
       <div className={style.body}>
-        <div className={style.rating}><Rating rating={5} /></div>
-        <div className={style.name}>Sarah M.<img src={check} alt="check" /></div>
+        <div className={style.rating}><Rating rating={rating} /></div>
+        <div className={style.name}>{name}<img src={check} alt="check" /></div>
         <div className={style.text}>
-          "I'm blown away by the quality and style of the clothes I received from Shop.co.
-          From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”
+          “{text}”
         </div>
       </div>
     </div>

@@ -23,7 +23,6 @@
   display: flex;
   margin: -10px -10px calc(24px + 12 * (100vw / 1440)) -10px;
   flex-wrap: wrap;
-  align-items: stretch;
   justify-content: center;
 
   @media (max-width: 769px) {
