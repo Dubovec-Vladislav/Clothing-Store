@@ -1,12 +1,10 @@
-.block {
-  height: 100%;
-  display: flex;
-}
+.block {}
 
 .body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: 244px !important;
   padding: 28px 32px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 20px;

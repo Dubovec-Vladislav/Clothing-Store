@@ -54,7 +54,7 @@ export const CommentSlider: FC = (props) => {
 
   const { data, isLoading } = useGetTopCommentsQuery('');
 
-  const maxWords = 28;
+  const maxWords = 26;
   const newData = data?.map(item => {
     const words = item.text.split(' ');
     const truncatedWords = words.slice(0, maxWords);
