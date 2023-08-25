@@ -16,7 +16,7 @@ export const Hello: FC = (props) => {
             Просмотрите наш разнообразный ассортимент тщательно созданной одежды,
             призванной подчеркнуть вашу индивидуальность и удовлетворить ваше чувство стиля.
           </div>
-          <div className={style.btn}><Button text={'Shop Now'} /></div>
+          <div className={style.btn}><Button text={'Купить сейчас'} /></div>
           <div className={style.numbers}>
             <div className={style.numbersItem}>
               <div className={style.numbersTitle}>200+</div>

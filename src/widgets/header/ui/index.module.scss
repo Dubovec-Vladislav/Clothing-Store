@@ -3,7 +3,7 @@ $main-fonts-color: #000;
 .block {
   position: fixed;
   z-index: 50;
-  background-color: #FFFFFF;
+  background-color: #fffFFF;
   width: 100vw;
   margin: 0px calc(-1 * (16px + 84 * (100vw / 1440)));
 
@@ -114,7 +114,7 @@ $main-fonts-color: #000;
 .link {
   position: relative;
   color: $main-fonts-color;
-  font-family: 'Satoshi';
+  font-family: 'Open Sans';
   font-size: 16px;
   cursor: pointer;
   white-space: nowrap;
@@ -166,7 +166,7 @@ $main-fonts-color: #000;
     color: #00000066;
     background-color: #F0F0F0;
     min-height: 24px;
-    font-family: 'Satoshi';
+    font-family: 'Open Sans';
     font-size: 16px;
   }
 }

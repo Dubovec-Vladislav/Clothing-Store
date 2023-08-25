@@ -11,6 +11,6 @@ export const NewCloseRow: FC<NewCloseRowProps> = ({ titleText, endBlockLine }) =
   const { data, isLoading } = useGetNewClothQuery('');
 
   return (
-    <ClothRow titleText={titleText} endBlockLine={endBlockLine} data={data} isLoading={isLoading}/>
+    <ClothRow key={1} titleText={titleText} endBlockLine={endBlockLine} data={data} isLoading={isLoading}/>
   );
 };

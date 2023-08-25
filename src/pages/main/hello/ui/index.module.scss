@@ -11,7 +11,7 @@
 
 .body {
   display: flex;
-  max-height: 663px;
+  max-height: 671px;
   margin: 0px calc(-1 * (16px + 84 * (100vw / 1440))) 0px -1.74vw;
   overflow: hidden;
 
@@ -98,7 +98,7 @@
   margin: 0px 0px calc(20px + 12 * (100vw / 1440)) 0px;
   padding: calc(136px + 63 * (100vw / 1440)) 0px 0px 0px;
 
-  font-family: 'Montserrat';
+  font-family: 'Fira Sans';
   font-size: calc(24px + 25 * (100vw / 1440));
   font-weight: 700;
   line-height: 90%;
@@ -122,7 +122,7 @@
   color: rgba(0, 0, 0, 0.6);
   margin: 0px 0px calc(20px + 12 * (100vw / 1440)) 0px;
 
-  font-family: 'Satoshi';
+  font-family: 'Open Sans';
   font-size: 16px;
   line-height: 137.5%;
 
@@ -151,7 +151,7 @@
 
 .numbers {
   display: flex;
-  margin: 0px -32px calc(40px + 76 * (100vw / 1440)) -32px;
+  margin: 0px -32px;
   align-items: center;
 
   @media (max-width: 945px) {
@@ -199,7 +199,7 @@
 
 .numbersTitle {
   color: #000;
-  font-family: 'Satoshi';
+  font-family: 'Open Sans';
   font-size: calc(24px + 16 * (100vw / 1440));
   font-weight: 700;
 
@@ -210,7 +210,7 @@
 
 .numbersSubtitle {
   color: rgba(0, 0, 0, 0.6);
-  font-family: 'Satoshi';
+  font-family: 'Open Sans';
   font-size: calc(12px + 4 * (100vw / 1440));
   line-height: 137.5%;
 

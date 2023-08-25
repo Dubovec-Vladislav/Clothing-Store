@@ -10,7 +10,7 @@ interface ButtonProps {
 
 export const Button: FC<ButtonProps> = ({ text, color, fill, borderFill }) => {
   const propsStyle = {
-    color: color || '#FFF',
+    color: color || '#fff',
     backgroundColor: fill || '#000',
     border: `1px solid ${borderFill}` || '',
   };

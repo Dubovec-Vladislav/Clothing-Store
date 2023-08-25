@@ -34,7 +34,7 @@ export const ClothRow: FC<ClothRowProps> = ({ titleText, endBlockLine, data, isL
               : <div>Упс... кажется что-то пошло не так</div>
           }
         </div>
-        <div className={style.btn}><Button text={'View All'} color={'#000'} fill={'#FFF'} borderFill={'rgba(0, 0, 0, 0.10)'} /></div>
+        <div className={style.btn}><Button text={'View All'} color={'#000'} fill={'#fff'} borderFill={'rgba(0, 0, 0, 0.10)'} /></div>
       </div>
       {endBlockLine ? <div className={style.endLine}></div> : <></>}
     </section>
