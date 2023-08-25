@@ -8,7 +8,7 @@ import cart from '../img/cart.svg'
 import search2 from '../img/search2.svg'
 
 export const Header: FC = (props) => {
-  const [isBurgerActive, changeBurgerActive] = useState(false);
+  const [isBurgerActive, changeBurgerActive] = useState<boolean>(false);
 
   const handleBurgerClick = () => {
     changeBurgerActive(!isBurgerActive);

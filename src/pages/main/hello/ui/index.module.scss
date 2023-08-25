@@ -96,17 +96,21 @@
 .title {
   color: #000;
   margin: 0px 0px calc(20px + 12 * (100vw / 1440)) 0px;
-  padding: calc(40px + 63 * (100vw / 1440)) 0px 0px 0px;
+  padding: calc(136px + 63 * (100vw / 1440)) 0px 0px 0px;
 
   font-family: 'Montserrat';
-  font-size: calc(29px + 20 * (100vw / 1440));
+  font-size: calc(24px + 25 * (100vw / 1440));
   font-weight: 700;
   line-height: 90%;
 
+  @media (max-width: 889px) {
+    padding: calc(104px + 63 * (100vw / 1440)) 0px 0px 0px;
+  }
+
   @media (max-width: 769px) {
     margin: 0px 0px calc(20px + 12 * ((100vw - 320px) / 1440)) 0px;
-    padding: calc(40px + 63 * ((100vw - 320px) / 1440)) 0px 0px 0px;
-    font-size: calc(29px + 20 * ((100vw - 320px) / 1440));
+    padding: calc(104px + 63 * ((100vw - 320px) / 1440)) 0px 0px 0px;
+    font-size: calc(24px + 25 * ((100vw - 320px) / 1440));
   }
 
   span {
@@ -134,6 +138,14 @@
 
   @media (max-width: 426px) {
     margin: 0px 0px calc(22px + 26 * ((100vw - 320px) / 1440)) 0px;
+  }
+
+  @media (max-width: 376px) {
+    max-width: none;
+
+    * {
+      width: 100%;
+    }
   }
 }
 

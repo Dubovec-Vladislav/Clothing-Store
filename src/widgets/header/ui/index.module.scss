@@ -1,8 +1,15 @@
 $main-fonts-color: #000;
 
 .block {
+  position: fixed;
+  z-index: 50;
   background-color: #FFFFFF;
-  margin: 0px -6.95vw;
+  width: 100vw;
+  margin: 0px calc(-1 * (16px + 84 * (100vw / 1440)));
+
+  @media (max-width: 769px) {
+    margin: 0px calc(-1 * (16px + 84 * ((100vw - 320px) / 1440)));
+  }
 }
 
 .body {
@@ -34,9 +41,10 @@ $main-fonts-color: #000;
     position: absolute;
     top: 0;
     left: -300px;
+    z-index: 55;
     background-color: #F0F0F0;
     width: 300px;
-    height: 100%;
+    height: 100vh;
     padding: 20px;
     transition: 0.5s ease;
     overflow: auto;
@@ -88,6 +96,7 @@ $main-fonts-color: #000;
 
 .list {
   display: flex;
+  position: relative;
 
   @media (max-width: 889px) {
     display: block;

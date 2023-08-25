@@ -3,6 +3,13 @@ import style from './index.module.scss'
 import { Rating } from 'shared/ui'
 import check from '../img/check.svg'
 
+export interface Comment {
+  id: string,
+  name: string,
+  text: string,
+  rating: number
+}
+
 export const Comment: FC = (props) => {
   return (
     <div className={style.block}>
