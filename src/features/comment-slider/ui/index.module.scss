@@ -1,5 +1,6 @@
 .block {
   margin: 0px 0px calc(50px + 30 * (100vw / 1440)) 0px;
+  align-self: normal;
 
   @media (max-width: 769px) {
     margin: 0px 0px calc(50px + 30 * ((100vw - 320px) / 1440)) 0px;

@@ -6,6 +6,7 @@ import { BrandsLine } from 'shared/ui'
 import { NewCloseRow, TopSellingCloseRow } from 'features/cloth-row'
 import { CategoryBlock } from 'shared/ui'
 import { CommentSlider } from 'features/comment-slider'
+import { NewsSubscription } from 'features/news-subscription'
 
 export const Main: FC = (props) => {
   return (
@@ -18,6 +19,7 @@ export const Main: FC = (props) => {
         <TopSellingCloseRow titleText={'Лучшие продажи'} />
         <CategoryBlock />
         <CommentSlider />
+        <NewsSubscription />
       </div>
     </main>
   );

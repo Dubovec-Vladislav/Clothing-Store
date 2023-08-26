@@ -1,0 +1,1 @@
+export { NewsSubscription } from './ui'
