@@ -2,9 +2,9 @@
 import React, { FC } from 'react'
 import style from './index.module.scss'
 // Slider
-import { Navigation, A11y } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css/bundle'
+import { swiperOptions } from '../lib/swiper'
 // Components
 import { CommentCard } from 'entities/comment'
 import { BlockTitle } from 'shared/ui'
@@ -13,57 +13,13 @@ import arrowLeft from '../img/arrow-left.svg'
 import arrowRight from '../img/arrow-right.svg'
 //Api
 import { useGetTopCommentsQuery } from '../api'
+// Lib
+import { truncateTextInObjects } from '../lib/truncate-text-in-objects'
 
 export const CommentSlider: FC = (props) => {
-  const breakpoints = {
-    1100: {
-      slidesPerView: 3,
-      spaceBetween: 20,
-    },
-    934: {
-      slidesPerView: 2.5,
-      spaceBetween: 15,
-    },
-    768: {
-      slidesPerView: 2,
-      spaceBetween: 10,
-    },
-    596: {
-      slidesPerView: 1.5,
-      spaceBetween: 5,
-    },
-    279: {
-      slidesPerView: 1,
-      spaceBetween: 5,
-    },
-  };
-
-  const swiperOptions = {
-    initialSlide: 1,
-    loop: true,
-
-    grabCursor: true,
-    navigation: {
-      prevEl: '.comment-slider__arrow-left',
-      nextEl: '.comment-slider__arrow-right',
-    },
-
-    breakpoints: { ...breakpoints },
-    modules: [Navigation, A11y],
-  };
-
   const { data, isLoading } = useGetTopCommentsQuery('');
-
-  const maxWords = 26;
-  const newData = data?.map(item => {
-    const words = item.text.split(' ');
-    const truncatedWords = words.slice(0, maxWords);
-    const truncatedText = truncatedWords.join(' ');
-
-    const ellipsis = words.length > maxWords ? '...' : '';
-
-    return { ...item, text: truncatedText + ellipsis };
-  });
+  const MAX_WORDS = 25;
+  const newData = data && truncateTextInObjects(data, MAX_WORDS);
 
   return (
     <section className={style.block}>
@@ -75,11 +31,11 @@ export const CommentSlider: FC = (props) => {
         </div>
       </div>
       <div className={style.body}>
-        <Swiper className={style.slider} {...swiperOptions}>
-          {isLoading
-            ? <div>Идет загрузка...</div>
-            : newData
-              ? newData.map(item =>
+        {isLoading
+          ? <div>Идет загрузка комментариев...</div>
+          : <Swiper className={style.slider} {...swiperOptions}>
+            {newData
+              ? newData.map((item) => (
                 <SwiperSlide className={style.slide} key={item.id}>
                   <CommentCard
                     rating={item.rating}
@@ -87,10 +43,11 @@ export const CommentSlider: FC = (props) => {
                     text={item.text}
                   />
                 </SwiperSlide>
-              )
+              ))
               : <div>Упс... кажется что-то пошло не так</div>
-          }
-        </Swiper>
+            }
+          </Swiper>
+        }
       </div>
     </section>
   );

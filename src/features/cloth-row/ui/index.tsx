@@ -17,7 +17,7 @@ export const ClothRow: FC<ClothRowProps> = ({ titleText, endBlockLine, data, isL
       <div className={style.body}>
         <div className={style.row}>
           {isLoading
-            ? <div>Идет загрузка...</div>
+            ? <div>Идет загрузка одежды...</div>
             : data
               ? data.map(item => 
                 <div className={style.item}>
