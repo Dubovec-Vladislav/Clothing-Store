@@ -18,10 +18,10 @@ export interface ItemState {
 
 export const CategoryBlock: FC = (props) => {
   const photosMas: PhotoItem[] = [
-    { src: casual, name: 'casual' },
-    { src: formal, name: 'formal' },
-    { src: party, name: 'party' },
-    { src: gym, name: 'gym' },
+    { src: casual, name: 'Повседневная' },
+    { src: formal, name: 'Деловая' },
+    { src: party, name: 'Для развлечений' },
+    { src: gym, name: 'Для зала' },
   ]
 
   const initialItemStates: ItemState[] = [
