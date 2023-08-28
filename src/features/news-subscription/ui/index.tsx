@@ -7,17 +7,13 @@ import { useAddEmailMutation } from '../api'
 // Img
 import letter from '../img/letter.svg'
 import spinner from '../img/spinner.svg'
+import { useForm } from 'react-hook-form'
 
 export const NewsSubscription: FC = (props) => {
   const [addEmailMutation, { isLoading, isError }] = useAddEmailMutation();
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
   const [isShowMessage, setIsShowMessage] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
-
-  const handleClick = () => {
-    addEmailMutation(email);
-    setFormSubmitted(true);
-  }
 
   useEffect(() => {
     if (formSubmitted && !isLoading) { // Если форма была отправлена и загрузка закончилась, то показываем на некоторое время сообщение
@@ -29,7 +25,11 @@ export const NewsSubscription: FC = (props) => {
     }
   }, [formSubmitted, isLoading]);
 
-  console.log(isError);
+  const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onTouched" });
+  const onSubmit = () => {
+    addEmailMutation(email);
+    setFormSubmitted(true);
+  };
 
   return (
     <section className={style.block}>
@@ -48,15 +48,33 @@ export const NewsSubscription: FC = (props) => {
           <div className={style.left}>
             <div className={style.text}>Будьте в курсе о наших последних предложениях</div>
           </div>
-          <div className={style.right}>
+          <form className={style.right} onSubmit={handleSubmit(onSubmit)}>
             <div className={style.input}>
               <img src={letter} alt="letter" />
-              <input type="text" placeholder="Введите вашу почту" value={email} onChange={(e) => setEmail(e.target.value)} />
+              <input
+                type="text"
+                placeholder="Введите вашу почту"
+                value={email}
+                {...register("email", {
+                  required: "Поле email обязательно",
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Введите корректный email"
+                  },
+                })}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <div className={style.points}>
+                <span className={`${style.point} ${style.point3}`}></span>
+                <span className={`${style.point} ${style.point1}`}></span>
+                <span className={`${style.point} ${style.point2}`}></span>
+              </div>
             </div>
-            <div className={style.btn} onClick={handleClick}>
+            <button className={style.btn} type="submit">
               <Button text={'Подписаться на рассылку'} color={"000"} fill={"#fff"} />
-            </div>
-          </div>
+            </button>
+            <div className={style.error}>{errors?.email ? String(errors?.email?.message) : ''}</div>
+          </form>
         </div>
       </div>
     </section >
