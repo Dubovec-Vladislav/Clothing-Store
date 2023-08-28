@@ -86,12 +86,12 @@
   left: 6%;
   color: #000;
   font-family: 'Open Sans';
-  font-size: calc(24px + 12 * (100vw / 1440));
+  font-size: calc(20px + 8 * (100vw / 1440));
   font-weight: 700;
   line-height: normal;
 
   @media (max-width: 769px) {
-    font-size: calc(24px + 12 * ((100vw - 320px) / 1440));
+    font-size: calc(20px + 8 * ((100vw - 320px) / 1440));
   }
 
   &::first-letter {

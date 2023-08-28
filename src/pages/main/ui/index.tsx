@@ -1,12 +1,13 @@
 import React, { FC } from 'react'
 import style from './index.module.scss'
-import { Hello } from '../hello'
 import { Header } from 'widgets/header'
+import { Hello } from '../hello'
 import { BrandsLine } from 'shared/ui'
 import { ClothRow, getNewCloth, getTopSellingCloth } from 'features/cloth-row'
 import { CategoryBlock } from 'shared/ui'
 import { CommentSlider } from 'features/comment-slider'
 import { NewsSubscription } from 'features/news-subscription'
+import { Footer } from 'features/footer'
 
 export const Main: FC = (props) => {
   const newClothQuery = getNewCloth('');
@@ -23,6 +24,7 @@ export const Main: FC = (props) => {
         <CategoryBlock />
         <CommentSlider />
         <NewsSubscription />
+        <Footer />
       </div>
     </main>
   );

@@ -1,0 +1,18 @@
+.icon {
+  color: #000;
+  padding: 8px;
+  border: solid 1px #00000033;
+  border-radius: 50%;
+  transition: 0.4s ease;
+  font-size: calc(16px + 6 * (100vw / 1440));
+
+  @media (max-width: 769px) {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 1440));
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+    border: solid 1px #000;
+  }
+}
