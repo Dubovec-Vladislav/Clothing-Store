@@ -1,0 +1,11 @@
+.block {
+  padding: 96px 0px 0px 0px;
+
+  @media (max-width: 889px) {
+    padding: 80px 0px 0px 0px;
+  }
+
+  @media (max-width: 526px) {
+    padding: 64px 0px 0px 0px;
+  }
+}

@@ -9,6 +9,7 @@ import search2 from '../img/search2.svg'
 
 export const Header: FC = (props) => {
   const [isBurgerActive, changeBurgerActive] = useState<boolean>(false);
+  const [isSearchActive, changeSearchActive] = useState<boolean>(false);
 
   const handleBurgerClick = () => {
     changeBurgerActive(!isBurgerActive);
@@ -29,8 +30,10 @@ export const Header: FC = (props) => {
             <li className={style.item}><Link to="#" className={style.link}>Brands</Link></li>
           </ul>
         </nav>
-        <div className={style.searchInput}><img src={search1} alt="search1" /><input type="text" placeholder="Search for products..." /></div>
-        <div className={style.searchIcon}><img src={search2} alt="search2" /></div>
+        <div className={isSearchActive ? `${style.searchInput} ${style.activeSearchInput}` : `${style.searchInput}`}>
+          <img src={search1} alt="search1" /><input type="text" placeholder="Search for products..." />
+        </div>
+        <div className={style.searchIcon} onClick={() => changeSearchActive(!isSearchActive)}><img src={search2} alt="search2" /></div>
         <Link to="#" className={style.cart}><img src={cart} alt="cart" /></Link>
       </div>
     </header>

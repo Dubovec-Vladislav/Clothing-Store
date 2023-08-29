@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import style from './index.module.scss'
 import { Header } from 'widgets/header'
-import { Hello } from '../hello'
+import { Hello } from '../components'
 import { BrandsLine } from 'shared/ui'
 import { ClothRow, getNewCloth, getTopSellingCloth } from 'features/cloth-row'
 import { CategoryBlock } from 'shared/ui'
