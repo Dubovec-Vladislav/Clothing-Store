@@ -4,9 +4,14 @@
   margin: -140px calc(-1 * (16px + 84 * (100vw / 1440))) 0px calc(-1 * (16px + 84 * (100vw / 1440)));
   padding: 140px calc(16px + 84 * (100vw / 1440)) 0px calc(16px + 84 * (100vw / 1440));
 
+  @media (max-width: 950px) {
+    margin: -190px calc(-1 * (16px + 84 * (100vw / 1440))) 0px calc(-1 * (16px + 84 * (100vw / 1440)));
+    padding: 190px calc(16px + 84 * (100vw / 1440)) 0px calc(16px + 84 * (100vw / 1440));
+  }
+
   @media (max-width: 769px) {
-    margin: 0px calc(-1 * (16px + 84 * ((100vw - 320px) / 1440)));
-    padding: 0px calc(16px + 84 * ((100vw - 320px) / 1440));
+    margin: -190px calc(-1 * (16px + 84 * ((100vw - 320px) / 1440))) 0px calc(-1 * (16px + 84 * ((100vw - 320px) / 1440)));
+    padding: 190px calc(16px + 84 * ((100vw - 320px) / 1440)) 0px calc(16px + 84 * ((100vw - 320px) / 1440));
   }
 }
 
