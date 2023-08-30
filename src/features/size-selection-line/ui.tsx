@@ -1,19 +1,19 @@
 import React, { FC } from 'react'
 import style from './style.module.scss'
 
-interface colorSelectionLineProps {
-  colorsList: string[],
-  selectedColor: string,
-  changeSelectedColor: (newColor: string) => void,
+interface SizeSelectionLineProps {
+  sizeList: number[],
+  selectedSize: number,
+  changeSelectedSize: (newColor: number) => void,
 }
 
-export const ColorSelectionLine: FC<colorSelectionLineProps> = ({ colorsList, selectedColor, changeSelectedColor }) => {
+export const SizeSelectionLine: FC<SizeSelectionLineProps> = ({ sizeList, selectedSize, changeSelectedSize }) => {
   return (
     <div className={style.row}>
-      {colorsList.map((color, i) => (
-        color === selectedColor
-          ? <div key={i} className={`${style.item} ${style.selectedItem}`} style={{ backgroundColor: `${color}` }}></div>
-          : <div key={i} className={style.item} style={{ backgroundColor: `${color}` }} onClick={() => changeSelectedColor(color)}></div>
+      {sizeList.map((size, i) => (
+        size === selectedSize
+          ? <div key={i} className={`${style.item} ${style.selectedItem}`}>{size}</div>
+          : <div key={i} className={style.item} onClick={() => changeSelectedSize(size)}>{size}</div>
       ))}
     </div>
   );

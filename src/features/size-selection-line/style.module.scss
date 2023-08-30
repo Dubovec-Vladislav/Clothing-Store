@@ -3,29 +3,36 @@
 }
 
 .item {
-  width: 40px;
-  height: 40px;
-  margin: 0px 16px 0px 0px;
-  border-radius: 50%;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #F0F0F0;
+  margin: 0px 12px 0px 0px;
+  padding: 12px 24px;
+  border-radius: 62px;
   cursor: pointer;
+  white-space: nowrap;
+  transition: 0.3s ease;
+
+  font-family: 'Open Sans';
+  font-size: 16px;
+  line-height: normal;
 
   @media (max-width: 426px) {
-    margin: 0px 12px 0px 0px;
+    margin: 0px 8px 0px 0px;
+    padding: 10px 20px;
+    font-size: 14px;
   }
 
   &:last-child {
     margin: 0px 0px 0px 0px;
   }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
 }
 
 .selectedItem {
-  position: relative;
-
-  &::before {
-    content: url(../img/select.svg);
-    position: absolute;
-    top: 52.5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  color: #fff;
+  background-color: #000;
 }

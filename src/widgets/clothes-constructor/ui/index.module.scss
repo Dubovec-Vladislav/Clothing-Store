@@ -272,35 +272,6 @@
   }
 }
 
-.sizeRow {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.size {
-  color: rgba(0, 0, 0, 0.6);
-  background-color: #F0F0F0;
-  margin: 0px 12px 0px 0px;
-  padding: 12px 24px;
-  border-radius: 62px;
-  cursor: pointer;
-  white-space: nowrap;
-
-  font-family: 'Open Sans';
-  font-size: 16px;
-  line-height: normal;
-
-  @media (max-width: 426px) {
-    margin: 0px 8px 0px 0px;
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  &:last-child {
-    margin: 0px 0px 0px 0px;
-  }
-}
-
 .footer {
   display: flex;
   flex-wrap: wrap;

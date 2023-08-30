@@ -1,0 +1,49 @@
+.block {
+  margin: 0px 0px 100px 0px;
+}
+
+.tabs {
+  display: flex;
+  margin: 0px 0px 24px 0px;
+
+  @media (max-width: 426px) {
+    margin: 0px 0px 20px 0px;
+  }
+}
+
+.tab {
+  color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  padding: 0px 0px 24px 0px;
+  border-bottom: solid 1px #E6E6E6;
+  text-align: center;
+  cursor: pointer;
+
+  font-family: 'Open Sans';
+  font-size: 20px;
+  line-height: 110%;
+
+  @media (max-width: 769px) {
+    padding: 0px 0px 20px 0px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 426px) {
+    font-size: 16px;
+  }
+}
+
+.activeTab {
+  border-bottom: solid 1px #000;
+}
+
+.fields {}
+
+.field {
+  font-size: 26px;
+  text-align: center;
+}
+
+.bold {
+  font-weight: 700;
+}

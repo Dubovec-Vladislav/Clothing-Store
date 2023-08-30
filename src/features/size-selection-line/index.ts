@@ -1,1 +1,1 @@
-export { ColorSelectionLine } from '.'
+export { SizeSelectionLine } from './ui'

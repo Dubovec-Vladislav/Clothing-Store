@@ -3,12 +3,15 @@ import style from './index.module.scss'
 import { BreadCrumbs, Button, Rating } from 'shared/ui'
 import { CartCounterBtn } from 'features/cart-counter-btn'
 import { ColorSelectionLine } from 'features/color-selection-line'
+import { SizeSelectionLine } from 'features/size-selection-line'
 
 export const ClothesConstructor: FC = (props) => {
   const colorsList = ["#4F4631", "#314F4A", "#31344F",];
+  const sizeList = [44, 46, 48, 50,];
 
   const [numOfClothes, changeNumOfClothes] = useState<number>(1);
   const [selectedColor, changeSelectedColor] = useState<string>(colorsList[0]);
+  const [selectedSize, changeSelectedSize] = useState<number>(sizeList[0]);
 
   return (
     <section className={style.block}>
@@ -30,8 +33,8 @@ export const ClothesConstructor: FC = (props) => {
             <div className={style.rating}><Rating rating={4.5} /></div>
             <div className={style.prices}>
               <div className={style.price}>260₽</div>
-              <div className={style.prevPrice}>460₽</div>
-              <div className={style.percent}>-30%</div>
+              <div className={style.prevPrice}>520₽</div>
+              <div className={style.percent}>-50%</div>
             </div>
             <div className={style.description}>
               <span>
@@ -41,16 +44,11 @@ export const ClothesConstructor: FC = (props) => {
             </div>
             <div className={style.colors}>
               <div className={style.colorLabel}>Выберите цвет</div>
-              <ColorSelectionLine colorsList={colorsList} selectedColor={selectedColor} changeSelectedColor={changeSelectedColor}/>
+              <ColorSelectionLine colorsList={colorsList} selectedColor={selectedColor} changeSelectedColor={changeSelectedColor} />
             </div>
             <div className={style.sizes}>
               <div className={style.sizeLabel}>Выберите размер</div>
-              <div className={style.sizeRow}>
-                <div className={style.size}>44</div>
-                <div className={style.size}>46</div>
-                <div className={style.size}>48</div>
-                <div className={style.size}>50</div>
-              </div>
+              <SizeSelectionLine sizeList={sizeList} selectedSize={selectedSize} changeSelectedSize={changeSelectedSize}/>
             </div>
             <div className={style.footer}>
               <div className={style.counterBtn}><CartCounterBtn number={numOfClothes} changeNumber={changeNumOfClothes} /></div>
