@@ -1,0 +1,46 @@
+.breadCrumbs {
+  display: flex;
+  margin: 0px -16px;
+}
+
+.breadCrumb {
+  position: relative;
+  color: rgba(0, 0, 0, 0.6);
+  padding: 0px 16px;
+  cursor: pointer;
+
+  font-family: 'Open Sans';
+  font-size: 16px;
+  line-height: normal;
+
+  @media (max-width: 426px) {
+    padding: 0px 12px;
+    font-size: 14px;
+  }
+
+  span {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: #000;
+      transition: 0.3s ease;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 55%;
+    right: -8px;
+    transform: translate(0px, -50%);
+  }
+}

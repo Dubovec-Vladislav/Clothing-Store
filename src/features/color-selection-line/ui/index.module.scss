@@ -1,0 +1,31 @@
+.row {
+  display: flex;
+}
+
+.item {
+  width: 40px;
+  height: 40px;
+  margin: 0px 16px 0px 0px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  @media (max-width: 426px) {
+    margin: 0px 12px 0px 0px;
+  }
+
+  &:last-child {
+    margin: 0px 0px 0px 0px;
+  }
+}
+
+.selectedItem {
+  position: relative;
+
+  &::before {
+    content: url(../img/select.svg);
+    position: absolute;
+    top: 52.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
