@@ -25,7 +25,7 @@ export const ClothesConstructor: FC = (props) => {
               <div className={style.imgItem}><img src="https://a.lmcdn.ru/product/R/T/RTLACQ117101_20884587_9_v1.jpg" alt="cloth-img" /></div>
             </div>
             <div className={style.previewImg}>
-              <img src="https://a.lmcdn.ru/product/R/T/RTLACQ117101_19838654_1_v1.jpg" alt="preview-img" />
+              <div className={style.previewItem}><img src="https://a.lmcdn.ru/product/R/T/RTLACQ117101_19838654_1_v1.jpg" alt="preview-img" /></div>
             </div>
           </div>
           <div className={style.optionPart}>
@@ -48,7 +48,7 @@ export const ClothesConstructor: FC = (props) => {
             </div>
             <div className={style.sizes}>
               <div className={style.sizeLabel}>Выберите размер</div>
-              <SizeSelectionLine sizeList={sizeList} selectedSize={selectedSize} changeSelectedSize={changeSelectedSize}/>
+              <SizeSelectionLine sizeList={sizeList} selectedSize={selectedSize} changeSelectedSize={changeSelectedSize} />
             </div>
             <div className={style.footer}>
               <div className={style.counterBtn}><CartCounterBtn number={numOfClothes} changeNumber={changeNumOfClothes} /></div>
