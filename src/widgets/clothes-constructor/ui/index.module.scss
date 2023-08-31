@@ -63,9 +63,9 @@
     object-fit: cover;
     transition: 0.4s ease;
 
-    // &:hover {
-    //   transform: scale(1.05);
-    // }
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
 

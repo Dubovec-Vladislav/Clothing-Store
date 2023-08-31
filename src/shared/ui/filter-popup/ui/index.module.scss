@@ -1,0 +1,78 @@
+.block {
+  position: relative;
+}
+
+.label {
+  display: flex;
+  color: #000;
+  // background-color: #F0F0F0;
+  margin: 0px 0px 5px 0px;
+  padding: 16px 20px;
+  border-radius: 62px;
+  justify-content: space-between;
+}
+
+.text {
+  margin: 0px 12px 0px 0px;
+  cursor: pointer;
+  font-family: 'Open Sans';
+  font-size: 18px;
+  line-height: normal;
+
+  @media (max-width: 426px) {
+    margin: 0px 8px 0px 0px;
+    font-size: 16px;
+  }
+
+  span {
+    font-weight: 700;
+  }
+}
+
+.arrow {
+  display: flex;
+  margin: 3px 0px 0px 0px;
+  transition: 0.4s ease;
+}
+
+.activeArrow {
+  transform: rotate(180deg);
+}
+
+.popup {
+  position: absolute;
+  right: 0;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s ease;
+}
+
+.activePopup {
+  opacity: 1;
+  visibility: visible;
+}
+
+.list {
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.item {
+  color: #000;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  line-height: normal;
+  transition: 0.2s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.activeItem {
+  font-weight: 700;
+}
