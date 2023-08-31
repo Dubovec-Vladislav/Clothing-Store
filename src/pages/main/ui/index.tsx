@@ -1,17 +1,21 @@
+// General
 import React, { FC } from 'react'
 import style from './index.module.scss'
+// Api
+import { useGetNewClothQuery, useGetTopSellingClothQuery } from '../api'
+// Components
 import { Header } from 'widgets/header'
 import { Hello } from '../components'
 import { BrandsLine } from 'shared/ui'
-import { ClothRow, getNewCloth, getTopSellingCloth } from 'features/cloth-row'
+import { ClothRow } from 'features/cloth-row'
 import { CategoryBlock } from 'shared/ui'
 import { CommentSlider } from 'features/comment-slider'
 import { NewsSubscription } from 'features/news-subscription'
 import { Footer } from 'features/footer'
 
 export const Main: FC = (props) => {
-  const newClothQuery = getNewCloth('');
-  const topSellingClothQuery = getTopSellingCloth('');
+  const newClothQuery = useGetNewClothQuery('');
+  const topSellingClothQuery = useGetTopSellingClothQuery('');
 
   return (
     <main className={style.block}>

@@ -10,8 +10,8 @@ export const topCommentsApi = createApi({
       query: () => `/top-comments`,
     }),
   }),
-})
+});
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetTopCommentsQuery } = topCommentsApi
+export const { useGetTopCommentsQuery } = topCommentsApi;

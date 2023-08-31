@@ -7,14 +7,12 @@ import { CommentBlock } from 'widgets/comment-block'
 import { useParams } from 'react-router-dom'
 
 export const SingleClothPage: FC = (props) => {
-  const params = useParams<{ id: string }>();
-  console.log(params);
-
+  const { id } = useParams<{ id: string }>();
   return (
     <main className={style.block}>
       <div className={style.body}>
         <Header />
-        <ClothesConstructor />
+        <ClothesConstructor clothId={id} />
         {/* <Tabs/> */}
         <CommentBlock />
       </div>

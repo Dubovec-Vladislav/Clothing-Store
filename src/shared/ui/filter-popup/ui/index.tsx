@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from 'react'
 import style from './index.module.scss'
 import arrow from '../img/arrow-down.svg'
-import { Value } from 'sass';
 
 export const FilterPopup: FC = (props) => {
   const sortTypes = [
@@ -37,10 +36,10 @@ export const FilterPopup: FC = (props) => {
       </div>
       <div className={isPopupActive ? `${style.activePopup} ${style.popup}` : `${style.popup}`}>
         <ul className={style.list}>
-          {sortTypes.map(item => (
+          {sortTypes.map((item, index) => (
             item.name === activeSortType
-              ? <li className={`${style.item} ${style.activeItem}`} onClick={() => handleClickMenuItem(item.name)}>{item.name}</li>
-              : <li className={style.item} onClick={() => handleClickMenuItem(item.name)}>{item.name}</li>
+              ? <li key={index} className={`${style.item} ${style.activeItem}`} onClick={() => handleClickMenuItem(item.name)}>{item.name}</li>
+              : <li key={index} className={style.item} onClick={() => handleClickMenuItem(item.name)}>{item.name}</li>
           ))
           }
         </ul>
