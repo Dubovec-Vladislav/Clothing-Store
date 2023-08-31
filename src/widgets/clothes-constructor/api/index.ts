@@ -1,18 +1,18 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-// import { ClothInterface } from 'entities/cloth-card'
 
-interface ImageObject {
+export interface ImageObject {
   color: string,
   previewImg: string,
   images: string[],
 }
 
-interface UpdatingClothInterface {
+export interface ClothInterface {
   imageObjects: ImageObject[],
   name: string,
+  description: string,
   price: number,
   prevPrice: number,
-  sizes: number[],
+  sizeList: number[],
   category: number,
   rating: number,
   id: string,
@@ -23,7 +23,7 @@ export const clothApi = createApi({
   reducerPath: 'clothApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://64e9aa66bf99bdcc8e66deea.mockapi.io' }),
   endpoints: (builder) => ({
-    getClothByID: builder.query<UpdatingClothInterface, string>({
+    getClothByID: builder.query<ClothInterface, string>({
       query: (id) => `/items/${id}`,
     }),
   }),

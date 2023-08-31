@@ -36,10 +36,10 @@ export const FilterPopup: FC = (props) => {
       </div>
       <div className={isPopupActive ? `${style.activePopup} ${style.popup}` : `${style.popup}`}>
         <ul className={style.list}>
-          {sortTypes.map((item, index) => (
+          {sortTypes.map((item, i) => (
             item.name === activeSortType
-              ? <li key={index} className={`${style.item} ${style.activeItem}`} onClick={() => handleClickMenuItem(item.name)}>{item.name}</li>
-              : <li key={index} className={style.item} onClick={() => handleClickMenuItem(item.name)}>{item.name}</li>
+              ? <li key={i} className={`${style.item} ${style.activeItem}`} onClick={() => handleClickMenuItem(item.name)}>{item.name}</li>
+              : <li key={i} className={style.item} onClick={() => handleClickMenuItem(item.name)}>{item.name}</li>
           ))
           }
         </ul>

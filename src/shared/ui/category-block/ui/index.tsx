@@ -63,15 +63,15 @@ export const CategoryBlock: FC = (props) => {
       <div className={style.title}><BlockTitle text={'Поиск по стилю'} /></div>
       <div className={style.body}>
         <div className={style.row} ref={rowRef}>
-          {itemStates.map((itemState, index) => (
+          {itemStates.map((itemState, i) => (
             <div
-              key={index}
+              key={i}
               className={`${itemState.size === 'large' ? style.largeItem : style.smallItem} ${itemState.animated ? style._anim : ''}`}
-              onClick={() => toggleAnimation(index)}
+              onClick={() => toggleAnimation(i)}
             >
               <div className={style.itemBody}>
-                <div className={style.text}>{photosMas[index].name}</div>
-                <div className={style.img}><img src={photosMas[index].src} alt={photosMas[index].name} /></div>
+                <div className={style.text}>{photosMas[i].name}</div>
+                <div className={style.img}><img src={photosMas[i].src} alt={photosMas[i].name} /></div>
               </div>
             </div>
           ))}
