@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { BlockTitle, Button } from 'shared/ui'
 import { ClothingCard } from 'entities/cloth-card'
 // Api
-import { getClothingItems, getTopSellingClothing } from 'widgets/clothes-constructor'
+import { getClothingItems, getNewClothing, getTopSellingClothing } from 'widgets/clothes-constructor'
 
 interface ClothingRowProps {
   titleText: string,
@@ -16,11 +16,9 @@ interface ClothingRowProps {
 }
 
 export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, newClothing, topClothing }) => {
-  const getHook = getTopSellingClothing;
-  // const getHook = topClothing ? getTopSellingClothing : newClothing ? getNewClothing : getClothingItems;
+  const getHook = topClothing ? getTopSellingClothing : newClothing ? getNewClothing : getClothingItems;
 
-  const [limit, setLimit] = useState<number>(1);
-
+  const [limit, setLimit] = useState<number>(4);
   const { data, isLoading } = getHook(limit);
 
   return (

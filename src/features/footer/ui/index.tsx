@@ -29,7 +29,7 @@ export const Footer: FC = (props) => {
           <div className={style.item}><FooterItem title={"Ресурсы"} links={["О нас", "Функции", "Работы", "Карьера"]} /></div>
         </div>
         <div className={style.footer}>
-          <div className={style.rights}>© 2000-2021, All rights reserved</div>
+          <div className={style.rights}>© 2000-2023, Все права защищены</div>
           <div className={style.cards}>
             <div className={style.card}><img src={visa} alt="visa" /></div>
             <div className={style.card}><img src={masterCard} alt="master-card" /></div>

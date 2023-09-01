@@ -25,17 +25,20 @@ export const clothApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'https://64e9aa66bf99bdcc8e66deea.mockapi.io' }),
   endpoints: (builder) => ({
     getClothingItems: builder.query<ClothingInterface, number>({
-      query: (limit): string => `/items?page=1&limit=${limit}`,
+      query: (limit): string => `items?page=1&limit=${limit}`,
     }),
     getClothingItemByID: builder.query<ClothingInterface, string>({
-      query: (id) => `/items/${id}`,
+      query: (id) => `items/${id}`,
     }),
     getTopSellingClothing: builder.query<ClothingInterface[], number>({
       query: (limit) => `items?sortBy=salesIndex&order=desc&page=1&limit=${limit}`, // Why page we need page? Because API is shit
+    }),
+    getNewClothing: builder.query<ClothingInterface[], number>({
+      query: (limit) => `items?sortBy=timeSinceReleaseDate&order=asc&page=1&limit=${limit}`, // Why page we need page? Because API is shit
     }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetClothingItemByIDQuery, useGetTopSellingClothingQuery, useGetClothingItemsQuery } = clothApi;
+export const { useGetClothingItemByIDQuery, useGetTopSellingClothingQuery, useGetClothingItemsQuery, useGetNewClothingQuery } = clothApi;
