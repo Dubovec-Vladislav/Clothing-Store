@@ -2,7 +2,7 @@
 import React, { FC } from 'react'
 import style from './index.module.scss'
 // Api
-import { useGetNewClothQuery, useGetTopSellingClothQuery } from '../api'
+import { useGetNewClothQuery } from '../api'
 // Components
 import { Header } from 'widgets/header'
 import { Hello } from '../components'
@@ -12,10 +12,11 @@ import { CategoryBlock } from 'shared/ui'
 import { CommentSlider } from 'features/comment-slider'
 import { NewsSubscription } from 'features/news-subscription'
 import { Footer } from 'features/footer'
+import { getTopSellingCloth } from 'widgets/clothes-constructor'
 
 export const Main: FC = (props) => {
-  const newClothQuery = useGetNewClothQuery('');
-  const topSellingClothQuery = useGetTopSellingClothQuery('');
+  const topSellingQuery = getTopSellingCloth(2);
+  console.log(topSellingQuery);
 
   return (
     <main className={style.block}>
@@ -23,8 +24,8 @@ export const Main: FC = (props) => {
         <Header />
         <Hello />
         <BrandsLine />
-        <ClothRow titleText={'Новые поступления'} clothData={newClothQuery.data} isLoading={newClothQuery.isLoading} endBlockLine />
-        <ClothRow titleText={'Лучшие продажи'} clothData={topSellingClothQuery.data} isLoading={topSellingClothQuery.isLoading} />
+        {/* <ClothRow titleText={'Новые поступления'} clothData={newClothQuery.data} isLoading={newClothQuery.isLoading} endBlockLine /> */}
+        <ClothRow titleText={'Лучшие продажи'} top={true}/>
         <CategoryBlock />
         <CommentSlider />
         <NewsSubscription />

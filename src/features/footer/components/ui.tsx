@@ -12,8 +12,8 @@ export const FooterItem: FC<FooterItemProps> = ({ title, links }) => {
     <>
       <div className={style.title}>{title}</div>
       <div className={style.linksBlock}>
-        {links.map(link => (
-          <Link to="#" className={style.link}>{link}</Link>
+        {links.map((link, i) => (
+          <Link key={i} to="#" className={style.link}>{link}</Link>
         ))}
       </div>
     </>

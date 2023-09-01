@@ -4,14 +4,14 @@ import { BreadCrumbs, Button, Rating } from 'shared/ui'
 import { CartCounterBtn } from 'features/cart-counter-btn'
 import { ColorSelectionLine } from 'features/color-selection-line'
 import { SizeSelectionLine } from 'features/size-selection-line'
-import { ImageObject, useGetClothByIDQuery } from '../api'
+import { ImageObject, useGetClothItemByIDQuery } from '../api'
 
 interface ClothesConstructorProps {
   clothId: string | undefined,
 }
 
 export const ClothesConstructor: FC<ClothesConstructorProps> = ({ clothId }) => {
-  const { data, isLoading } = useGetClothByIDQuery(clothId || '');
+  const { data, isLoading } = useGetClothItemByIDQuery(clothId || '');
 
   const colorsList: string[] = [];
   data?.imageObjects.forEach(imageObject => colorsList.push(imageObject.color));

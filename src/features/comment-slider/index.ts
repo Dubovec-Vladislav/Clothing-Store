@@ -1,2 +1,2 @@
 export { CommentSlider } from './ui'
-export { topCommentsApi, useGetTopCommentsQuery } from './api'
+export { topCommentsApi, useGetTopCommentsQuery as getTopComments } from './api'

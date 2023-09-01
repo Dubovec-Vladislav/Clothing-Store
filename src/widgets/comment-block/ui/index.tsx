@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import style from './index.module.scss'
 import { Button } from 'shared/ui'
-import { FilterPopup } from 'shared/ui/filter-popup'
+import { FilterPopup } from 'shared/ui'
 import { CommentCard } from 'entities/comment'
 
 export const CommentBlock: FC = (props) => {

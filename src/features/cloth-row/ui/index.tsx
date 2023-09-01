@@ -1,16 +1,20 @@
 import React, { FC } from 'react'
 import style from './index.module.scss'
-import { ClothCard, ClothInterface } from 'entities/cloth-card'
+import { ClothInterface, getTopSellingCloth } from 'widgets/clothes-constructor'
+import { ClothCard } from 'entities/cloth-card'
 import { BlockTitle, Button } from 'shared/ui'
+import { Link } from 'react-router-dom'
 
 interface ClothRowProps {
   titleText: string,
   endBlockLine?: boolean,
-  clothData: ClothInterface[] | undefined;
-  isLoading: boolean;
+  top: boolean,
 }
 
-export const ClothRow: FC<ClothRowProps> = ({ titleText, endBlockLine, clothData, isLoading }) => {
+export const ClothRow: FC<ClothRowProps> = ({ titleText, endBlockLine, top }) => {
+  const getHook = top ? getTopSellingCloth : getTopSellingCloth;
+  const { data, isLoading } = getHook(2);
+
   return (
     <section className={style.block}>
       <div className={style.title}><BlockTitle text={titleText} /></div>
@@ -18,17 +22,16 @@ export const ClothRow: FC<ClothRowProps> = ({ titleText, endBlockLine, clothData
         <div className={style.row}>
           {isLoading
             ? <div>Идет загрузка одежды...</div>
-            : clothData
-              ? clothData.map(item =>
-                <div className={style.item} key={item.id}>
+            : data
+              ? data.map((item: any) =>
+                <Link to={`cloth/${item.id}`} key={item.id} className={style.item}>
                   <ClothCard
-                    imageUrl={item.imageUrl}
+                    imageUrl={item.imageObjects[0].previewImg}
                     name={item.name}
                     price={item.price}
-                    category={item.category}
                     rating={item.rating}
                   />
-                </div>
+                </Link>
               )
               : <div>Упс... кажется что-то пошло не так</div>
           }

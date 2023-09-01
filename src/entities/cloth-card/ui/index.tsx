@@ -2,16 +2,14 @@ import React, { FC } from 'react'
 import style from './index.module.scss'
 import { Rating } from 'shared/ui'
 
-export interface Cloth {
-  id: string,
+export interface ClothCardProps {
   imageUrl: string,
   name: string,
   price: number,
-  category: number,
   rating: number,
 };
 
-export const ClothCard:  FC<Omit<Cloth, 'id'>> = ({imageUrl, name, price, category, rating}) => {
+export const ClothCard:  FC<ClothCardProps> = ({imageUrl, name, price, rating}) => {
   return (
       <div className={style.body}>
         <div className={style.img}><img src={imageUrl} alt={name} /></div>
