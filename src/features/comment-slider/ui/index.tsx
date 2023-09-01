@@ -35,8 +35,8 @@ export const CommentSlider: FC = (props) => {
           ? <div>Идет загрузка комментариев...</div>
           : <Swiper className={style.slider} {...swiperOptions}>
             {newData
-              ? newData.map((item) => (
-                <SwiperSlide className={style.slide} key={item.id}>
+              ? newData.map((item, i) => (
+                <SwiperSlide className={style.slide} key={i}>
                   <CommentCard
                     rating={item.rating}
                     name={item.name}

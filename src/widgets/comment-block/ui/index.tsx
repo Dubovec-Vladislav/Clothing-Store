@@ -1,10 +1,22 @@
+// General
 import React, { FC } from 'react'
 import style from './index.module.scss'
-import { Button } from 'shared/ui'
+// Components
 import { FilterPopup } from 'shared/ui'
+import { Button } from 'shared/ui'
 import { CommentCard } from 'entities/comment'
+// Api
+// import { getClothingComments } from 'widgets/clothes-constructor'
+import { getClothingItemById } from 'widgets/clothes-constructor'
 
-export const CommentBlock: FC = (props) => {
+interface CommentBlockProps {
+  clothId: string | undefined,
+}
+
+export const CommentBlock: FC<CommentBlockProps> = ({ clothId }) => {
+  // const { data, isLoading } = getClothingComments(clothId!);
+  const { data, isLoading } = getClothingItemById(clothId!);
+
   return (
     <section className={style.block}>
       <div className={style.body}>
@@ -19,34 +31,20 @@ export const CommentBlock: FC = (props) => {
           </div>
         </div>
         <div className={style.comments}>
-          <div className={style.comment}>
-            <CommentCard
-              rating={4.5}
-              name='Саманта Д.'
-              text={"Мне очень нравится эта футболка! Дизайн уникален, а ткань очень комфортна. Как коллега-дизайнер, я ценю внимание к деталям. Она стала моей любимой рубашкой."}
-            />
-          </div>
-          <div className={style.comment}>
-            <CommentCard
-              rating={4.5}
-              name='Саманта Д.'
-              text={"Мне очень нравится эта футболка! Дизайн уникален, а ткань очень комфортна. Как коллега-дизайнер, я ценю внимание к деталям. Она стала моей любимой рубашкой."}
-            />
-          </div>
-          <div className={style.comment}>
-            <CommentCard
-              rating={4.5}
-              name='Саманта Д.'
-              text={"Мне очень нравится эта футболка! Дизайн уникален, а ткань очень комфортна. Как коллега-дизайнер, я ценю внимание к деталям. Она стала моей любимой рубашкой."}
-            />
-          </div>
-          <div className={style.comment}>
-            <CommentCard
-              rating={4.5}
-              name='Саманта Д.'
-              text={"Мне очень нравится эта футболка! Дизайн уникален, а ткань очень комфортна. Как коллега-дизайнер, я ценю внимание к деталям. Она стала моей любимой рубашкой."}
-            />
-          </div>
+          {isLoading
+            ? <div style={{ paddingLeft: "20px" }}>Идет загрузка комментариев...</div>
+            : data
+              ? data.commentsList.map((comment, i) => (
+                <div key={i} className={style.comment}>
+                  <CommentCard
+                    rating={comment.rating}
+                    name={comment.name}
+                    text={comment.text}
+                  />
+                </div>
+              ))
+              : <div>Упс... кажется что-то пошло не так</div>
+          }
         </div>
       </div>
     </section>

@@ -9,14 +9,14 @@ import { useParams } from 'react-router-dom'
 export const SingleClothingPage: FC = (props) => {
   useEffect(() => window.scrollTo(0, 0), [])
   const { id } = useParams<{ id: string }>();
-  
+
   return (
     <main className={style.block}>
       <div className={style.body}>
         <Header />
         <ClothingConstructor clothId={id} />
         {/* <Tabs/> */}
-        <CommentBlock />
+        <CommentBlock clothId={id} />
       </div>
     </main>
   );

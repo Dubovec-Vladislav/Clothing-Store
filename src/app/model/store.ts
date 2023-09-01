@@ -5,12 +5,12 @@ import { clothApi } from 'widgets/clothes-constructor'
 
 export const store = configureStore({
   reducer: {
+    [clothApi.reducerPath]: clothApi.reducer,
     [topCommentsApi.reducerPath]: topCommentsApi.reducer,
     [emailsApi.reducerPath]: emailsApi.reducer,
-    [clothApi.reducerPath]: clothApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(topCommentsApi.middleware, emailsApi.middleware, clothApi.middleware),
+    getDefaultMiddleware().concat(clothApi.middleware, topCommentsApi.middleware, emailsApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

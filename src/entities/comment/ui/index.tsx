@@ -4,13 +4,12 @@ import { Rating } from 'shared/ui'
 import check from '../img/check.svg'
 
 export interface Comment {
-  id: string,
-  rating: number
+  rating: number,
   name: string,
   text: string,
 }
 
-export const CommentCard: FC<Omit<Comment, 'id'>> = ({ rating, name, text }) => {
+export const CommentCard: FC<Comment> = ({ rating, name, text }) => {
   return (
     <div className={style.block}>
       <div className={style.body}>

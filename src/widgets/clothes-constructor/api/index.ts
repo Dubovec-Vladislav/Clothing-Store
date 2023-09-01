@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { CommentInterface } from 'entities/comment';
 
 export interface ImageObject {
   color: string,
@@ -13,6 +14,7 @@ export interface ClothingInterface {
   price: number,
   prevPrice: number,
   sizeList: number[],
+  commentsList: CommentInterface[],
   category: number,
   rating: number,
   id: string,
@@ -36,9 +38,18 @@ export const clothApi = createApi({
     getNewClothing: builder.query<ClothingInterface[], number>({
       query: (limit) => `items?sortBy=timeSinceReleaseDate&order=asc&page=1&limit=${limit}`, // Why page we need page? Because API is shit
     }),
+    getClothingComments: builder.query<ClothingInterface[], string>({
+      query: (id) => `items/${id}/commentsList`,
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetClothingItemByIDQuery, useGetTopSellingClothingQuery, useGetClothingItemsQuery, useGetNewClothingQuery } = clothApi;
+export const {
+  useGetClothingItemByIDQuery,
+  useGetTopSellingClothingQuery,
+  useGetClothingItemsQuery,
+  useGetNewClothingQuery,
+  useGetClothingCommentsQuery,
+} = clothApi;

@@ -1,9 +1,12 @@
+// General
 import React, { FC, useEffect, useState } from 'react'
 import style from './index.module.scss'
+// Components
 import { BreadCrumbs, Button, Rating } from 'shared/ui'
 import { CartCounterBtn } from 'features/cart-counter-btn'
 import { ColorSelectionLine } from 'features/color-selection-line'
 import { SizeSelectionLine } from 'features/size-selection-line'
+// Api
 import { ImageObject, useGetClothingItemByIDQuery } from '../api'
 
 interface ClothingConstructorProps {
@@ -11,7 +14,7 @@ interface ClothingConstructorProps {
 }
 
 export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) => {
-  const { data, isLoading } = useGetClothingItemByIDQuery(clothId || '');
+  const { data, isLoading } = useGetClothingItemByIDQuery(clothId!);
 
   const colorsList: string[] = [];
   data?.imageObjects.forEach(imageObject => colorsList.push(imageObject.color));

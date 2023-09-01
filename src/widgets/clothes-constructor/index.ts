@@ -5,5 +5,6 @@ export {
   useGetClothingItemByIDQuery as getClothingItemById,
   useGetTopSellingClothingQuery as getTopSellingClothing,
   useGetNewClothingQuery as getNewClothing,
+  useGetClothingCommentsQuery as getClothingComments,
 } from './api'
 export type { ClothingInterface } from './api'

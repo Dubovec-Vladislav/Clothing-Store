@@ -16,25 +16,25 @@
     font-size: 14px;
   }
 
-  &:hover {
-    animation: anim 1.2s ease;
+  // &:hover {
+  //   animation: anim 1.2s ease;
 
-    @keyframes anim {
-      0% {
-        transform: rotate(0deg);
-      }
+  //   @keyframes anim {
+  //     0% {
+  //       transform: rotate(0deg);
+  //     }
 
-      25% {
-        transform: rotate(1deg);
-      }
+  //     25% {
+  //       transform: rotate(1deg);
+  //     }
 
-      50% {
-        transform: rotate(-1deg);
-      }
+  //     50% {
+  //       transform: rotate(-1deg);
+  //     }
 
-      100% {
-        transform: rotate(0deg);
-      }
-    }
-  }
+  //     100% {
+  //       transform: rotate(0deg);
+  //     }
+  //   }
+  // }
 }
