@@ -4,19 +4,19 @@ import { BreadCrumbs, Button, Rating } from 'shared/ui'
 import { CartCounterBtn } from 'features/cart-counter-btn'
 import { ColorSelectionLine } from 'features/color-selection-line'
 import { SizeSelectionLine } from 'features/size-selection-line'
-import { ImageObject, useGetClothItemByIDQuery } from '../api'
+import { ImageObject, useGetClothingItemByIDQuery } from '../api'
 
-interface ClothesConstructorProps {
+interface ClothingConstructorProps {
   clothId: string | undefined,
 }
 
-export const ClothesConstructor: FC<ClothesConstructorProps> = ({ clothId }) => {
-  const { data, isLoading } = useGetClothItemByIDQuery(clothId || '');
+export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) => {
+  const { data, isLoading } = useGetClothingItemByIDQuery(clothId || '');
 
   const colorsList: string[] = [];
   data?.imageObjects.forEach(imageObject => colorsList.push(imageObject.color));
 
-  const [numOfClothes, changeNumOfClothes] = useState<number>(1);
+  const [numOfClothing, changeNumOfClothing] = useState<number>(1);
   const [selectedColor, changeSelectedColor] = useState<string>('');
   const [selectedSize, changeSelectedSize] = useState<number>(0);
   const [activeImageObject, setActiveImageObject] = useState<ImageObject>();
@@ -73,7 +73,7 @@ export const ClothesConstructor: FC<ClothesConstructorProps> = ({ clothId }) => 
                     <SizeSelectionLine sizeList={data.sizeList} selectedSize={selectedSize} changeSelectedSize={changeSelectedSize} />
                   </div>
                   <div className={style.footer}>
-                    <div className={style.counterBtn}><CartCounterBtn number={numOfClothes} changeNumber={changeNumOfClothes} /></div>
+                    <div className={style.counterBtn}><CartCounterBtn number={numOfClothing} changeNumber={changeNumOfClothing} /></div>
                     <div className={style.btn}><Button text={"Добавить в корзину"} /></div>
                   </div>
                 </div>

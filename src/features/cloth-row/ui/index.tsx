@@ -1,19 +1,27 @@
-import React, { FC } from 'react'
+// General
+import React, { FC, useState } from 'react'
 import style from './index.module.scss'
-import { ClothInterface, getTopSellingCloth } from 'widgets/clothes-constructor'
-import { ClothCard } from 'entities/cloth-card'
-import { BlockTitle, Button } from 'shared/ui'
 import { Link } from 'react-router-dom'
+// Components
+import { BlockTitle, Button } from 'shared/ui'
+import { ClothingCard } from 'entities/cloth-card'
+// Api
+import { getClothingItems, getTopSellingClothing } from 'widgets/clothes-constructor'
 
-interface ClothRowProps {
+interface ClothingRowProps {
   titleText: string,
   endBlockLine?: boolean,
-  top: boolean,
+  newClothing?: boolean,
+  topClothing?: boolean,
 }
 
-export const ClothRow: FC<ClothRowProps> = ({ titleText, endBlockLine, top }) => {
-  const getHook = top ? getTopSellingCloth : getTopSellingCloth;
-  const { data, isLoading } = getHook(2);
+export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, newClothing, topClothing }) => {
+  const getHook = getTopSellingClothing;
+  // const getHook = topClothing ? getTopSellingClothing : newClothing ? getNewClothing : getClothingItems;
+
+  const [limit, setLimit] = useState<number>(1);
+
+  const { data, isLoading } = getHook(limit);
 
   return (
     <section className={style.block}>
@@ -25,7 +33,7 @@ export const ClothRow: FC<ClothRowProps> = ({ titleText, endBlockLine, top }) =>
             : data
               ? data.map((item: any) =>
                 <Link to={`cloth/${item.id}`} key={item.id} className={style.item}>
-                  <ClothCard
+                  <ClothingCard
                     imageUrl={item.imageObjects[0].previewImg}
                     name={item.name}
                     price={item.price}
@@ -36,7 +44,7 @@ export const ClothRow: FC<ClothRowProps> = ({ titleText, endBlockLine, top }) =>
               : <div>Упс... кажется что-то пошло не так</div>
           }
         </div>
-        <div className={style.btn}><Button text={'View All'} color={'#000'} fill={'#fff'} borderFill={'rgba(0, 0, 0, 0.10)'} /></div>
+        <div className={style.btn} onClick={() => setLimit(limit + 2)}><Button text={'View All'} color={'#000'} fill={'#fff'} borderFill={'rgba(0, 0, 0, 0.10)'} /></div>
       </div>
       {endBlockLine && <div className={style.endLine}></div>}
     </section>

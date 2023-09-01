@@ -1,1 +1,1 @@
-export { ClothRow } from './ui'
+export { ClothingRow } from './ui'

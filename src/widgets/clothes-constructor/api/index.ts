@@ -6,7 +6,7 @@ export interface ImageObject {
   images: string[],
 }
 
-export interface ClothInterface {
+export interface ClothingInterface {
   imageObjects: ImageObject[],
   name: string,
   description: string,
@@ -24,18 +24,18 @@ export const clothApi = createApi({
   reducerPath: 'clothApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://64e9aa66bf99bdcc8e66deea.mockapi.io' }),
   endpoints: (builder) => ({
-    getClothItemByID: builder.query<ClothInterface, string>({
+    getClothingItems: builder.query<ClothingInterface, number>({
+      query: (limit): string => `/items?page=1&limit=${limit}`,
+    }),
+    getClothingItemByID: builder.query<ClothingInterface, string>({
       query: (id) => `/items/${id}`,
     }),
-    getTopSellingCloth: builder.query<ClothInterface[], number>({
+    getTopSellingClothing: builder.query<ClothingInterface[], number>({
       query: (limit) => `items?sortBy=salesIndex&order=desc&page=1&limit=${limit}`, // Why page we need page? Because API is shit
     }),
-    // getClothCommentsByID: builder.query<ClothInterface, string>({
-    //   query: (id) => `/items/${id}`,
-    // }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetClothItemByIDQuery, useGetTopSellingClothQuery } = clothApi;
+export const { useGetClothingItemByIDQuery, useGetTopSellingClothingQuery, useGetClothingItemsQuery } = clothApi;

@@ -2,14 +2,14 @@ import React, { FC } from 'react'
 import style from './index.module.scss'
 import { Rating } from 'shared/ui'
 
-export interface ClothCardProps {
+export interface ClothingCardProps {
   imageUrl: string,
   name: string,
   price: number,
   rating: number,
 };
 
-export const ClothCard:  FC<ClothCardProps> = ({imageUrl, name, price, rating}) => {
+export const ClothingCard:  FC<ClothingCardProps> = ({imageUrl, name, price, rating}) => {
   return (
       <div className={style.body}>
         <div className={style.img}><img src={imageUrl} alt={name} /></div>
