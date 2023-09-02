@@ -1,19 +1,16 @@
 import React, { FC, useState } from 'react'
 import style from './style.module.scss'
-import { Button } from '../button'
-import { CommentCard } from 'entities/comment';
 
-interface TabItem {
+export interface TabItem {
   tabName: string,
   field: JSX.Element,
 }
 
-export const Tabs: FC = (props) => {
-  const tabsList: TabItem[] = [
-    { tabName: "О продукте", field: <Button text={"О продукте"} /> },
-    { tabName: "Рейтинг и отзывы", field: <Button text={"Рейтинг и отзывы"} /> },
-    { tabName: "Вопросы о товаре", field: <Button text={"Вопросы о товаре"} /> },
-  ];
+interface TabsProps {
+  tabsList: TabItem[],
+}
+
+export const Tabs: FC<TabsProps> = ({ tabsList }) => {
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 
   // Underline settings

@@ -17,6 +17,16 @@ export const CommentBlock: FC<CommentBlockProps> = ({ clothId }) => {
   // const { data, isLoading } = getClothingComments(clothId!);
   const { data, isLoading } = getClothingItemById(clothId!);
 
+  // Сортировка по рейтингу от большего к меньшему
+  const sortedByRatingDescending = data?.commentsList.slice().sort((a, b) => b.rating - a.rating);
+  // Сортировка по рейтингу от меньшего к большему
+  const sortedByRatingAscending = data?.commentsList.slice().sort((a, b) => a.rating - b.rating);
+
+  // ДОбавить дату создания к комментариям, вынести логику filter popup сюда и все настроить
+  // timeList = []
+  // Сортировка по рейтингу от меньшего к большему
+  const some = data?.commentsList.slice().sort((a, b) => a.rating - b.rating);
+
   return (
     <section className={style.block}>
       <div className={style.body}>
