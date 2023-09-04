@@ -1,31 +1,31 @@
 // General
-import React, { FC } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import style from './index.module.scss'
 // Components
 import { FilterPopup } from 'shared/ui'
 import { Button } from 'shared/ui'
-import { CommentCard } from 'entities/comment'
+import { CommentCard, CommentInterface } from 'entities/comment'
 // Api
-// import { getClothingComments } from 'widgets/clothes-constructor'
 import { getClothingItemById } from 'widgets/clothes-constructor'
+// Lib
+import { sortBySelectedType, sortTypes } from '../lib'
 
 interface CommentBlockProps {
   clothId: string | undefined,
 }
 
 export const CommentBlock: FC<CommentBlockProps> = ({ clothId }) => {
-  // const { data, isLoading } = getClothingComments(clothId!);
+  const [indexOfActiveSortType, setIndexOfActiveSortType] = useState<number>(0);
+  const [sortedData, setSortedData] = useState<CommentInterface[]>();
+  const activeSortType = sortTypes[indexOfActiveSortType];
   const { data, isLoading } = getClothingItemById(clothId!);
-
-  // Сортировка по рейтингу от большего к меньшему
-  const sortedByRatingDescending = data?.commentsList.slice().sort((a, b) => b.rating - a.rating);
-  // Сортировка по рейтингу от меньшего к большему
-  const sortedByRatingAscending = data?.commentsList.slice().sort((a, b) => a.rating - b.rating);
-
-  // ДОбавить дату создания к комментариям, вынести логику filter popup сюда и все настроить
-  // timeList = []
-  // Сортировка по рейтингу от меньшего к большему
-  const some = data?.commentsList.slice().sort((a, b) => a.rating - b.rating);
+  
+  useEffect(() => {
+    if (data) {
+      const newSortedData = sortBySelectedType(data.commentsList, activeSortType.urlName, activeSortType.order);
+      setSortedData(newSortedData);
+    }
+  }, [data, activeSortType]);
 
   return (
     <section className={style.block}>
@@ -36,20 +36,28 @@ export const CommentBlock: FC<CommentBlockProps> = ({ clothId }) => {
             <div className={style.totalComment}>(451)</div>
           </div>
           <div className={style.right}>
-            <div className={style.sort}><FilterPopup /></div>
+            <div className={style.sort}>
+              <FilterPopup
+                indexOfActiveSortType={indexOfActiveSortType}
+                setIndexOfActiveSortType={setIndexOfActiveSortType}
+                activeSortTypeName={activeSortType.name}
+                sortTypes={sortTypes}
+              />
+            </div>
             <div className={style.addComment}><Button text={"Добавить отзыв"} /></div>
           </div>
         </div>
         <div className={style.comments}>
           {isLoading
             ? <div style={{ paddingLeft: "20px" }}>Идет загрузка комментариев...</div>
-            : data
-              ? data.commentsList.map((comment, i) => (
+            : sortedData
+              ? sortedData.map((comment, i) => (
                 <div key={i} className={style.comment}>
                   <CommentCard
                     rating={comment.rating}
                     name={comment.name}
                     text={comment.text}
+                    timeSinceCreatedDate={comment.timeSinceCreatedDate}
                   />
                 </div>
               ))

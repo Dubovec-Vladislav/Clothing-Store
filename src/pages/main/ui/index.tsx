@@ -9,8 +9,8 @@ import { Hello } from '../components'
 import { BrandsLine } from 'shared/ui'
 import { ClothingRow } from 'features/cloth-row'
 import { CategoryBlock } from 'shared/ui'
-import { CommentSlider } from 'features/comment-slider'
-import { NewsSubscription } from 'features/news-subscription'
+import { CommentSlider } from 'widgets/comment-slider'
+import { NewsSubscription } from 'widgets/news-subscription'
 import { Footer } from 'features/footer'
 
 

@@ -2,19 +2,24 @@ import React, { FC, useEffect, useRef, useState } from 'react'
 import style from './index.module.scss'
 import arrow from '../img/arrow-down.svg'
 
-export const FilterPopup: FC = (props) => {
-  const sortTypes = [
-    { name: "новые", urlName: "createdAt", order: "desc" },
-    { name: "старые", urlName: "createdAt", order: "asc" },
-    { name: "с высоким рейтингом", urlName: "rating", order: "desc" },
-    { name: "с низким рейтингом", urlName: "rating", order: "asc" },
-  ];
+interface sortType {
+  name : string,
+  urlName : string,
+  order : string,
+}
 
+interface FilterPopupProps {
+  indexOfActiveSortType: number,
+  setIndexOfActiveSortType: (newActiveIndex: number) => void,
+  activeSortTypeName: string,
+  sortTypes: sortType[],
+}
+
+export const FilterPopup: FC<FilterPopupProps> = ({ indexOfActiveSortType, setIndexOfActiveSortType, activeSortTypeName, sortTypes }) => {
   const [isPopupActive, toggleIsPopupActive] = useState<boolean>(false);
-  const [activeSortType, setActiveSortType] = useState<string>(sortTypes[0].name);
 
-  const handleClickMenuItem = (item: string) => {
-    setActiveSortType(item);
+  const handleClickMenuItem = (index: number) => {
+    setIndexOfActiveSortType(index);
     toggleIsPopupActive(false);
   }
 
@@ -31,15 +36,15 @@ export const FilterPopup: FC = (props) => {
   return (
     <div className={style.block} ref={sortRef}>
       <div className={style.label}>
-        <div className={style.text} onClick={() => toggleIsPopupActive(!isPopupActive)}>Порядок сортировки: <span>{activeSortType}</span></div>
+        <div className={style.text} onClick={() => toggleIsPopupActive(!isPopupActive)}>Порядок сортировки: <span>{activeSortTypeName}</span></div>
         <div className={isPopupActive ? `${style.arrow} ${style.activeArrow}` : `${style.arrow}`}><img src={arrow} alt="arrow" /></div>
       </div>
       <div className={isPopupActive ? `${style.activePopup} ${style.popup}` : `${style.popup}`}>
         <ul className={style.list}>
           {sortTypes.map((item, i) => (
-            item.name === activeSortType
-              ? <li key={i} className={`${style.item} ${style.activeItem}`} onClick={() => handleClickMenuItem(item.name)}>{item.name}</li>
-              : <li key={i} className={style.item} onClick={() => handleClickMenuItem(item.name)}>{item.name}</li>
+            i === indexOfActiveSortType
+              ? <li key={i} className={`${style.item} ${style.activeItem}`} onClick={() => handleClickMenuItem(i)}>{item.name}</li>
+              : <li key={i} className={style.item} onClick={() => handleClickMenuItem(i)}>{item.name}</li>
           ))
           }
         </ul>

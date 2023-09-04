@@ -7,17 +7,17 @@ export interface Comment {
   rating: number,
   name: string,
   text: string,
+  timeSinceCreatedDate?: number,
 }
 
-export const CommentCard: FC<Comment> = ({ rating, name, text }) => {
+export const CommentCard: FC<Comment> = ({ rating, name, text, timeSinceCreatedDate }) => {
   return (
     <div className={style.block}>
       <div className={style.body}>
         <div className={style.rating}><Rating rating={rating} /></div>
         <div className={style.name}>{name}<img src={check} alt="check" /></div>
-        <div className={style.text}>
-          “{text}”
-        </div>
+        <div className={style.text}>“{text}”</div>
+        <div className={style.data}>Опубликовано {timeSinceCreatedDate} дня (дней) назад</div>
       </div>
     </div>
   );

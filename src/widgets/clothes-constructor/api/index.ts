@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { CommentInterface } from 'entities/comment';
+import { CommentInterface } from 'entities/comment'
 
 export interface ImageObject {
   color: string,

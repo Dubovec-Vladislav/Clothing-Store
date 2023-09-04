@@ -47,9 +47,26 @@
 
 .text {
   flex-grow: 1;
+  margin: 0px 0px 22px 0px;
   color: rgba(0, 0, 0, 0.6);
   font-family: 'Open Sans';
   font-size: 16px;
+  line-height: 137.5%;
+
+  @media (max-width: 769px) {
+    margin: 0px 0px 16px 0px;
+  }
+
+  @media (max-width: 426px) {
+    font-size: 14px;
+  }
+}
+
+.data {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: 500;
   line-height: 137.5%;
 
   @media (max-width: 426px) {

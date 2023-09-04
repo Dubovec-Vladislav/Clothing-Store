@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { topCommentsApi } from 'features/comment-slider'
-import { emailsApi } from 'features/news-subscription'
 import { clothApi } from 'widgets/clothes-constructor'
+import { topCommentsApi } from 'widgets/comment-slider'
+import { emailsApi } from 'widgets/news-subscription'
 
 export const store = configureStore({
   reducer: {
