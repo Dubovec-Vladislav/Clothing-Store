@@ -30,7 +30,7 @@
 
 .clothingConstructor {
   display: flex;
-  max-height: 560px;
+  max-height: 570px;
   margin: 0px -20px;
   overflow: hidden;
 
@@ -336,13 +336,7 @@
   margin: 0px -10px;
 
   @media (max-width: 1025px) {
-    flex-wrap: wrap;
-    margin: 0px 0px 0px 0px;
-  }
-
-  @media (max-width: 426px) {
-    flex-wrap: nowrap;
-    margin: 0px -6px;
+    margin: 0px -5px;
   }
 }
 
@@ -351,16 +345,7 @@
   padding: 0px 10px;
 
   @media (max-width: 1025px) {
-    max-width: none;
-    width: 100%;
-    margin: 0px 0px 15px 0px;
-    padding: 0px 0px;
-  }
-
-  @media (max-width: 426px) {
-    max-width: 130px;
-    margin: 0px 0px 0px 0px;
-    padding: 0px 6px;
+    padding: 0px 5px;
   }
 }
 
@@ -369,11 +354,6 @@
   padding: 0px 10px;
 
   @media (max-width: 1025px) {
-    padding: 0px 0px;
-  }
-
-  @media (max-width: 426px) {
-    width: 100%;
-    padding: 0px 6px;
+    padding: 0px 5px;
   }
 }

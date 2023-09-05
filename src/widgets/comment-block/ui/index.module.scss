@@ -13,8 +13,8 @@
   margin: 0px 0px 24px 0px;
   justify-content: space-between;
 
-  @media (max-width: 825px) {
-    
+  @media (max-width: 813px) {
+    flex-wrap: wrap;
   }
 
   @media (max-width: 426px) {
@@ -24,6 +24,7 @@
 
 .left {
   display: flex;
+  margin: 0px 30px 0px 0px;
   align-items: center;
 }
 
@@ -44,7 +45,7 @@
 
 .totalComment {
   color: rgba(0, 0, 0, 0.6);
-  margin: 5px 0px 0px 0px;
+  margin: 3px 0px 0px 0px;
   font-family: 'Open Sans';
   font-size: 16px;
   line-height: 137.5%;
@@ -56,6 +57,12 @@
 
 .right {
   display: flex;
+  align-items: center;
+
+  @media (max-width: 813px) {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 .sort {
@@ -66,7 +73,12 @@
   }
 }
 
-.addComment {}
+.addComment {
+
+  @media (max-width: 556px) {
+    display: none;
+  }
+}
 
 .comments {
   display: flex;
