@@ -85,17 +85,21 @@
 }
 
 .logo {
+  position: relative;
+  z-index: 2;
   color: #000;
   margin: 0px 0px calc(8px + 11 * (100vw / 1440)) 0px;
-
+  font-size: 26px;
   font-family: 'Fira Sans';
-  font-size: calc(18px + 6 * (100vw / 1440));
   font-weight: 700;
-  line-height: normal;
 
   @media (max-width: 769px) {
     margin: 0px 0px calc(8px + 11 * ((100vw - 320px) / 1440)) 0px;
-    font-size: calc(18px + 6 * ((100vw - 320px) / 1440));
+    font-size: 22px;
+  }
+
+  @media (max-width: 526px) {
+    flex-grow: 1;
   }
 }
 

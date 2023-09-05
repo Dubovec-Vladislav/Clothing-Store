@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react'
 import style from './index.module.scss'
 import { Link } from 'react-router-dom'
 // Images
-import logo from '../img/logo.svg'
 import search1 from '../img/search1.svg'
 import cart from '../img/cart.svg'
 import search2 from '../img/search2.svg'
@@ -20,9 +19,9 @@ export const Header: FC = (props) => {
     <header className={style.block}>
       <div className={style.body}>
         <div className={style.burger} onClick={handleBurgerClick}><span></span></div>
-        <Link to="/" className={style.logo}><img src={logo} alt="logo" /></Link>
+        <Link to="/" className={style.logo}>Logo</Link>
         <nav className={isBurgerActive ? `${style.menu} ${style.activeMenu}` : `${style.menu}`}>
-          <div className={style.menuCloseBtn}><img src={logo} alt="logo" /><span onClick={handleBurgerClick}></span></div>
+          <div className={style.menuCloseBtn}><div className={style.logo}>Logo</div><span onClick={handleBurgerClick}></span></div>
           <ul className={style.list}>
             <li className={style.item}><Link to="#" className={style.link}>Shop</Link></li>
             <li className={style.item}><Link to="#" className={style.link}>On Sale</Link></li>

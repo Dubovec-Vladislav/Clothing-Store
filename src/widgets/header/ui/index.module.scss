@@ -39,10 +39,15 @@
 .logo {
   position: relative;
   z-index: 2;
+  color: #000;
   margin: 0px calc(10px + 30 * (100vw / 1440)) 0px 0px;
+  font-size: 26px;
+  font-family: 'Fira Sans';
+  font-weight: 700;
 
   @media (max-width: 769px) {
     margin: 0px calc(10px + 30 * ((100vw - 320px) / 1440)) 0px 0px;
+    font-size: 22px;
   }
 
   @media (max-width: 526px) {

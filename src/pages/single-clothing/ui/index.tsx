@@ -8,6 +8,8 @@ import { Header } from 'widgets/header'
 import { ClothingConstructor } from 'widgets/clothing-constructor'
 import { TabItemInterface, Tabs } from 'shared/ui'
 import { CommentBlock } from 'widgets/comment-block'
+import { NewsSubscription } from 'widgets/news-subscription'
+import { Footer } from 'features/footer'
 
 export const SingleClothingPage: FC = (props) => {
   useEffect(() => window.scrollTo(0, 0), []);
@@ -25,6 +27,8 @@ export const SingleClothingPage: FC = (props) => {
         <Header />
         <ClothingConstructor clothId={id} />
         <Tabs tabsList={tabsList} />
+        <NewsSubscription/>
+        <Footer/>
       </div>
     </main>
   );
