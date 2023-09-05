@@ -1,8 +1,6 @@
 // General
 import React, { FC } from 'react'
 import style from './index.module.scss'
-// Api
-import { getTopSellingClothing } from 'widgets/clothes-constructor'
 // Components
 import { Header } from 'widgets/header'
 import { Hello } from '../components'
@@ -12,7 +10,6 @@ import { CategoryBlock } from 'shared/ui'
 import { CommentSlider } from 'widgets/comment-slider'
 import { NewsSubscription } from 'widgets/news-subscription'
 import { Footer } from 'features/footer'
-
 
 export const Main: FC = (props) => {
   return (

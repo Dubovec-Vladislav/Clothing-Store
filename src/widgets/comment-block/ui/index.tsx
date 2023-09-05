@@ -6,7 +6,7 @@ import { FilterPopup } from 'shared/ui'
 import { Button } from 'shared/ui'
 import { CommentCard, CommentInterface } from 'entities/comment'
 // Api
-import { getClothingItemById } from 'widgets/clothes-constructor'
+import { getClothingItemById } from 'widgets/clothing-constructor'
 // Lib
 import { sortBySelectedType, sortTypes } from '../lib'
 
@@ -33,7 +33,7 @@ export const CommentBlock: FC<CommentBlockProps> = ({ clothId }) => {
         <div className={style.header}>
           <div className={style.left}>
             <div className={style.title}>Все отзывы</div>
-            <div className={style.totalComment}>(451)</div>
+            <div className={style.totalComment}>({sortedData?.length})</div>
           </div>
           <div className={style.right}>
             <div className={style.sort}>

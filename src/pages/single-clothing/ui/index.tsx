@@ -5,7 +5,7 @@ import style from './index.module.scss'
 import { useParams } from 'react-router-dom'
 // Components
 import { Header } from 'widgets/header'
-import { ClothingConstructor } from 'widgets/clothes-constructor'
+import { ClothingConstructor } from 'widgets/clothing-constructor'
 import { TabItemInterface, Tabs } from 'shared/ui'
 import { CommentBlock } from 'widgets/comment-block'
 

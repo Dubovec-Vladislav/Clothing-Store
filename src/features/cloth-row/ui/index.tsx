@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { BlockTitle, Button } from 'shared/ui'
 import { ClothingCard } from 'entities/cloth-card'
 // Api
-import { getClothingItems, getNewClothing, getTopSellingClothing } from 'widgets/clothes-constructor'
+import { getClothingItems, getNewClothing, getTopSellingClothing } from 'widgets/clothing-constructor'
 
 interface ClothingRowProps {
   titleText: string,
@@ -35,6 +35,7 @@ export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, new
                     imageUrl={item.imageObjects[0].previewImg}
                     name={item.name}
                     price={item.price}
+                    prevPrice={item.prevPrice}
                     rating={item.rating}
                   />
                 </Link>

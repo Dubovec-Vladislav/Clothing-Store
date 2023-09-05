@@ -1,6 +1,10 @@
 .breadCrumbs {
   display: flex;
   margin: 0px -16px;
+
+  @media (max-width: 426px) {
+    margin: 0px -8px;
+  }
 }
 
 .breadCrumb {
@@ -14,7 +18,7 @@
   line-height: normal;
 
   @media (max-width: 426px) {
-    padding: 0px 12px;
+    padding: 0px 8px;
     font-size: 14px;
   }
 

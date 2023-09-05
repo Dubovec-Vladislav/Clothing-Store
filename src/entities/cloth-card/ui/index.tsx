@@ -6,10 +6,11 @@ export interface ClothingCardProps {
   imageUrl: string,
   name: string,
   price: number,
+  prevPrice: number,
   rating: number,
 };
 
-export const ClothingCard:  FC<ClothingCardProps> = ({imageUrl, name, price, rating}) => {
+export const ClothingCard:  FC<ClothingCardProps> = ({imageUrl, name, price, prevPrice, rating}) => {
   return (
       <div className={style.body}>
         <div className={style.img}><img src={imageUrl} alt={name} /></div>
@@ -17,7 +18,7 @@ export const ClothingCard:  FC<ClothingCardProps> = ({imageUrl, name, price, rat
         <div className={style.rating}><Rating rating={rating} /></div>
         <div className={style.priceBlock}>
           <div className={style.price}>{price}₽</div>
-          <div className={style.prevPrice}>220₽</div>
+          <div className={style.prevPrice}>{prevPrice}₽</div>
           <div className={style.percent}>-30%</div>
         </div>
       </div>

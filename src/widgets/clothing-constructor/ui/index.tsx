@@ -41,7 +41,7 @@ export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) =
     <section className={style.block}>
       <div className={style.body}>
         <div className={style.breadCrumbs}><BreadCrumbs /></div>
-        <div className={style.clotheConstructor}>
+        <div className={style.clothingConstructor}>
           {isLoading
             ? <div style={{ paddingLeft: "20px" }}>Идет загрузка одежды...</div>
             : data

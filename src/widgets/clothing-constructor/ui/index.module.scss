@@ -28,18 +28,34 @@
   }
 }
 
-.clotheConstructor {
+.clothingConstructor {
   display: flex;
   max-height: 560px;
   margin: 0px -20px;
   overflow: hidden;
+
+  @media (max-width: 1025px) {
+    max-height: none;
+  }
+
+  @media (max-width: 769px) {
+    flex-wrap: wrap;
+  }
 }
 
 .imgPart {
-  // max-height: 38.89vw;
   flex: 0 1 50%;
   display: flex;
   padding: 0px 20px;
+
+  @media (max-width: 1025px) {
+    flex-wrap: wrap-reverse;
+  }
+
+  @media (max-width: 769px) {
+    flex: 0 1 100%;
+    margin: 0px 0px 20px 0px;
+  }
 }
 
 .images {
@@ -47,6 +63,12 @@
   display: flex;
   flex-direction: column;
   margin: 0px 20px 0px 0px;
+
+  @media (max-width: 1025px) {
+    flex: 0 1 100%;
+    flex-direction: row;
+    margin: 0px 0px 0px 0px;
+  }
 }
 
 .imgItem,
@@ -69,6 +91,14 @@
   flex: 0 1 33%;
   margin: 0px 0px 20px 0px;
 
+  @media (max-width: 1025px) {
+    margin: 0px 12px 0px 0px;
+  }
+
+  @media (max-width: 769px) {
+    margin: 0px 6px 0px 0px;
+  }
+
   img {
     &:hover {
       transform: scale(1.1);
@@ -82,6 +112,16 @@
 
 .previewImg {
   flex: 0 1 calc(2/3*100%);
+
+  @media (max-width: 1025px) {
+    flex: 0 1 100%;
+    max-height: 450px;
+    margin: 0px 0px 12px 0px;
+  }
+
+  @media (max-width: 769px) {
+    margin: 0px 0px 6px 0px;
+  }
 
   img {
     &:hover {
@@ -97,6 +137,10 @@
 .optionPart {
   flex: 0 1 50%;
   padding: 0px 20px;
+
+  @media (max-width: 769px) {
+    flex: 0 1 100%;
+  }
 }
 
 .title {
@@ -289,20 +333,47 @@
 
 .footer {
   display: flex;
-  flex-wrap: wrap;
   margin: 0px -10px;
+
+  @media (max-width: 1025px) {
+    flex-wrap: wrap;
+    margin: 0px 0px 0px 0px;
+  }
+
+  @media (max-width: 426px) {
+    flex-wrap: nowrap;
+    margin: 0px -6px;
+  }
 }
 
 .counterBtn {
   max-width: 190px;
   padding: 0px 10px;
 
+  @media (max-width: 1025px) {
+    max-width: none;
+    width: 100%;
+    margin: 0px 0px 15px 0px;
+    padding: 0px 0px;
+  }
+
   @media (max-width: 426px) {
     max-width: 130px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 6px;
   }
 }
 
 .btn {
   flex-grow: 1;
   padding: 0px 10px;
+
+  @media (max-width: 1025px) {
+    padding: 0px 0px;
+  }
+
+  @media (max-width: 426px) {
+    width: 100%;
+    padding: 0px 6px;
+  }
 }
