@@ -9,7 +9,7 @@ import { ClothingConstructor } from 'widgets/clothing-constructor'
 import { TabItemInterface, Tabs } from 'shared/ui'
 import { CommentBlock } from 'widgets/comment-block'
 import { NewsSubscription } from 'widgets/news-subscription'
-import { Footer } from 'features/footer'
+import { Footer } from 'widgets/footer'
 
 export const SingleClothingPage: FC = (props) => {
   useEffect(() => window.scrollTo(0, 0), []);

@@ -4,7 +4,7 @@ import style from './index.module.scss'
 import { Link } from 'react-router-dom'
 // Components
 import { BlockTitle, Button } from 'shared/ui'
-import { ClothingCard } from 'entities/cloth-card'
+import { ClothingCard } from 'entities/clothing-card'
 // Api
 import { getClothingItems, getNewClothing, getTopSellingClothing } from 'widgets/clothing-constructor'
 
@@ -18,7 +18,7 @@ interface ClothingRowProps {
 export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, newClothing, topClothing }) => {
   const getHook = topClothing ? getTopSellingClothing : newClothing ? getNewClothing : getClothingItems;
 
-  const [limit, setLimit] = useState<number>(4);
+  const [limit, setLimit] = useState<number>(9);
   const { data, isLoading } = getHook(limit);
 
   return (

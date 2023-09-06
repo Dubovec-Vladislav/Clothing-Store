@@ -38,9 +38,9 @@ export const clothApi = createApi({
     getNewClothing: builder.query<ClothingInterface[], number>({
       query: (limit) => `items?sortBy=timeSinceReleaseDate&order=asc&page=1&limit=${limit}`, // Why page we need page? Because API is shit
     }),
-    getClothingComments: builder.query<ClothingInterface[], string>({
-      query: (id) => `items/${id}/commentsList`,
-    }),
+    // getClothingComments: builder.query<ClothingInterface[], string>({
+    //   query: (id) => `items/${id}/commentsList`,
+    // }),
   }),
 });
 
@@ -51,5 +51,5 @@ export const {
   useGetTopSellingClothingQuery,
   useGetClothingItemsQuery,
   useGetNewClothingQuery,
-  useGetClothingCommentsQuery,
+  // useGetClothingCommentsQuery,
 } = clothApi;

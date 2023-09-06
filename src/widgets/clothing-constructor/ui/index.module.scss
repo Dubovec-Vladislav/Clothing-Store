@@ -1,9 +1,13 @@
 .block {
   padding: 96px 0px 0px 0px;
-  margin: 0px 0px 80px 0px;
+  margin: 0px 0px calc(40px + 40 * (100vw / 1440)) 0px;
 
   @media (max-width: 889px) {
     padding: 80px 0px 0px 0px;
+  }
+  
+  @media (max-width: 769px) {
+    margin: 0px 0px calc(40px + 40 * ((100vw - 320px) / 1440)) 0px;
   }
 
   @media (max-width: 526px) {
