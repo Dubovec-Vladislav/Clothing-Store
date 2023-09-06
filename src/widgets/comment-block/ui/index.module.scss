@@ -94,3 +94,18 @@
     flex: 0 1 100%;
   }
 }
+
+.btn {
+  display: flex;
+  justify-content: center;
+
+  margin: calc(20px + 16 * (100vw / 1440)) 0px 0px 0px;
+  
+  @media (max-width: 769px) {
+    margin: calc(20px + 16 * ((100vw - 320px) / 1440)) 0px 0px 0px;
+  }
+
+  * {
+    max-width: 230px;
+  }
+}

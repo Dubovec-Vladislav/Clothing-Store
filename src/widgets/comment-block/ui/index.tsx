@@ -15,17 +15,20 @@ interface CommentBlockProps {
 }
 
 export const CommentBlock: FC<CommentBlockProps> = ({ clothId }) => {
+  const [limit, setLimit] = useState<number>(2);
   const [indexOfActiveSortType, setIndexOfActiveSortType] = useState<number>(0);
   const [sortedData, setSortedData] = useState<CommentInterface[]>();
+  const [sortedDataLength, setSortedDataLength] = useState<number>(0);
   const activeSortType = sortTypes[indexOfActiveSortType];
   const { data, isLoading } = getClothingItemById(clothId!);
-  
+
   useEffect(() => {
     if (data) {
       const newSortedData = sortBySelectedType(data.commentsList, activeSortType.urlName, activeSortType.order);
-      setSortedData(newSortedData);
+      setSortedDataLength(newSortedData.length);
+      setSortedData(newSortedData.slice(0, limit));
     }
-  }, [data, activeSortType]);
+  }, [data, activeSortType, limit]);
 
   return (
     <section className={style.block}>
@@ -33,7 +36,7 @@ export const CommentBlock: FC<CommentBlockProps> = ({ clothId }) => {
         <div className={style.header}>
           <div className={style.left}>
             <div className={style.title}>Все отзывы</div>
-            <div className={style.totalComment}>({sortedData?.length})</div>
+            <div className={style.totalComment}>({sortedDataLength})</div>
           </div>
           <div className={style.right}>
             <div className={style.sort}>
@@ -64,6 +67,10 @@ export const CommentBlock: FC<CommentBlockProps> = ({ clothId }) => {
               : <div>Упс... кажется что-то пошло не так</div>
           }
         </div>
+        {sortedDataLength > limit
+          && <div className={style.btn} onClick={() => setLimit(limit + 2)}>
+            <Button text={"Загрузить больше"} color={"#000"} fill={"#fff"} borderFill={"#0000001A"} />
+          </div>}
       </div>
     </section>
   );
