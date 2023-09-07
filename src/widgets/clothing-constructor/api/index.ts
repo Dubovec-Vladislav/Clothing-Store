@@ -26,8 +26,8 @@ export const clothApi = createApi({
   reducerPath: 'clothApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://64e9aa66bf99bdcc8e66deea.mockapi.io' }),
   endpoints: (builder) => ({
-    getClothingItems: builder.query<ClothingInterface, number>({
-      query: (limit): string => `items?page=1&limit=${limit}`,
+    getClothingItems: builder.query<ClothingInterface[], number>({
+      query: (limit) => `items?page=1&limit=${limit}`,
     }),
     getClothingItemByID: builder.query<ClothingInterface, string>({
       query: (id) => `items/${id}`,
@@ -47,9 +47,9 @@ export const clothApi = createApi({
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
 export const {
+  useGetClothingItemsQuery,
   useGetClothingItemByIDQuery,
   useGetTopSellingClothingQuery,
-  useGetClothingItemsQuery,
   useGetNewClothingQuery,
   // useGetClothingCommentsQuery,
 } = clothApi;
