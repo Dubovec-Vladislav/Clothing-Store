@@ -1,0 +1,40 @@
+.block {
+  flex: 0 1 25%;
+  padding: 0px 10px;
+}
+
+.item {
+  margin: 0px 0px 24px 0px;
+  padding: 0px 0px 24px 0px;
+  border-bottom: solid 1px #0000001A;
+
+  @media (max-width: 769px) {
+    margin: 0px 0px 20px 0px;
+    padding: 0px 0px 20px 0px;
+  }
+}
+
+.body {
+  padding: 20px 24px;
+
+  @media (max-width: 426px) {
+    padding: 20px;
+  }
+}
+
+.title {
+  display: flex;
+  color: #000;
+  margin: 0px 0px 20px 0px;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: 'Open Sans';
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+
+  @media (max-width: 769px) {
+    margin: 0px 0px 16px 0px;
+  }
+}

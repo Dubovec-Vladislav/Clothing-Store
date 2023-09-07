@@ -18,7 +18,7 @@ interface ClothingRowProps {
 export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, newClothing, topClothing }) => {
   const getHook = topClothing ? getTopSellingClothing : newClothing ? getNewClothing : getClothingItems;
 
-  const [limit, setLimit] = useState<number>(9);
+  const [limit, setLimit] = useState<number>(4);
   const { data, isLoading } = getHook(limit);
 
   return (

@@ -15,7 +15,7 @@ interface CommentBlockProps {
 }
 
 export const CommentBlock: FC<CommentBlockProps> = ({ clothId }) => {
-  const [limit, setLimit] = useState<number>(2);
+  const [limit, setLimit] = useState<number>(3);
   const [indexOfActiveSortType, setIndexOfActiveSortType] = useState<number>(0);
   const [sortedData, setSortedData] = useState<CommentInterface[]>();
   const [sortedDataLength, setSortedDataLength] = useState<number>(0);
