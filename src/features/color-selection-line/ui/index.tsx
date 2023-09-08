@@ -3,7 +3,7 @@ import style from './index.module.scss'
 
 interface ColorSelectionLineProps {
   colorsList: string[],
-  selectedColor: string,
+  selectedColor?: string,
   selectedColorList?: string[],
   handleColorClick: (i: number) => void,
 }

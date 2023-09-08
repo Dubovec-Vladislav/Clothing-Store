@@ -1,26 +1,20 @@
 // General
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import style from './index.module.scss'
 // Components
 import { Header } from 'widgets/header'
-import { Filters } from 'widgets/filters'
-import { ClothingBlock } from 'widgets/clothing-block'
-// Api
-import { getClothingItemsByPage } from 'app/api'
+import { CategoryContent } from '../components'
+import { NewsSubscription } from 'widgets/news-subscription'
+import { Footer } from 'widgets/footer'
 
 export const CategoryPage: FC = (props) => {
-  const [pageNumber, setPageNumber] = useState(1);
-  const [pageLimit,] = useState(9);
-  const { data, isLoading } = getClothingItemsByPage({ page: pageNumber, limit: pageLimit });
-
   return (
     <section className={style.block}>
       <div className={style.body}>
         <Header />
-        <div className={style.content}>
-          <Filters data={data} isLoading={isLoading} />
-          <ClothingBlock data={data} isLoading={isLoading} />
-        </div>
+        <CategoryContent />
+        <NewsSubscription />
+        <Footer />
       </div>
     </section>
   );

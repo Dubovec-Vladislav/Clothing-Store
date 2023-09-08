@@ -1,5 +1,5 @@
 // General
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import style from './index.module.scss'
 import filters from '../img/filters.svg'
 // Components
@@ -11,18 +11,16 @@ import { ClothingInterface } from 'app/api'
 interface FiltersProps {
   data: ClothingInterface[] | undefined,
   isLoading: boolean,
+  selectedColorList: string[],
+  changeSelectedColorList: (newList: string[]) => void,
 }
 
-export const Filters: FC<FiltersProps> = ({ data, isLoading }) => {
+export const Filters: FC<FiltersProps> = ({ data, isLoading, selectedColorList, changeSelectedColorList }) => {
   const colorsList: string[] = [];
   data?.forEach(item => colorsList.push(item.imageObjects[0].color));
 
-  const [selectedColor, changeSelectedColor] = useState<string>('');
-  const [selectedColorList, changeSelectedColorList] = useState<string[]>([]);
-
   const handleColorClick = (i: number) => {
     const color = colorsList[i];
-    changeSelectedColor(color);
     selectedColorList.includes(color)
       ? changeSelectedColorList(selectedColorList.filter(item => item !== color)) // If includes, remove it
       : changeSelectedColorList([...selectedColorList, color]) // if not included, expand the old array and add a new element
@@ -45,7 +43,6 @@ export const Filters: FC<FiltersProps> = ({ data, isLoading }) => {
             : colorsList
               ? <ColorSelectionLine
                 colorsList={colorsList}
-                selectedColor={selectedColor}
                 selectedColorList={selectedColorList}
                 handleColorClick={handleColorClick}
               />

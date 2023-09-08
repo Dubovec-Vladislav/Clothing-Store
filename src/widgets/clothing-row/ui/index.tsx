@@ -30,7 +30,7 @@ export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, new
             ? <div>Идет загрузка одежды...</div>
             : data
               ? data.map((item: ClothingInterface) =>
-                <Link to={`cloth/${item.id}`} key={item.id} className={style.item} target={"_blank"}>
+                <Link to={`/cloth/${item.id}`} key={item.id} className={style.item} target={"_blank"}>
                   <ClothingCard
                     imageUrl={item.imageObjects[0].previewImg}
                     name={item.name}
