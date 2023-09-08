@@ -1,37 +1,31 @@
-import React, { FC, useState, useEffect, useMemo } from 'react'
+// General
+import React, { FC, useState } from 'react'
 import style from './index.module.scss'
 import filters from '../img/filters.svg'
+// Components
 import { ColorSelectionLine } from 'features/color-selection-line'
-import { getClothingItems } from 'app/api'
 // import { SizeSelectionLine } from 'features/size-selection-line'
+// Api
+import { ClothingInterface } from 'app/api'
 
-export const Filters: FC = (props) => {
-  const { data, isLoading } = getClothingItems(4);
+interface FiltersProps {
+  data: ClothingInterface[] | undefined,
+  isLoading: boolean,
+}
 
-  const colorsList: string[] = useMemo(() => {
-    const colorsList: string[] = [];
-    data?.forEach(item => item.imageObjects.forEach(imageObject => colorsList.push(imageObject.color)));
-    return colorsList;
-  }, [data]);
+export const Filters: FC<FiltersProps> = ({ data, isLoading }) => {
+  const colorsList: string[] = [];
+  data?.forEach(item => colorsList.push(item.imageObjects[0].color));
+
   const [selectedColor, changeSelectedColor] = useState<string>('');
   const [selectedColorList, changeSelectedColorList] = useState<string[]>([]);
 
-  useEffect(() => {
-    if (!isLoading) {
-      const color = colorsList[0];
-
-      changeSelectedColor(color);
-      changeSelectedColorList(prevSelectedColorList => [...prevSelectedColorList, color]);
-    }
-  }, [isLoading, colorsList]);
-
   const handleColorClick = (i: number) => {
     const color = colorsList[i];
-
     changeSelectedColor(color);
     selectedColorList.includes(color)
-      ? changeSelectedColorList(selectedColorList.filter(item => item !== color))
-      : changeSelectedColorList([...selectedColorList, color])
+      ? changeSelectedColorList(selectedColorList.filter(item => item !== color)) // If includes, remove it
+      : changeSelectedColorList([...selectedColorList, color]) // if not included, expand the old array and add a new element
   };
 
   return (

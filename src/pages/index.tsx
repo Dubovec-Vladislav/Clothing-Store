@@ -10,7 +10,7 @@ export const Routing = () => {
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="cloth/:id" element={<SingleClothingPage/>} />
-      <Route path="category/:id" element={<CategoryPage/>} />
+      <Route path="category/:id" element={<CategoryPage/>}/>
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );

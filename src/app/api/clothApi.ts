@@ -29,6 +29,9 @@ export const clothApi = createApi({
     getClothingItems: builder.query<ClothingInterface[], number>({
       query: (limit) => `items?page=1&limit=${limit}`,
     }),
+    getClothingItemsByPage: builder.query<ClothingInterface[], { page: number, limit: number }>({
+      query: ({ page, limit }) => `items?page=${page}&limit=${limit}`,
+    }),
     getClothingItemByID: builder.query<ClothingInterface, string>({
       query: (id) => `items/${id}`,
     }),
@@ -45,6 +48,7 @@ export const clothApi = createApi({
 // auto-generated based on the defined endpoints
 export const {
   useGetClothingItemsQuery,
+  useGetClothingItemsByPageQuery,
   useGetClothingItemByIDQuery,
   useGetTopSellingClothingQuery,
   useGetNewClothingQuery,

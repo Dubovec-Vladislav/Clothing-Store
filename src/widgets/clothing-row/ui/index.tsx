@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { BlockTitle, Button } from 'shared/ui'
 import { ClothingCard } from 'entities/clothing-card'
 // Api
-import { getClothingItems, getNewClothing, getTopSellingClothing } from 'app/api'
+import { ClothingInterface, getClothingItems, getNewClothing, getTopSellingClothing } from 'app/api'
 
 interface ClothingRowProps {
   titleText: string,
@@ -29,8 +29,8 @@ export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, new
           {isLoading
             ? <div>Идет загрузка одежды...</div>
             : data
-              ? data.map((item: any) =>
-                <Link to={`cloth/${item.id}`} key={item.id} className={style.item}>
+              ? data.map((item: ClothingInterface) =>
+                <Link to={`cloth/${item.id}`} key={item.id} className={style.item} target={"_blank"}>
                   <ClothingCard
                     imageUrl={item.imageObjects[0].previewImg}
                     name={item.name}
@@ -43,7 +43,9 @@ export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, new
               : <div>Упс... кажется что-то пошло не так</div>
           }
         </div>
-        <div className={style.btn} onClick={() => setLimit(limit + 2)}><Button text={'View All'} color={'#000'} fill={'#fff'} borderFill={'rgba(0, 0, 0, 0.10)'} /></div>
+        {limit < 8 && <div className={style.btn} onClick={() => setLimit(limit + 4)}>
+          <Button text={'Посмотреть ещё'} color={'#000'} fill={'#fff'} borderFill={'rgba(0, 0, 0, 0.10)'} />
+        </div>}
       </div>
       {endBlockLine && <div className={style.endLine}></div>}
     </section>
