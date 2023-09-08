@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect, useMemo } from 'react'
 import style from './index.module.scss'
 import filters from '../img/filters.svg'
 import { ColorSelectionLine } from 'features/color-selection-line'
-import { getClothingItems } from 'widgets/clothing-constructor'
+import { getClothingItems } from 'app/api'
 // import { SizeSelectionLine } from 'features/size-selection-line'
 
 export const Filters: FC = (props) => {
@@ -46,12 +46,17 @@ export const Filters: FC = (props) => {
         </div>
         <div className={style.item}>
           <div className={style.title}>Расцветки</div>
-          <ColorSelectionLine
-            colorsList={colorsList}
-            selectedColor={selectedColor}
-            selectedColorList={selectedColorList}
-            handleColorClick={handleColorClick}
-          />
+          {isLoading
+            ? <div>Идет загрузка расцветок...</div>
+            : colorsList
+              ? <ColorSelectionLine
+                colorsList={colorsList}
+                selectedColor={selectedColor}
+                selectedColorList={selectedColorList}
+                handleColorClick={handleColorClick}
+              />
+              : <div>Упс... кажется что-то пошло не так</div>
+          }
         </div>
         <div className={style.item}>
           <div className={style.title}>Размер</div>

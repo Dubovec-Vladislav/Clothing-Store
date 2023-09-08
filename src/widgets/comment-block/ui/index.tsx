@@ -6,7 +6,7 @@ import { FilterPopup } from 'shared/ui'
 import { Button } from 'shared/ui'
 import { CommentCard, CommentInterface } from 'entities/comment'
 // Api
-import { getClothingItemById } from 'widgets/clothing-constructor'
+import { getClothingItemById } from 'app/api'
 // Lib
 import { sortBySelectedType, sortTypes } from '../lib'
 
@@ -15,7 +15,7 @@ interface CommentBlockProps {
 }
 
 export const CommentBlock: FC<CommentBlockProps> = ({ clothId }) => {
-  const [limit, setLimit] = useState<number>(3);
+  const [limit, setLimit] = useState<number>(2);
   const [indexOfActiveSortType, setIndexOfActiveSortType] = useState<number>(0);
   const [sortedData, setSortedData] = useState<CommentInterface[]>();
   const [sortedDataLength, setSortedDataLength] = useState<number>(0);

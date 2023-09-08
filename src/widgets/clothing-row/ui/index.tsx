@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { BlockTitle, Button } from 'shared/ui'
 import { ClothingCard } from 'entities/clothing-card'
 // Api
-import { getClothingItems, getNewClothing, getTopSellingClothing } from 'widgets/clothing-constructor'
+import { getClothingItems, getNewClothing, getTopSellingClothing } from 'app/api'
 
 interface ClothingRowProps {
   titleText: string,

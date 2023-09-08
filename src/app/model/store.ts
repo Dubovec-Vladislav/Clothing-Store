@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { clothApi } from 'widgets/clothing-constructor'
+import { clothApi } from 'app/api'
 import { topCommentsApi } from 'widgets/comment-slider'
 import { emailsApi } from 'widgets/news-subscription'
 
