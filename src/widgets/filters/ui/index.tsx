@@ -11,19 +11,19 @@ import { ClothingInterface } from 'app/api'
 interface FiltersProps {
   data: ClothingInterface[] | undefined,
   isLoading: boolean,
-  selectedColorList: string[],
-  changeSelectedColorList: (newList: string[]) => void,
+  selectedColorsList: string[],
+  changeSelectedColorsList: (newList: string[]) => void,
 }
 
-export const Filters: FC<FiltersProps> = ({ data, isLoading, selectedColorList, changeSelectedColorList }) => {
+export const Filters: FC<FiltersProps> = ({ data, isLoading, selectedColorsList, changeSelectedColorsList }) => {
   const colorsList: string[] = [];
   data?.forEach(item => colorsList.push(item.imageObjects[0].color));
 
   const handleColorClick = (i: number) => {
     const color = colorsList[i];
-    selectedColorList.includes(color)
-      ? changeSelectedColorList(selectedColorList.filter(item => item !== color)) // If includes, remove it
-      : changeSelectedColorList([...selectedColorList, color]) // if not included, expand the old array and add a new element
+    selectedColorsList.includes(color)
+      ? changeSelectedColorsList(selectedColorsList.filter(item => item !== color)) // If includes, remove it
+      : changeSelectedColorsList([...selectedColorsList, color]) // if not included, expand the old array and add a new element
   };
 
   return (
@@ -43,7 +43,7 @@ export const Filters: FC<FiltersProps> = ({ data, isLoading, selectedColorList, 
             : colorsList
               ? <ColorSelectionLine
                 colorsList={colorsList}
-                selectedColorList={selectedColorList}
+                selectedColorsList={selectedColorsList}
                 handleColorClick={handleColorClick}
               />
               : <div>Упс... кажется что-то пошло не так</div>

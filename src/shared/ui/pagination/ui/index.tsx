@@ -22,13 +22,15 @@ export const Pagination: FC<Pagination> = ({ currentPage, setCurrentPage, pageLi
 
   return (
     <div className={style.block}>
-      <div
-        className={`${style.btn} ${style.leftBtn}`}
-        onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
-      // if the current page is not the first, then we can switch
-      >
-        <img src={arrowLeft} alt="arrow-left" />Предыдущая
-      </div>
+
+      {currentPage > 1 // if the current page is not the first, then we can switch
+        ? <div className={`${style.btn} ${style.leftBtn}`} onClick={() => setCurrentPage(currentPage - 1)}>
+          <img src={arrowLeft} alt="arrow-left" />Предыдущая
+        </div>
+        : <div className={`${style.btn} ${style.leftBtn}`} style={{ cursor: "not-allowed" }}>
+          <img src={arrowLeft} alt="arrow-left" />Предыдущая
+        </div>}
+
       <div className={style.pageNumbers}>
         {isLoading
           ? <div style={{ padding: '18px 0px 0px 10px' }}>Идет загрузка страниц...</div>
@@ -45,13 +47,14 @@ export const Pagination: FC<Pagination> = ({ currentPage, setCurrentPage, pageLi
             : <div>Упс... кажется что-то пошло не так</div>
         }
       </div>
-      <div
-        className={`${style.btn} ${style.rightBtn}`}
-        onClick={() => (arrayOfPages && currentPage < arrayOfPages.length) && setCurrentPage(currentPage + 1)}
-      // If the current page is not the last one, then we can switch
-      >
-        Следующая<img src={arrowRight} alt="arrow-right" />
-      </div>
+
+      {arrayOfPages && currentPage < arrayOfPages.length // If the current page is not the last one, then we can switch
+        ? <div className={`${style.btn} ${style.rightBtn}`} onClick={() => setCurrentPage(currentPage + 1)}>
+          Следующая<img src={arrowRight} alt="arrow-right" />
+        </div>
+        : <div className={`${style.btn} ${style.rightBtn}`} style={{ cursor: "not-allowed" }}>
+          Следующая<img src={arrowRight} alt="arrow-right" />
+        </div>}
     </div>
   );
 };

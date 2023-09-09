@@ -21,6 +21,12 @@ export interface ClothingInterface {
   salesIndex: number,
 }
 
+interface Pagination {
+  page: number,
+  limit: number,
+  category?: string,
+}
+
 // Define a service using a base URL and expected endpoints
 export const clothApi = createApi({
   reducerPath: 'clothApi',
@@ -29,8 +35,8 @@ export const clothApi = createApi({
     getClothingItems: builder.query<ClothingInterface[], number | ''>({
       query: (limit) => `items?page=1&limit=${limit}`,
     }),
-    getClothingItemsByPage: builder.query<ClothingInterface[], { page: number, limit: number }>({
-      query: ({ page, limit }) => `items?page=${page}&limit=${limit}`,
+    getClothingItemsByPage: builder.query<ClothingInterface[], Pagination>({
+      query: ({ page, limit, category }) => `items?page=${page}&limit=${limit}&category=${category}`,
     }),
     getClothingItemByID: builder.query<ClothingInterface, string>({
       query: (id) => `items/${id}`,
