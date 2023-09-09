@@ -1,5 +1,5 @@
 // General
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import style from './index.module.scss'
 import { Link } from 'react-router-dom'
 // Components

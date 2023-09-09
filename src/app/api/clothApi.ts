@@ -22,9 +22,9 @@ export interface ClothingInterface {
 }
 
 interface Pagination {
+  category?: string,
   page: number,
   limit: number,
-  category?: string,
 }
 
 // Define a service using a base URL and expected endpoints
@@ -36,7 +36,7 @@ export const clothApi = createApi({
       query: (limit) => `items?page=1&limit=${limit}`,
     }),
     getClothingItemsByPage: builder.query<ClothingInterface[], Pagination>({
-      query: ({ page, limit, category }) => `items?page=${page}&limit=${limit}&category=${category}`,
+      query: ({ category, page, limit }) => `items?category=${category}&page=${page}&limit=${limit}`,
     }),
     getClothingItemByID: builder.query<ClothingInterface, string>({
       query: (id) => `items/${id}`,

@@ -55,10 +55,26 @@
 }
 
 .page {
-  margin: 0px 10px 0px 0px;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0px 4px 0px 0px;
+  padding: 8px 14px;
+  transition: 0.3s ease;
   cursor: pointer;
+
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 140%;
+
+  &:hover {
+    color: #000;
+    background-color: #F0F0F0;
+    border-radius: 8px;
+  }
 }
 
 .activePage {
-  font-size: 25px;
+  color: #000;
+  background-color: #F0F0F0;
+  border-radius: 8px;
 }

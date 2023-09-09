@@ -1,5 +1,5 @@
 // General
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import style from './index.module.scss'
 // APi
 import { getClothingItems } from 'app/api'
@@ -9,16 +9,16 @@ import { defineNumberOfPages } from '../lib'
 import arrowLeft from '../img/arrow-left.svg'
 import arrowRight from '../img/arrow-right.svg'
 
-interface Pagination {
+interface PaginationProps {
   currentPage: number,
   setCurrentPage: (newPageNumber: number) => void,
   pageLimit: number,
 }
 
-export const Pagination: FC<Pagination> = ({ currentPage, setCurrentPage, pageLimit }) => {
+export const Pagination: FC<PaginationProps> = ({ currentPage, setCurrentPage, pageLimit }) => {
   const { data, isLoading } = getClothingItems('');
   const dataLength: number | undefined = data?.length;
-  const arrayOfPages = dataLength && defineNumberOfPages(dataLength, pageLimit);
+  const arrayOfPages = dataLength && defineNumberOfPages(dataLength, pageLimit, currentPage);
 
   return (
     <div className={style.block}>
@@ -35,15 +35,10 @@ export const Pagination: FC<Pagination> = ({ currentPage, setCurrentPage, pageLi
         {isLoading
           ? <div style={{ padding: '18px 0px 0px 10px' }}>Идет загрузка страниц...</div>
           : arrayOfPages
-            ? arrayOfPages.length < 7
-              ? arrayOfPages.map(pageNumber => pageNumber === currentPage
-                ? <div key={pageNumber} className={`${style.page} ${style.activePage}`} onClick={() => setCurrentPage(pageNumber)}>{pageNumber}</div>
-                : <div key={pageNumber} className={style.page} onClick={() => setCurrentPage(pageNumber)}>{pageNumber}</div>
-              )
-              : <></>
-            //     : (pageNumber <= currentPage + 2 || pageNumber >= arrayOfPages.length - 2)
-            // ? <div className={style.page}>{pageNumber}</div>
-            // : <div className={style.page}>...</div>
+            ? arrayOfPages.map(pageNumber => pageNumber === currentPage
+              ? <div key={pageNumber} className={`${style.page} ${style.activePage}`} onClick={() => setCurrentPage(pageNumber)}>{pageNumber}</div>
+              : <div key={pageNumber} className={style.page} onClick={() => setCurrentPage(pageNumber)}>{pageNumber}</div>
+            )
             : <div>Упс... кажется что-то пошло не так</div>
         }
       </div>

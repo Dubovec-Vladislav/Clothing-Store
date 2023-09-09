@@ -9,13 +9,14 @@ import { ClothingBlock } from 'widgets/clothing-block'
 import { getClothingItemsByPage } from 'app/api'
 
 export const CategoryContent: FC = (props) => {
-  useEffect(() => window.scrollTo(0, 0), []); // Scroll to top of page
   const { id } = useParams<{ id: string }>();
+  const [selectedColorsList, changeSelectedColorsList] = useState<string[]>([]);
 
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pageLimit,] = useState<number>(3);
-  const [selectedColorsList, changeSelectedColorsList] = useState<string[]>([]);
-  const { data, isFetching } = getClothingItemsByPage({ page: currentPage, limit: pageLimit, category: id });
+  const [pageLimit,] = useState<number>(1);
+  useEffect(() => window.scrollTo(0, 0), [currentPage]); // Scroll to top of the page, when changing the current page
+
+  const { data, isFetching } = getClothingItemsByPage({ category: id, page: currentPage, limit: pageLimit });
 
   return (
     <div className={style.content}>
