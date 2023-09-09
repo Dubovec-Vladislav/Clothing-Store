@@ -26,7 +26,7 @@ export const clothApi = createApi({
   reducerPath: 'clothApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://64e9aa66bf99bdcc8e66deea.mockapi.io' }),
   endpoints: (builder) => ({
-    getClothingItems: builder.query<ClothingInterface[], number>({
+    getClothingItems: builder.query<ClothingInterface[], number | ''>({
       query: (limit) => `items?page=1&limit=${limit}`,
     }),
     getClothingItemsByPage: builder.query<ClothingInterface[], { page: number, limit: number }>({

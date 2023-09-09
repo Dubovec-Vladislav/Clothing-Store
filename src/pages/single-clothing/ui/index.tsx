@@ -12,7 +12,7 @@ import { NewsSubscription } from 'widgets/news-subscription'
 import { Footer } from 'widgets/footer'
 
 export const SingleClothingPage: FC = (props) => {
-  useEffect(() => window.scrollTo(0, 0), []);
+  useEffect(() => window.scrollTo(0, 0), []); // Scroll to top of page
   const { id } = useParams<{ id: string }>();
 
   const tabsList: TabItemInterface[] = [

@@ -6,20 +6,23 @@ import { Link } from 'react-router-dom'
 import { ClothingCard } from 'entities/clothing-card'
 // Api
 import { ClothingInterface } from 'app/api'
+import { Pagination } from 'shared/ui'
 
 interface ClothingBlockProps {
   data: ClothingInterface[] | undefined,
   isLoading: boolean,
+  currentPage: number,
+  setCurrentPage: (newPageNumber: number) => void,
+  pageLimit: number,
 }
 
-export const ClothingBlock: FC<ClothingBlockProps> = ({ data, isLoading }) => {
-
+export const ClothingBlock: FC<ClothingBlockProps> = ({ data, isLoading, currentPage, setCurrentPage, pageLimit }) => {
   return (
     <section className={style.block}>
       <div className={style.body}>
         <div className={style.row}>
           {isLoading
-            ? <div>Идет загрузка одежды...</div>
+            ? <div style={{ padding: '18px 0px 0px 10px' }}>Идет загрузка одежды...</div>
             : data
               ? data.map((item: ClothingInterface) =>
                 <Link to={`/cloth/${item.id}`} key={item.id} className={style.item} target={"_blank"}>
@@ -35,6 +38,7 @@ export const ClothingBlock: FC<ClothingBlockProps> = ({ data, isLoading }) => {
               : <div>Упс... кажется что-то пошло не так</div>
           }
         </div>
+        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} pageLimit={pageLimit} />
       </div>
     </section>
   );

@@ -1,6 +1,10 @@
+// General
 import React, { FC, useState, useEffect, useRef } from 'react'
 import style from './index.module.scss'
+import { Link } from 'react-router-dom'
+// Components
 import { BlockTitle } from 'shared/ui'
+// Images
 import casual from '../img/casual.jpg'
 import formal from '../img/formal.jpg'
 import party from '../img/party.jpg'
@@ -64,7 +68,8 @@ export const CategoryBlock: FC = (props) => {
       <div className={style.body}>
         <div className={style.row} ref={rowRef}>
           {itemStates.map((itemState, i) => (
-            <div
+            <Link
+              to={`/category/${i + 1}`}
               key={i}
               className={`${itemState.size === 'large' ? style.largeItem : style.smallItem} ${itemState.animated ? style._anim : ''}`}
               onClick={() => toggleAnimation(i)}
@@ -73,7 +78,7 @@ export const CategoryBlock: FC = (props) => {
                 <div className={style.text}>{photosMas[i].name}</div>
                 <div className={style.img}><img src={photosMas[i].src} alt={photosMas[i].name} /></div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

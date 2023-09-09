@@ -1,1 +1,1 @@
-export { CategoryContent } from './ui'
+export { CategoryContent } from './category-content'

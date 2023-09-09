@@ -1,7 +1,11 @@
 .block {
   flex: 0 1 75%;
   padding: 0px 10px;
-  margin: 0px 0px 50px 0px;
+  margin: 0px 0px calc(50px + 30 * (100vw / 1440)) 0px;
+
+  @media (max-width: 769px) {
+    margin: 0px 0px calc(50px + 30 * ((100vw - 320px) / 1440)) 0px;
+  }
 }
 
 .body {}
@@ -9,10 +13,13 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: -18px -10px;
+  margin: -18px -10px 20px -10px;
+  padding: 0px 0px 32px 0px;
+  border-bottom: solid 1px #E6E6E6;
 
   @media (max-width: 769px) {
     margin: -12px -7px;
+    padding: 0px 0px 24px 0px;
   }
 }
 
