@@ -2,19 +2,26 @@ import React, { FC } from 'react'
 import style from './style.module.scss'
 
 interface SizeSelectionLineProps {
-  sizeList: number[],
-  selectedSize: number,
-  changeSelectedSize: (newColor: number) => void,
+  sizesList: number[],
+  selectedSize?: number,
+  selectedSizesList?: number[],
+  handleSizeClick: (newSizeIndex: number) => void,
 }
 
-export const SizeSelectionLine: FC<SizeSelectionLineProps> = ({ sizeList, selectedSize, changeSelectedSize }) => {
+export const SizeSelectionLine: FC<SizeSelectionLineProps> = ({ sizesList, selectedSize, selectedSizesList, handleSizeClick }) => {
   return (
     <div className={style.row}>
-      {sizeList.map((size, i) => (
-        size === selectedSize
-          ? <div key={i} className={`${style.item} ${style.selectedItem}`}>{size}</div>
-          : <div key={i} className={style.item} onClick={() => changeSelectedSize(size)}>{size}</div>
-      ))}
+      {selectedSizesList
+        ? sizesList.map((size, i) => (
+          selectedSizesList.includes(size)
+            ? <div key={i} className={`${style.item} ${style.selectedItem}`} onClick={() => handleSizeClick(i)}>{size}</div>
+            : <div key={i} className={style.item} onClick={() => handleSizeClick(i)}>{size}</div>
+        ))
+        : sizesList.map((size, i) => (
+          size === selectedSize
+            ? <div key={i} className={`${style.item} ${style.selectedItem}`}>{size}</div>
+            : <div key={i} className={style.item} onClick={() => handleSizeClick(size)}>{size}</div>
+        ))}
     </div>
   );
 };

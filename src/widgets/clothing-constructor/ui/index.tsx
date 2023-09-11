@@ -32,7 +32,7 @@ export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) =
   useEffect(() => {
     if (data) {
       changeSelectedColor(data.imageObjects[0].color);
-      changeSelectedSize(data.sizeList[0]);
+      changeSelectedSize(data.sizesList[0]);
       setActiveImageObject(data.imageObjects[0]);
     }
   }, [data]);
@@ -73,7 +73,7 @@ export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) =
                   </div>
                   <div className={style.sizes}>
                     <div className={style.sizeLabel}>Выберите размер</div>
-                    <SizeSelectionLine sizeList={data.sizeList} selectedSize={selectedSize} changeSelectedSize={changeSelectedSize} />
+                    <SizeSelectionLine sizesList={data.sizesList} selectedSize={selectedSize} handleSizeClick={changeSelectedSize} />
                   </div>
                   <div className={style.footer}>
                     <div className={style.counterBtn}><CartCounterBtn number={numOfClothing} changeNumber={changeNumOfClothing} /></div>

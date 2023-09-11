@@ -13,7 +13,7 @@ export interface ClothingInterface {
   description: string,
   price: number,
   prevPrice: number,
-  sizeList: number[],
+  sizesList: number[],
   commentsList: CommentInterface[],
   category: number,
   rating: number,

@@ -5,7 +5,7 @@ interface ColorSelectionLineProps {
   colorsList: string[],
   selectedColor?: string,
   selectedColorsList?: string[],
-  handleColorClick: (i: number) => void,
+  handleColorClick: (newColorIndex: number) => void,
 }
 
 export const ColorSelectionLine: FC<ColorSelectionLineProps> = ({ colorsList, selectedColor, selectedColorsList, handleColorClick }) => {
