@@ -1,5 +1,5 @@
-// General(0, 0)useEffect
-import React, { FC, useEffect } from 'react'
+// General
+import React, { FC } from 'react'
 import style from './index.module.scss'
 // Components
 import { Header } from 'widgets/header'

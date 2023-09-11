@@ -35,9 +35,11 @@ export const Pagination: FC<PaginationProps> = ({ currentPage, setCurrentPage, p
         {isLoading
           ? <div style={{ padding: '18px 0px 0px 10px' }}>Идет загрузка страниц...</div>
           : arrayOfPages
-            ? arrayOfPages.map(pageNumber => pageNumber === currentPage
-              ? <div key={pageNumber} className={`${style.page} ${style.activePage}`} onClick={() => setCurrentPage(pageNumber)}>{pageNumber}</div>
-              : <div key={pageNumber} className={style.page} onClick={() => setCurrentPage(pageNumber)}>{pageNumber}</div>
+            ? arrayOfPages.map((pageNumber, i) => pageNumber === 0
+              ? <div key={i} className={`${style.page} ${style.ellipsis}`}>...</div>
+              : pageNumber === currentPage
+                ? <div key={i} className={`${style.page} ${style.activePage}`} onClick={() => setCurrentPage(pageNumber)}>{pageNumber}</div>
+                : <div key={i} className={style.page} onClick={() => setCurrentPage(pageNumber)}>{pageNumber}</div>
             )
             : <div>Упс... кажется что-то пошло не так</div>
         }

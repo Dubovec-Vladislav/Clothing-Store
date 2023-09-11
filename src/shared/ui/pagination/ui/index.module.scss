@@ -73,6 +73,12 @@
   }
 }
 
+.ellipsis {
+  // Disable hover
+  color: initial !important;
+  background-color: initial !important;
+}
+
 .activePage {
   color: #000;
   background-color: #F0F0F0;
