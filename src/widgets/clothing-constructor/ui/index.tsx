@@ -7,7 +7,7 @@ import { CartCounterBtn } from 'features/cart-counter-btn'
 import { ColorSelectionLine } from 'features/color-selection-line'
 import { SizeSelectionLine } from 'features/size-selection-line'
 // Api
-import { ImageObject, getClothingItemById } from 'app/api'
+import { ImageObjectInterface, getClothingItemById } from 'app/api'
 
 interface ClothingConstructorProps {
   clothId: string | undefined,
@@ -22,7 +22,7 @@ export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) =
   const [numOfClothing, changeNumOfClothing] = useState<number>(1);
   const [selectedColor, changeSelectedColor] = useState<string>('');
   const [selectedSize, changeSelectedSize] = useState<number>(0);
-  const [activeImageObject, setActiveImageObject] = useState<ImageObject>();
+  const [activeImageObject, setActiveImageObject] = useState<ImageObjectInterface>();
 
   const handleColorClick = (i: number) => {
     changeSelectedColor(colorsList[i]);

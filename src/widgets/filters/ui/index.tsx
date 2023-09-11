@@ -17,7 +17,7 @@ interface FiltersProps {
 
 export const Filters: FC<FiltersProps> = ({ data, isLoading, selectedColorsList, changeSelectedColorsList }) => {
   const colorsList: string[] = [];
-  data?.forEach(item => colorsList.push(item.imageObjects[0].color));
+  data?.forEach(item => colorsList.push(item.imageObjects[0].color)); // Get all colors of clothing on the page
 
   const handleColorClick = (i: number) => {
     const color = colorsList[i];

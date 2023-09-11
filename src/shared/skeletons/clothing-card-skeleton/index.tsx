@@ -9,7 +9,7 @@ export const ClothingCardSkeleton: FC = (props) => {
         speed={2}
         width={"100%"}
         height={570}
-        viewBox="0 0"
+        // viewBox="0 0 294 570"
         backgroundColor="#f3f3f3"
         foregroundColor="#ecebeb"
         {...props}

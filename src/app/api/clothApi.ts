@@ -1,14 +1,14 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { CommentInterface } from 'entities/comment'
 
-export interface ImageObject {
+export interface ImageObjectInterface {
   color: string,
   previewImg: string,
   images: string[],
 }
 
 export interface ClothingInterface {
-  imageObjects: ImageObject[],
+  imageObjects: ImageObjectInterface[],
   name: string,
   description: string,
   price: number,
