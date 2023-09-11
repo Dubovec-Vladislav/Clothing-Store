@@ -1,0 +1,9 @@
+.skeleton {
+  flex: 0 1 calc(1/3*100%);
+  max-height: px;
+  padding: 18px 10px;
+
+  @media (max-width: 1053px) {
+    flex: 0 1 50%;
+  }
+}
