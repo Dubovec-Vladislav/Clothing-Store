@@ -27,6 +27,7 @@ export const CategoryContent: FC = (props) => {
   // ---------- General data and hooks ----------- //
   const { data, isFetching } = getClothingItemsByPage({ category: id, page: currentPage, limit: pageLimit });
 
+
   const dataSortedByColor = data?.filter((item: ClothingInterface) =>
     selectedColorsList.includes(item.imageObjects[0].color
     )); // Filtering by color
@@ -36,9 +37,25 @@ export const CategoryContent: FC = (props) => {
     return item.sizesList.some(size => selectedSizesList.includes(size));
   }); // Filtering by size
 
-  console.log(dataSortedBySize);
-  // --------------------------------------------- //
 
+  // Union of two arrays
+  const arrayWithSortedColorsAndSizes: ClothingInterface[] | undefined = dataSortedBySize && dataSortedByColor?.concat(dataSortedBySize);
+
+  const arrayWithCommonSortedColorsAndSizes: ClothingInterface[] = [];
+  // If item is contained in both arrays and has not yet been added, then add
+  arrayWithSortedColorsAndSizes?.forEach(item => (dataSortedByColor?.includes(item) && dataSortedBySize?.includes(item))
+    && !arrayWithCommonSortedColorsAndSizes.includes(item) && arrayWithCommonSortedColorsAndSizes.push(item));
+
+
+  const sortedData: ClothingInterface[] | undefined =
+    (selectedColorsList.length !== 0 && selectedSizesList.length !== 0)
+      ? arrayWithCommonSortedColorsAndSizes
+      : selectedColorsList.length !== 0
+        ? dataSortedByColor
+        : selectedSizesList.length !== 0
+          ? dataSortedBySize
+          : data
+  // --------------------------------------------- //
 
   return (
     <div className={style.content}>
@@ -51,7 +68,7 @@ export const CategoryContent: FC = (props) => {
         changeSelectedSizesList={changeSelectedSizesList}
       />
       <ClothingBlock
-        data={dataSortedByColor?.length !== 0 ? dataSortedByColor : data}
+        data={sortedData}
         isLoading={isFetching}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}

@@ -36,6 +36,14 @@
   }
 }
 
+.clothingError {
+  padding: 28px 0px 0px 10px;
+
+  @media (max-width: 769px) {
+    padding: 16px 0px 0px 7px;
+  }
+}
+
 .skeletons {
   display: flex;
   flex-wrap: wrap;

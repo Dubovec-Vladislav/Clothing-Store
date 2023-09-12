@@ -19,6 +19,7 @@ interface ClothingBlockProps {
 }
 
 export const ClothingBlock: FC<ClothingBlockProps> = ({ data, isLoading, currentPage, setCurrentPage, pageLimit }) => {
+  console.log(data?.length);
   return (
     <section className={style.block}>
       <div className={style.body}>
@@ -26,17 +27,18 @@ export const ClothingBlock: FC<ClothingBlockProps> = ({ data, isLoading, current
           {isLoading
             ? <div className={style.skeletons}>{[...new Array(pageLimit)].map((_, index) => <ClothingCardSkeleton key={index} />)}</div>
             : data
-              ? data.map((item: ClothingInterface) =>
-                <Link to={`/cloth/${item.id}`} key={item.id} className={style.item} target={"_blank"}>
-                  <ClothingCard
-                    imageUrl={item.imageObjects[0].previewImg}
-                    name={item.name}
-                    price={item.price}
-                    prevPrice={item.prevPrice}
-                    rating={item.rating}
-                  />
-                </Link>
-              )
+              ? data.length !== 0
+                ? data.map((item: ClothingInterface) => (
+                  <Link to={`/cloth/${item.id}`} key={item.id} className={style.item} target={"_blank"}>
+                    <ClothingCard
+                      imageUrl={item.imageObjects[0].previewImg}
+                      name={item.name}
+                      price={item.price}
+                      prevPrice={item.prevPrice}
+                      rating={item.rating}
+                    />
+                  </Link>))
+                : <div className={style.clothingError}>Упс... кажется такой одежды нет</div>
               : <div>Упс... кажется что-то пошло не так</div>
           }
         </div>

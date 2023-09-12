@@ -23,7 +23,7 @@ export const Filters: FC<FiltersProps> = (
     selectedSizesList, changeSelectedSizesList }
 ) => {
   const colorsList: string[] = [];
-  const sizesList: number[] = [42, 44, 48];
+  const sizesList: number[] = [38, 40, 42, 44, 46, 48, 50, 52, 54, 56];
   data?.forEach(item => colorsList.push(item.imageObjects[0].color)); // Get all colors of clothing on the page
 
   const handleColorClick = (i: number) => {
