@@ -7,6 +7,7 @@ import { Filters } from 'widgets/filters'
 import { ClothingBlock } from 'widgets/clothing-block'
 // Api
 import { ClothingInterface, getClothingItemsByPage } from 'app/api'
+import { getCommonClothingVariants } from '../lib'
 
 export const CategoryContent: FC = (props) => {
 
@@ -19,14 +20,17 @@ export const CategoryContent: FC = (props) => {
 
   // ------- Clothing Block data and hooks ------- //
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pageLimit,] = useState<number>(6);
-  useEffect(() => window.scrollTo(0, 0), [currentPage]); // Scroll to top of the page, when changing the current page
+  const [pageLimit,] = useState<number>(9);
+  useEffect(() => {
+    window.scrollTo(0, 0) // Scroll to top of the page, when changing the current page
+    changeSelectedColorsList([]); // Clear list
+    changeSelectedSizesList([]); // Clear list
+  }, [currentPage]);
   // --------------------------------------------- //
 
 
   // ---------- General data and hooks ----------- //
   const { data, isFetching } = getClothingItemsByPage({ category: id, page: currentPage, limit: pageLimit });
-
 
   const dataSortedByColor = data?.filter((item: ClothingInterface) =>
     selectedColorsList.includes(item.imageObjects[0].color
@@ -37,19 +41,11 @@ export const CategoryContent: FC = (props) => {
     return item.sizesList.some(size => selectedSizesList.includes(size));
   }); // Filtering by size
 
-
-  // Union of two arrays
-  const arrayWithSortedColorsAndSizes: ClothingInterface[] | undefined = dataSortedBySize && dataSortedByColor?.concat(dataSortedBySize);
-
-  const arrayWithCommonSortedColorsAndSizes: ClothingInterface[] = [];
-  // If item is contained in both arrays and has not yet been added, then add
-  arrayWithSortedColorsAndSizes?.forEach(item => (dataSortedByColor?.includes(item) && dataSortedBySize?.includes(item))
-    && !arrayWithCommonSortedColorsAndSizes.includes(item) && arrayWithCommonSortedColorsAndSizes.push(item));
-
+  const commonClothingVariants = getCommonClothingVariants(dataSortedByColor, dataSortedBySize);
 
   const sortedData: ClothingInterface[] | undefined =
     (selectedColorsList.length !== 0 && selectedSizesList.length !== 0)
-      ? arrayWithCommonSortedColorsAndSizes
+      ? commonClothingVariants
       : selectedColorsList.length !== 0
         ? dataSortedByColor
         : selectedSizesList.length !== 0
@@ -61,6 +57,7 @@ export const CategoryContent: FC = (props) => {
     <div className={style.content}>
       <Filters
         data={data}
+        sortedData={sortedData}
         isLoading={isFetching}
         selectedColorsList={selectedColorsList}
         changeSelectedColorsList={changeSelectedColorsList}
