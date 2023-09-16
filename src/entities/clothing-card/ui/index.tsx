@@ -11,6 +11,7 @@ export interface ClothingCardProps {
 };
 
 export const ClothingCard: FC<ClothingCardProps> = ({ imageUrl, name, price, prevPrice, rating }) => {
+
   return (
     <div className={style.body}>
       <div className={style.img}><img src={imageUrl} alt={name} /></div>

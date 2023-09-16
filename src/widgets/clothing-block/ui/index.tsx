@@ -19,7 +19,6 @@ interface ClothingBlockProps {
 }
 
 export const ClothingBlock: FC<ClothingBlockProps> = ({ data, isLoading, currentPage, setCurrentPage, pageLimit }) => {
-  console.log(data?.length);
   return (
     <section className={style.block}>
       <div className={style.body}>

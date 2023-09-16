@@ -1,18 +1,17 @@
 import { ClothingInterface } from "app/api"
 
-export const getCommonClothingVariants = (
-  dataSortedByColor: ClothingInterface[] | undefined,
-  dataSortedBySize: ClothingInterface[] | undefined): ClothingInterface[] | undefined => {
+export const getCommonVariantsFromArrays = (generalArray: ClothingInterface[][]): ClothingInterface[] => {
+  const nonEmptyArraysCount = generalArray.filter(array => array.length > 0).length;
 
-  // Union of two arrays
-  const combinedClothing = dataSortedBySize && dataSortedByColor?.concat(dataSortedBySize);
+  // Combining arrays
+  const combinedArray: ClothingInterface[] = generalArray.reduce((result, currentArray) => result.concat(currentArray), []);
+  // Count the number of repeating elements (create a collection, key - item, value - amount)
+  const itemCountMap = combinedArray.reduce((map, item) => map.set(item, (map.get(item) || 0) + 1),
+    new Map<ClothingInterface, number>()
+  );
+
   const commonClothingVariants: ClothingInterface[] = [];
-
-  // If item is contained in both arrays and has not yet been added, then add
-  combinedClothing?.forEach(item => {
-    if (dataSortedByColor?.includes(item) && dataSortedBySize?.includes(item)) {
-      !commonClothingVariants.includes(item) && commonClothingVariants.push(item)
-    }});
+  itemCountMap.forEach((key, value) => key === nonEmptyArraysCount && commonClothingVariants.push(value))
 
   return commonClothingVariants;
 }

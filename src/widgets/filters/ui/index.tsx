@@ -11,23 +11,31 @@ import { InputRange } from 'shared/ui'
 
 interface FiltersProps {
   data: ClothingInterface[] | undefined,
-  sortedData: ClothingInterface[] | undefined,
   isLoading: boolean,
+
   selectedColorsList: string[],
   changeSelectedColorsList: (newList: string[]) => void,
+
   selectedSizesList: number[],
   changeSelectedSizesList: (newList: number[]) => void,
+
+  minPrice: number,
+  setMinPrice: (newPrice: number) => void,
+  maxPrice: number,
+  setMaxPrice: (newPrice: number) => void,
 }
 
 export const Filters: FC<FiltersProps> = (
-  { data, sortedData, isLoading,
+  { data, isLoading,
     selectedColorsList, changeSelectedColorsList,
-    selectedSizesList, changeSelectedSizesList }
+    selectedSizesList, changeSelectedSizesList,
+    minPrice, setMinPrice, maxPrice, setMaxPrice, }
 ) => {
+
   const colorsList: string[] = [];
-  const sizesList: number[] = [];
+  const sizesList: number[] = [...selectedSizesList];
   data?.forEach(item => colorsList.push(item.imageObjects[0].color)); // Get all colors of clothing on the page
-  sortedData?.forEach(item => item.sizesList.forEach(size => !sizesList.includes(size) && sizesList.push(size))); // Get all sizes of clothing on the page
+  data?.forEach(item => item.sizesList.forEach(size => !sizesList.includes(size) && sizesList.push(size))); // Get all sizes of clothing on the page
 
   const handleColorClick = (i: number) => {
     const color = colorsList[i];
@@ -51,7 +59,12 @@ export const Filters: FC<FiltersProps> = (
         </div>
         <div className={style.item}>
           <div className={style.title}>Цена</div>
-          <InputRange />
+          <InputRange
+            minPrice={minPrice}
+            setMinPrice={setMinPrice}
+            maxPrice={maxPrice}
+            setMaxPrice={setMaxPrice}
+          />
         </div>
         <div className={style.item}>
           <div className={style.title}>Расцветки</div>
