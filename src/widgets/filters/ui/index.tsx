@@ -1,13 +1,15 @@
 // General
 import React, { FC } from 'react'
 import style from './index.module.scss'
-import filters from '../img/filters.svg'
+import { Link } from 'react-router-dom'
 // Components
 import { ColorSelectionLine } from 'features/color-selection-line'
 import { SizeSelectionLine } from 'features/size-selection-line'
+import { InputRange } from 'shared/ui'
 // Api
 import { ClothingInterface } from 'app/api'
-import { InputRange } from 'shared/ui'
+// Images
+import filters from '../img/filters.svg'
 
 interface FiltersProps {
   data: ClothingInterface[] | undefined,
@@ -94,7 +96,9 @@ export const Filters: FC<FiltersProps> = (
         </div>
         <div className={style.item}>
           <div className={style.title}>Другие категории</div>
-          {/* <SizeSelectionLine /> */}
+          <Link to={'#'} className={style.categoryItem}>Повседневная</Link>
+          <Link to={'#'} className={style.categoryItem}>Для развлечений</Link>
+          <Link to={'#'} className={style.categoryItem}>Для зала</Link>
         </div>
       </div>
     </section>

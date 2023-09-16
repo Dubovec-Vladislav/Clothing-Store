@@ -1,5 +1,6 @@
-import React, { ChangeEvent, FC } from 'react'
+import React, { ChangeEvent, FC, useCallback, useState } from 'react'
 import './style.scss'
+import debounce from 'lodash.debounce'
 
 interface InputRangeProps {
   minPrice: number,
@@ -9,9 +10,32 @@ interface InputRangeProps {
 }
 
 export const InputRange: FC<InputRangeProps> = ({ minPrice, setMinPrice, maxPrice, setMaxPrice, }) => {
+
   const ONE_PERCENT_IN_RUBLES = 50; // Max value -> 50 * 100 = 5000
   minPrice /= ONE_PERCENT_IN_RUBLES;
   maxPrice /= ONE_PERCENT_IN_RUBLES;
+
+  const [minValue, setMinValue] = useState<number>(minPrice);
+  const [maxValue, setMaxValue] = useState<number>(maxPrice);
+
+  const updateMinPrice = useCallback(debounce((price: number) => setMinPrice(price), 200), []);
+  const updateMaxPrice = useCallback(debounce((price: number) => setMaxPrice(price), 200), []);
+
+  const handleMinPriceChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const price = parseInt(e.target.value);
+    if (price <= maxPrice - 15) {
+      setMinValue(price);
+      updateMinPrice(price * ONE_PERCENT_IN_RUBLES);
+    }
+  }
+
+  const handleMaxPriceChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const price = parseInt(e.target.value);
+    if (price >= minPrice + 15) {
+      setMaxValue(price);
+      updateMaxPrice(price * ONE_PERCENT_IN_RUBLES);
+    }
+  }
 
   return (
     <div>
@@ -21,13 +45,11 @@ export const InputRange: FC<InputRangeProps> = ({ minPrice, setMinPrice, maxPric
             type="range"
             min="5"
             max="100"
-            value={minPrice}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              parseInt(e.target.value) <= maxPrice - 15 && setMinPrice(parseInt(e.target.value) * ONE_PERCENT_IN_RUBLES)
-            }
+            value={minValue}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => handleMinPriceChange(e)}
           />
-          <div className="input-range__bgLine input-range__bgLine_1" style={{ width: `${minPrice + 1}%` }}>
-            <div className="input-range__price" style={{ right: `${-10 + minPrice / 20}px` }}>{minPrice * ONE_PERCENT_IN_RUBLES}</div>
+          <div className="input-range__bgLine input-range__bgLine_1" style={{ width: `${minValue + 1}%` }}>
+            <div className="input-range__price" style={{ right: `${-10 + minValue / 20}px` }}>{minValue * ONE_PERCENT_IN_RUBLES}</div>
           </div>
         </div>
         <div className="input-range__item">
@@ -35,18 +57,15 @@ export const InputRange: FC<InputRangeProps> = ({ minPrice, setMinPrice, maxPric
             type="range"
             min="0"
             max="100"
-            value={maxPrice}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              parseInt(e.target.value) >= minPrice + 15 && setMaxPrice(parseInt(e.target.value) * ONE_PERCENT_IN_RUBLES)
-            }
+            value={maxValue}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => handleMaxPriceChange(e)}
           />
-          <div className="input-range__bgLine input-range__bgLine_2" style={{ width: `${101 - maxPrice}%` }}>
-            <div className="input-range__price" style={{ left: `${-0.3 * maxPrice}px` }}>{maxPrice * ONE_PERCENT_IN_RUBLES}</div>
+          <div className="input-range__bgLine input-range__bgLine_2" style={{ width: `${101 - maxValue}%` }}>
+            <div className="input-range__price" style={{ left: `${-0.3 * maxValue}px` }}>{maxValue * ONE_PERCENT_IN_RUBLES}</div>
           </div>
         </div>
 
       </div>
-      {/* {`minPrice - ${minPrice}, maxPrice - ${maxPrice}`} */}
     </div>
   );
 };

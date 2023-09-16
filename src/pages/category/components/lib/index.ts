@@ -14,4 +14,8 @@ export const getCommonVariantsFromArrays = (generalArray: ClothingInterface[][])
   itemCountMap.forEach((key, value) => key === nonEmptyArraysCount && commonClothingVariants.push(value))
 
   return commonClothingVariants;
-}
+};
+
+export const filterData = (data: ClothingInterface[] | undefined, filterFunction: (item: ClothingInterface) => boolean) => {
+  return data?.filter(filterFunction) || [];
+};
