@@ -3,9 +3,9 @@ import style from './index.module.scss'
 import arrow from '../img/arrow-down.svg'
 
 interface sortType {
-  name : string,
-  urlName : string,
-  order : string,
+  name: string,
+  urlName: string,
+  order: string,
 }
 
 interface FilterPopupProps {
@@ -27,7 +27,7 @@ export const FilterPopup: FC<FilterPopupProps> = ({ indexOfActiveSortType, setIn
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (sortRef.current && !e.composedPath().includes(sortRef.current)) toggleIsPopupActive(false);
+      sortRef.current && !e.composedPath().includes(sortRef.current) && toggleIsPopupActive(false);
     };
     document.body.addEventListener('click', handleClickOutside);
     return () => document.body.removeEventListener('click', handleClickOutside);
@@ -35,8 +35,8 @@ export const FilterPopup: FC<FilterPopupProps> = ({ indexOfActiveSortType, setIn
 
   return (
     <div className={style.block} ref={sortRef}>
-      <div className={style.label}>
-        <div className={style.text} onClick={() => toggleIsPopupActive(!isPopupActive)}>Порядок сортировки: <span>{activeSortTypeName}</span></div>
+      <div className={style.label} onClick={() => toggleIsPopupActive(!isPopupActive)}>
+        <div className={style.text}>Порядок сортировки: <span>{activeSortTypeName}</span></div>
         <div className={isPopupActive ? `${style.arrow} ${style.activeArrow}` : `${style.arrow}`}><img src={arrow} alt="arrow" /></div>
       </div>
       <div className={isPopupActive ? `${style.activePopup} ${style.popup}` : `${style.popup}`}>

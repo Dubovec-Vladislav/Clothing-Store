@@ -1,6 +1,6 @@
 // General
 import React, { FC, useState } from 'react'
-import style from './index.module.scss'
+import style from './style.module.scss'
 import { Link } from 'react-router-dom'
 // Components
 import { BlockTitle, Button } from 'shared/ui'

@@ -1,6 +1,32 @@
 .block {
   flex: 0 1 25%;
   padding: 0px 10px;
+
+  @media (max-width: 1241px) {
+    flex: 0 1 30%;
+  }
+
+  @media (max-width: 941px) {
+    flex: 0 1 35%;
+  }
+
+  @media (max-width: 760px) {
+    flex: 0 1 50%;
+  }
+
+  @media (max-width: 694px) {
+    flex: 0 1 50%;
+  }
+}
+
+.body {
+  padding: 20px 24px;
+  border: 1px solid #E6E6E6;
+  border-radius: 20px;
+
+  @media (max-width: 1025px) {
+    padding: 20px 16px;
+  }
 }
 
 .item {
@@ -11,14 +37,6 @@
   @media (max-width: 769px) {
     margin: 0px 0px 20px 0px;
     padding: 0px 0px 20px 0px;
-  }
-}
-
-.body {
-  padding: 20px 24px;
-
-  @media (max-width: 426px) {
-    padding: 20px;
   }
 }
 
@@ -36,6 +54,10 @@
 
   @media (max-width: 769px) {
     margin: 0px 0px 16px 0px;
+  }
+
+  span {
+    margin: 0px 10px 0px 0px;
   }
 }
 

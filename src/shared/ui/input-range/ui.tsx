@@ -48,8 +48,8 @@ export const InputRange: FC<InputRangeProps> = ({ minPrice, setMinPrice, maxPric
             value={minValue}
             onChange={(e: ChangeEvent<HTMLInputElement>) => handleMinPriceChange(e)}
           />
-          <div className="input-range__bgLine input-range__bgLine_1" style={{ width: `${minValue + 1}%` }}>
-            <div className="input-range__price" style={{ right: `${-10 + minValue / 20}px` }}>{minValue * ONE_PERCENT_IN_RUBLES}</div>
+          <div className="input-range__bgLine input-range__bgLine_1" style={{ width: `${minValue - 3}%` }}>
+            <div className="input-range__price" style={{ right: `${-15 + minValue / 20}px` }}>{minValue * ONE_PERCENT_IN_RUBLES}</div>
           </div>
         </div>
         <div className="input-range__item">

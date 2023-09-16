@@ -1,6 +1,6 @@
 // General
 import React, { FC, useEffect, useState } from 'react'
-import style from './index.module.scss'
+import style from './style.module.scss'
 // Components
 import { BreadCrumbs, Button, Rating } from 'shared/ui'
 import { CartCounterBtn } from 'features/cart-counter-btn'

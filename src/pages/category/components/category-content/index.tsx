@@ -20,8 +20,9 @@ export const CategoryContent: FC = (props) => {
 
 
   // ------- Clothing Block data and hooks ------- //
+  const DEFAULT_PAGE_LIMIT = 8;
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [pageLimit,] = useState<number>(8);
+  const [pageLimit,] = useState<number>(DEFAULT_PAGE_LIMIT);
   useEffect(() => {
     window.scrollTo(0, 0) // Scroll to top of the page, when changing the current page
     changeSelectedColorsList([]); // Clear list
