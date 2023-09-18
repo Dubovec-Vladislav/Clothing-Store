@@ -6,9 +6,10 @@ import { useParams } from 'react-router'
 import { Filters } from 'widgets/filters'
 import { ClothingBlock } from 'widgets/clothing-block'
 // Api
-import { ClothingInterface, getClothingItemsByPage } from 'app/api'
+import { ClothingInterface, getClothingItemsByPageAndSort } from 'app/api'
 // Lib
-import { filterData, getCommonVariantsFromArrays } from '../lib'
+import { filterData, getCommonVariantsFromArrays, sortTypes } from '../lib'
+// import { FilterPopup } from 'shared/ui'
 
 export const CategoryContent: FC = (props) => {
 
@@ -38,7 +39,12 @@ export const CategoryContent: FC = (props) => {
 
 
   // ---------- General data and hooks ----------- //
-  const { data, isFetching } = getClothingItemsByPage({ category: id, page: currentPage, limit: pageLimit });
+  const [indexOfActiveSortType, setIndexOfActiveSortType] = useState<number>(0);
+  const activeSortType = sortTypes[indexOfActiveSortType];
+  const { data, isFetching } = getClothingItemsByPageAndSort(
+    { category: id, page: currentPage, limit: pageLimit, sortBy: activeSortType.urlName, order: activeSortType.order }
+  );
+
 
   // Filtering by color
   const dataSortedByColor = filterData(data, (item) => selectedColorsList.includes(item.imageObjects[0].color));
@@ -78,6 +84,11 @@ export const CategoryContent: FC = (props) => {
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         pageLimit={pageLimit}
+
+        indexOfActiveSortType={indexOfActiveSortType}
+        setIndexOfActiveSortType={setIndexOfActiveSortType}
+        activeSortTypeName={activeSortType.name}
+        sortTypes={sortTypes}
       />
     </div>
   );

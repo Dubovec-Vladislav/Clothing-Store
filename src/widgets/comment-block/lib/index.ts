@@ -1,13 +1,7 @@
 import { CommentInterface } from "entities/comment"
 
-// Since it is not possible to perform sorting on the API side, it will be done here.
 
-export const sortTypes = [
-  { name: "новые", urlName: "date", order: "asc" },
-  { name: "старые", urlName: "date", order: "desc" },
-  { name: "с высоким рейтингом", urlName: "rating", order: "desc" },
-  { name: "с низким рейтингом", urlName: "rating", order: "asc" },
-];
+// Since it is not possible to perform sorting on the API side, it will be done here.
 
 export const sortBySelectedType = (
   commentsList: CommentInterface[],
@@ -28,3 +22,11 @@ export const sortBySelectedType = (
 
   return sortedData;
 }
+
+
+export const sortTypes = [
+  { name: "новые", urlName: "date", order: "asc" },
+  { name: "старые", urlName: "date", order: "desc" },
+  { name: "с высоким рейтингом", urlName: "rating", order: "desc" },
+  { name: "с низким рейтингом", urlName: "rating", order: "asc" },
+];

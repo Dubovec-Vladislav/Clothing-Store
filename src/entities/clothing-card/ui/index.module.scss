@@ -62,9 +62,13 @@
   font-weight: 700;
   line-height: normal;
 
-  @media (max-width: 426px) {
+  @media (max-width: 526px) {
     margin: 0px 5px 0px 0px;
     font-size: 20px;
+  }
+
+  @media (max-width: 426px) {
+    font-size: 18px;
   }
 }
 
@@ -78,7 +82,7 @@
   font-weight: 700;
   line-height: normal;
 
-  @media (max-width: 426px) {
+  @media (max-width: 526px) {
     margin: 0px 5px 0px 0px;
     font-size: 20px;
   }
@@ -105,7 +109,7 @@
   font-weight: 500;
   line-height: normal;
 
-  @media (max-width: 426px) {
+  @media (max-width: 526px) {
     font-size: 10px
   }
 }

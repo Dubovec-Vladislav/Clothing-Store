@@ -56,49 +56,50 @@ export const Filters: FC<FiltersProps> = (
   return (
     <section className={style.block}>
       <div className={style.body}>
-        <div className={style.item}>
-          <div className={style.title}><span>Фильтры</span><img src={filters} alt="filters" /></div>
-        </div>
-        <div className={style.item}>
-          <div className={style.title}>Цена</div>
-          <InputRange
-            minPrice={minPrice}
-            setMinPrice={setMinPrice}
-            maxPrice={maxPrice}
-            setMaxPrice={setMaxPrice}
-          />
-        </div>
-        <div className={style.item}>
-          <div className={style.title}>Расцветки</div>
-          {isLoading
-            ? <div>Идет загрузка расцветок...</div>
-            : colorsList
-              ? <ColorSelectionLine
-                colorsList={colorsList}
-                selectedColorsList={selectedColorsList}
-                handleColorClick={handleColorClick}
-              />
-              : <div>Упс... кажется что-то пошло не так</div>
-          }
-        </div>
-        <div className={style.item}>
-          <div className={style.title}>Размер</div>
-          {isLoading
-            ? <div>Идет загрузка размеров...</div>
-            : colorsList
-              ? <SizeSelectionLine
-                sizesList={sizesList.sort()}
-                selectedSizesList={selectedSizesList}
-                handleSizeClick={handleSizeClick}
-              />
-              : <div>Упс... кажется что-то пошло не так</div>
-          }
-        </div>
-        <div className={style.item}>
-          <div className={style.title}>Другие категории</div>
-          <Link to={'#'} className={style.categoryItem}>Повседневная</Link>
-          <Link to={'#'} className={style.categoryItem}>Для развлечений</Link>
-          <Link to={'#'} className={style.categoryItem}>Для зала</Link>
+        <div className={style.title}>
+          <span>Фильтры</span><img src={filters} alt="filters" /></div>
+        <div className={style.content}>
+          <div className={style.item}>
+            <div className={style.title}>Цена</div>
+            <InputRange
+              minPrice={minPrice}
+              setMinPrice={setMinPrice}
+              maxPrice={maxPrice}
+              setMaxPrice={setMaxPrice}
+            />
+          </div>
+          <div className={style.item}>
+            <div className={style.title}>Расцветки</div>
+            {isLoading
+              ? <div>Идет загрузка расцветок...</div>
+              : colorsList
+                ? <ColorSelectionLine
+                  colorsList={colorsList}
+                  selectedColorsList={selectedColorsList}
+                  handleColorClick={handleColorClick}
+                />
+                : <div>Упс... кажется что-то пошло не так</div>
+            }
+          </div>
+          <div className={style.item}>
+            <div className={style.title}>Размер</div>
+            {isLoading
+              ? <div>Идет загрузка размеров...</div>
+              : colorsList
+                ? <SizeSelectionLine
+                  sizesList={sizesList.sort()}
+                  selectedSizesList={selectedSizesList}
+                  handleSizeClick={handleSizeClick}
+                />
+                : <div>Упс... кажется что-то пошло не так</div>
+            }
+          </div>
+          <div className={style.item}>
+            <div className={style.title}>Другие категории</div>
+            <Link to={'#'} className={style.categoryItem}>Повседневная</Link>
+            <Link to={'#'} className={style.categoryItem}>Для развлечений</Link>
+            <Link to={'#'} className={style.categoryItem}>Для зала</Link>
+          </div>
         </div>
       </div>
     </section>

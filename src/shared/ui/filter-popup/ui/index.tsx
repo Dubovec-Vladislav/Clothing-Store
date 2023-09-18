@@ -2,13 +2,13 @@ import React, { FC, useEffect, useRef, useState } from 'react'
 import style from './index.module.scss'
 import arrow from '../img/arrow-down.svg'
 
-interface sortType {
+export interface sortType {
   name: string,
   urlName: string,
   order: string,
 }
 
-interface FilterPopupProps {
+export interface FilterPopupProps {
   indexOfActiveSortType: number,
   setIndexOfActiveSortType: (newActiveIndex: number) => void,
   activeSortTypeName: string,

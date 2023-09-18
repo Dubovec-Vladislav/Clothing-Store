@@ -1,5 +1,6 @@
 import { ClothingInterface } from "app/api"
 
+
 export const getCommonVariantsFromArrays = (generalArray: ClothingInterface[][]): ClothingInterface[] => {
   const nonEmptyArraysCount = generalArray.filter(array => array.length > 0).length;
 
@@ -16,6 +17,17 @@ export const getCommonVariantsFromArrays = (generalArray: ClothingInterface[][])
   return commonClothingVariants;
 };
 
+
 export const filterData = (data: ClothingInterface[] | undefined, filterFunction: (item: ClothingInterface) => boolean) => {
   return data?.filter(filterFunction) || [];
 };
+
+
+export const sortTypes = [
+  { name: "новые", urlName: "timeSinceReleaseDate", order: "asc" },
+  { name: "старые", urlName: "timeSinceReleaseDate", order: "desc" },
+  { name: "с высоким рейтингом", urlName: "rating", order: "desc" },
+  { name: "с низким рейтингом", urlName: "rating", order: "asc" },
+  { name: "по цене (max)", urlName: "price", order: "desc" },
+  { name: "по цене (min)", urlName: "price", order: "asc" },
+];

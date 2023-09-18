@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: -8px;
-  justify-content: space-around;
+  // justify-content: center;
 }
 
 .item {
@@ -11,10 +11,6 @@
   margin: 8px;
   border-radius: 50%;
   cursor: pointer;
-
-  @media (max-width: 426px) {
-    margin: 0px 12px 0px 0px;
-  }
 }
 
 .selectedItem {

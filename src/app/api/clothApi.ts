@@ -27,6 +27,14 @@ interface Pagination {
   limit: number,
 }
 
+interface PaginationAndSorting {
+  category?: string,
+  page: number,
+  limit: number,
+  sortBy: string,
+  order: string,
+}
+
 // Define a service using a base URL and expected endpoints
 export const clothApi = createApi({
   reducerPath: 'clothApi',
@@ -37,6 +45,9 @@ export const clothApi = createApi({
     }),
     getClothingItemsByPage: builder.query<ClothingInterface[], Pagination>({
       query: ({ category, page, limit }) => `items?category=${category}&page=${page}&limit=${limit}`,
+    }),
+    getClothingItemsByPageAndSort: builder.query<ClothingInterface[], PaginationAndSorting>({
+      query: ({ category, page, limit, sortBy, order }) => `items?category=${category}&page=${page}&limit=${limit}&sortBy=${sortBy}&order=${order}`,
     }),
     getClothingItemByID: builder.query<ClothingInterface, string>({
       query: (id) => `items/${id}`,
@@ -55,6 +66,7 @@ export const clothApi = createApi({
 export const {
   useGetClothingItemsQuery,
   useGetClothingItemsByPageQuery,
+  useGetClothingItemsByPageAndSortQuery,
   useGetClothingItemByIDQuery,
   useGetTopSellingClothingQuery,
   useGetNewClothingQuery,

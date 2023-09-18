@@ -3,6 +3,7 @@
   z-index: 50;
   width: 100vw;
   margin: 0px calc(-1 * (16px + 84 * (100vw / 1440)));
+  border: solid 1px #E6E6E6;
 
   @media (max-width: 769px) {
     margin: 0px calc(-1 * (16px + 84 * ((100vw - 320px) / 1440)));

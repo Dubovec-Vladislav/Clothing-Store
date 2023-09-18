@@ -1,13 +1,15 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  margin: -5px;
+  // justify-content: center;
 }
 
 .item {
   color: rgba(0, 0, 0, 0.6);
   background-color: #F0F0F0;
   margin: 5px;
+  // margin-right: auto;
   padding: 8px 16px;
   border-radius: 62px;
   cursor: pointer;

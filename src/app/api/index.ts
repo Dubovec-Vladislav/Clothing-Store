@@ -2,6 +2,7 @@ export {
   clothApi,
   useGetClothingItemsQuery as getClothingItems,
   useGetClothingItemsByPageQuery as getClothingItemsByPage,
+  useGetClothingItemsByPageAndSortQuery as getClothingItemsByPageAndSort,
   useGetClothingItemByIDQuery as getClothingItemById,
   useGetTopSellingClothingQuery as getTopSellingClothing,
   useGetNewClothingQuery as getNewClothing,
