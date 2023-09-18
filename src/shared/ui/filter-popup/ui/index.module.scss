@@ -18,9 +18,13 @@
   font-size: 18px;
   line-height: normal;
 
+  @media (max-width: 769px) {
+    font-size: 16px;
+  }
+
   @media (max-width: 426px) {
     margin: 0px 4px 0px 0px;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   span {
@@ -66,6 +70,7 @@
   font-size: 16px;
   line-height: normal;
   transition: 0.2s ease;
+  white-space: nowrap;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);

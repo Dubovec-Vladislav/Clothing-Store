@@ -25,13 +25,17 @@ interface FiltersProps {
   setMinPrice: (newPrice: number) => void,
   maxPrice: number,
   setMaxPrice: (newPrice: number) => void,
+  // Toggle menu active
+  isFilteringMenuActive: boolean,
+  toggleIsFilteringMenuActive: (isActive: boolean) => void;
 }
 
 export const Filters: FC<FiltersProps> = (
   { data, isLoading,
     selectedColorsList, changeSelectedColorsList,
     selectedSizesList, changeSelectedSizesList,
-    minPrice, setMinPrice, maxPrice, setMaxPrice, }
+    minPrice, setMinPrice, maxPrice, setMaxPrice,
+    isFilteringMenuActive, toggleIsFilteringMenuActive }
 ) => {
 
   const colorsList: string[] = [];
@@ -54,10 +58,13 @@ export const Filters: FC<FiltersProps> = (
   };
 
   return (
-    <section className={style.block}>
+    <section className={isFilteringMenuActive ? `${style.activeBlock} ${style.block}` : `${style.block}`}>
       <div className={style.body}>
         <div className={style.title}>
-          <span>Фильтры</span><img src={filters} alt="filters" /></div>
+          <span>Фильтры</span>
+          <img src={filters} alt="filters" />
+          <div className={style.cross} onClick={() => toggleIsFilteringMenuActive(false)}></div>
+        </div>
         <div className={style.content}>
           <div className={style.item}>
             <div className={style.title}>Цена</div>

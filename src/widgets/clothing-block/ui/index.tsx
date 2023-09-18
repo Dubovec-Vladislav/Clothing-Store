@@ -1,6 +1,6 @@
 // General
 import React, { FC } from 'react'
-import style from './style.module.scss'
+import style from './index.module.scss'
 import { Link } from 'react-router-dom'
 // Components
 import { FilterPopup } from 'shared/ui'
@@ -10,6 +10,8 @@ import { ClothingInterface } from 'app/api'
 import { Pagination } from 'shared/ui'
 // Skeleton
 import { ClothingCardSkeleton } from 'shared/skeletons'
+// Images
+import filters from '../img/filters.svg'
 // Types
 import { FilterPopupProps, sortType } from 'shared/ui/filter-popup'
 
@@ -20,11 +22,13 @@ interface ClothingBlockProps extends FilterPopupProps {
   setCurrentPage: (newPageNumber: number) => void,
   pageLimit: number,
   sortTypes: sortType[],
+  toggleIsFilteringMenuActive: (isActive: boolean) => void;
 }
 
 export const ClothingBlock: FC<ClothingBlockProps> = (
   { data, isLoading, currentPage, setCurrentPage, pageLimit,
-    indexOfActiveSortType, setIndexOfActiveSortType, activeSortTypeName, sortTypes }
+    indexOfActiveSortType, setIndexOfActiveSortType, activeSortTypeName, sortTypes,
+    toggleIsFilteringMenuActive }
 ) => {
   return (
     <section className={style.block}>
@@ -32,12 +36,15 @@ export const ClothingBlock: FC<ClothingBlockProps> = (
         <div className={style.popupBlock}>
           <div className={style.title}>Деловая</div>
           <div className={style.text}>Показаны 1–8 из 14 товаров</div>
-          <FilterPopup
-            indexOfActiveSortType={indexOfActiveSortType}
-            setIndexOfActiveSortType={setIndexOfActiveSortType}
-            activeSortTypeName={activeSortTypeName}
-            sortTypes={sortTypes}
-          />
+          <div className={style.popup}>
+            <FilterPopup
+              indexOfActiveSortType={indexOfActiveSortType}
+              setIndexOfActiveSortType={setIndexOfActiveSortType}
+              activeSortTypeName={activeSortTypeName}
+              sortTypes={sortTypes}
+            />
+          </div>
+          <div className={style.filterMenu} onClick={() => toggleIsFilteringMenuActive(true)}><img src={filters} alt="filters" /></div>
         </div>
         <div className={style.row}>
           {isLoading

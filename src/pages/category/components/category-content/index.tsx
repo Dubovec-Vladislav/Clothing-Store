@@ -40,11 +40,12 @@ export const CategoryContent: FC = (props) => {
 
   // ---------- General data and hooks ----------- //
   const [indexOfActiveSortType, setIndexOfActiveSortType] = useState<number>(0);
+  const [isFilteringMenuActive, toggleIsFilteringMenuActive] = useState<boolean>(false);
   const activeSortType = sortTypes[indexOfActiveSortType];
+
   const { data, isFetching } = getClothingItemsByPageAndSort(
     { category: id, page: currentPage, limit: pageLimit, sortBy: activeSortType.urlName, order: activeSortType.order }
   );
-
 
   // Filtering by color
   const dataSortedByColor = filterData(data, (item) => selectedColorsList.includes(item.imageObjects[0].color));
@@ -76,6 +77,9 @@ export const CategoryContent: FC = (props) => {
         setMinPrice={setMinPrice}
         maxPrice={maxPrice}
         setMaxPrice={setMaxPrice}
+        // Toggle menu active
+        isFilteringMenuActive={isFilteringMenuActive}
+        toggleIsFilteringMenuActive={toggleIsFilteringMenuActive}
       />
       <ClothingBlock
         data={sortedData}
@@ -89,6 +93,8 @@ export const CategoryContent: FC = (props) => {
         setIndexOfActiveSortType={setIndexOfActiveSortType}
         activeSortTypeName={activeSortType.name}
         sortTypes={sortTypes}
+        // Toggle menu active
+        toggleIsFilteringMenuActive={toggleIsFilteringMenuActive}
       />
     </div>
   );

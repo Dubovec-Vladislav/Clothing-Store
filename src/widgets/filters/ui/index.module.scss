@@ -11,10 +11,28 @@
   }
 
   @media (max-width: 813px) {
-    flex: 0 1 100%;
+    position: absolute;
+    top: -100dvh;
+    left: 0;
+    z-index: 2;
+    background-color: #fff;
+    width: 100%;
+    padding: 80px 0px 0px 0px;
     margin: 0px 0px 30px 0px;
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.7s ease;
   }
+
+  @media (max-width: 526px) {
+    padding: 64px 0px 0px 0px;
+  }
+}
+
+.activeBlock {
+  top: 0;
+  visibility: visible;
+  opacity: 1;
 }
 
 .body {
@@ -32,9 +50,7 @@
   }
 }
 
-.content {
-
-}
+.content {}
 
 .item {
   margin: 0px 0px 24px 0px;
@@ -44,6 +60,16 @@
   @media (max-width: 769px) {
     margin: 0px 0px 20px 0px;
     padding: 0px 0px 20px 0px;
+
+    &:first-child {
+      margin: 0px 0px 28px 0px;
+      padding: 0px 0px 28px 0px;
+    }
+  }
+
+  &:first-child {
+    margin: 0px 0px 28px 0px;
+    padding: 0px 0px 28px 0px;
   }
 }
 
@@ -64,17 +90,47 @@
   }
 
   &:first-child {
+    position: relative;
     padding: 0px 0px 20px 0px;
-    // border-bottom: solid 1px #0000001A;
-
-    @media (max-width: 813px) {
-      margin: 0px 0px 0px 0px;
-      padding: 0px 0px 0px 0px;
-    }
   }
 
   span {
     margin: 0px 10px 0px 0px;
+  }
+
+  img {
+    @media (max-width: 813px) {
+      display: none;
+    }
+  }
+}
+
+.cross {
+  position: relative;
+  display: none;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 2px;
+    background-color: #999999;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  @media (max-width: 813px) {
+    display: block;
   }
 }
 
