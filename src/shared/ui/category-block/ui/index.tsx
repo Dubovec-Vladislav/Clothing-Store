@@ -73,6 +73,7 @@ export const CategoryBlock: FC = (props) => {
               key={i}
               className={`${itemState.size === 'large' ? style.largeItem : style.smallItem} ${itemState.animated ? style._anim : ''}`}
               onClick={() => toggleAnimation(i)}
+              target={'_blank'}
             >
               <div className={style.itemBody}>
                 <div className={style.text}>{photosMas[i].name}</div>

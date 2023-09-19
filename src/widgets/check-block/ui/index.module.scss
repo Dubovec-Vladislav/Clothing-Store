@@ -1,0 +1,154 @@
+.block {
+  flex: 0 1 40%;
+  padding: 0px 10px;
+}
+
+.body {
+  padding: 20px 24px;
+  border: solid 1px #E6E6E6;
+  border-radius: 20px;
+}
+
+.title {
+  color: #000;
+  margin: 0px 0px 24px 0px;
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+
+  @media (max-width: 769px) {
+    margin: 0px 0px 16px 0px;
+    font-size: 20px;
+  }
+}
+
+.positions {
+  padding: 0px 0px 20px 0px;
+  margin: 0px 0px 20px 0px;
+  border-bottom: solid 1px #E6E6E6;
+}
+
+.position {
+  display: flex;
+  margin: 0px 0px 20px 0px;
+  align-items: center;
+  justify-content: space-between;
+
+  &:last-child {
+    margin: 0px 0px 0px 0px;
+  }
+}
+
+.text {
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0px 4px 0px 0px;
+  font-family: 'Open Sans';
+  font-size: 20px;
+  line-height: normal;
+
+  @media (max-width: 769px) {
+    font-size: 16px;
+  }
+}
+
+.price {
+  color: #000;
+  text-align: right;
+  font-family: 'Open Sans';
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+
+  @media (max-width: 769px) {
+    font-size: 16px;
+  }
+}
+
+.discount {
+  color: #F33;
+}
+
+.total {
+  display: flex;
+  margin: 0px 0px 24px 0px;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 769px) {
+    margin: 0px 0px 16px 0px;
+  }
+}
+
+.totalText {
+  color: #000;
+  font-family: 'Open Sans';
+  font-size: 20px;
+  line-height: normal;
+
+  @media (max-width: 769px) {
+    font-size: 16px;
+  }
+}
+
+.totalPrice {
+  color: #000;
+  text-align: right;
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+
+  @media (max-width: 769px) {
+    font-size: 20px;
+  }
+}
+
+.promotionalCode {
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 24px 0px;
+  justify-content: space-between;
+
+  @media (max-width: 769px) {
+    margin: 0px 0px 16px 0px;
+  }
+}
+
+.input {
+  flex-grow: 1;
+  display: flex;
+  background-color: #F0F0F0;
+  padding: 14px 12px;
+  margin: 0px 10px 0px 0px;
+  border-radius: 62px;
+
+  img {
+    margin: 0px 12px 0px 0px;
+
+    @media (max-width: 426px) {
+      margin: 0px 8px 0px 0px;
+    }
+  }
+
+  input {
+    color: rgba(0, 0, 0, 0.4);
+    background-color: #F0F0F0;
+    width: 100%;
+    font-family: 'Open Sans';
+    font-size: 14px;
+    line-height: normal;
+
+    @media (max-width: 426px) {
+      font-size: 12px;
+    }
+  }
+}
+
+.inputBtn {
+  * {
+    font-size: 14px;
+  }
+}
+
+.btn {}

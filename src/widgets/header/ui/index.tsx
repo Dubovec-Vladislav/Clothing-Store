@@ -27,7 +27,7 @@ export const Header: FC = (props) => {
             <li className={style.item}><Link to="/category/1" className={style.link}>Деловая</Link></li>
             <li className={style.item}><Link to="#" className={style.link}>Повседневная</Link></li>
             <li className={style.item}><Link to="#" className={style.link}>Для развлечений</Link></li>
-            <li className={style.item}><Link to="#" className={style.link}>В зал</Link></li>
+            <li className={style.item}><Link to="#" className={style.link}>Для зала</Link></li>
           </ul>
         </nav>
         <div className={isSearchActive ? `${style.searchInput} ${style.activeSearchInput}` : `${style.searchInput}`}>
