@@ -1,9 +1,8 @@
 import { ClothingInterface } from "app/api"
 
 
-export const getCommonVariantsFromArrays = (generalArray: ClothingInterface[][]): ClothingInterface[] => {
-  const nonEmptyArraysCount = generalArray.filter(array => array.length > 0).length;
-
+export const getCommonVariantsFromArrays = (generalArray: ClothingInterface[][], numberOfActiveFilters: number): ClothingInterface[] => {
+  
   // Combining arrays
   const combinedArray: ClothingInterface[] = generalArray.reduce((result, currentArray) => result.concat(currentArray), []);
   // Count the number of repeating elements (create a collection, key - item, value - amount)
@@ -12,7 +11,7 @@ export const getCommonVariantsFromArrays = (generalArray: ClothingInterface[][])
   );
 
   const commonClothingVariants: ClothingInterface[] = [];
-  itemCountMap.forEach((key, value) => key === nonEmptyArraysCount && commonClothingVariants.push(value))
+  itemCountMap.forEach((key, value) => key === numberOfActiveFilters && commonClothingVariants.push(value))
 
   return commonClothingVariants;
 };

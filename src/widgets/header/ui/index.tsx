@@ -23,17 +23,18 @@ export const Header: FC = (props) => {
         <nav className={isBurgerActive ? `${style.menu} ${style.activeMenu}` : `${style.menu}`}>
           <div className={style.menuCloseBtn}><div className={style.logo}>Logo</div><span onClick={handleBurgerClick}></span></div>
           <ul className={style.list}>
-            <li className={style.item}><Link to="#" className={style.link}>Shop</Link></li>
-            <li className={style.item}><Link to="#" className={style.link}>On Sale</Link></li>
-            <li className={style.item}><Link to="#" className={style.link}>New Arrivals</Link></li>
-            <li className={style.item}><Link to="#" className={style.link}>Brands</Link></li>
+            <li className={style.item}><Link to="/" className={style.link}>Главная</Link></li>
+            <li className={style.item}><Link to="/category/1" className={style.link}>Деловая</Link></li>
+            <li className={style.item}><Link to="#" className={style.link}>Повседневная</Link></li>
+            <li className={style.item}><Link to="#" className={style.link}>Для развлечений</Link></li>
+            <li className={style.item}><Link to="#" className={style.link}>В зал</Link></li>
           </ul>
         </nav>
         <div className={isSearchActive ? `${style.searchInput} ${style.activeSearchInput}` : `${style.searchInput}`}>
           <img src={search1} alt="search1" /><input type="text" placeholder="Search for products..." />
         </div>
         <div className={style.searchIcon} onClick={() => changeSearchActive(!isSearchActive)}><img src={search2} alt="search2" /></div>
-        <Link to="#" className={style.cart}><img src={cart} alt="cart" /></Link>
+        <Link to="/cart" className={style.cart}><img src={cart} alt="cart" /></Link>
       </div>
     </header>
   );

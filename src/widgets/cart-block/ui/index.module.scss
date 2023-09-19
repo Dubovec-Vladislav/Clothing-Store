@@ -1,0 +1,22 @@
+.block {
+  flex: 0 1 60%;
+}
+
+.body {
+  padding: 20px 24px;
+  border: solid 1px #E6E6E6;
+  border-radius: 20px;
+}
+
+.title {
+  color: #000;
+  margin: 0px 0px 24px 0px;
+  font-family: 'Fira Sans';
+  font-size: 40px;
+  font-weight: 700;
+  line-height: normal;
+
+  @media (max-width: 769px) {
+    margin: 0px 0px 20px 0px;
+  }
+}

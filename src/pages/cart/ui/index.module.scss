@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+  padding: calc(84px + 46 * (100vw / 1440)) 0px 0px 0px;
+  margin: 0px 0px calc(40px + 40 * (100vw / 1440)) 0px;
+
+  @media (max-width: 769px) {
+    padding: calc(84px + 46 * ((100vw - 320px) / 1440)) 0px 0px 0px;
+    margin: 0px 0px calc(40px + 40 * (100vw / 1440)) 0px;
+  }
+}

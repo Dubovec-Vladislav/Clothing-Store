@@ -1,7 +1,7 @@
 .block {
   display: flex;
   background-color: #F0F0F0;
-  padding: 14px 24px;
+  padding: 8px 16px;
   align-items: center;
   justify-content: space-between;
   border-radius: 62px;
@@ -19,10 +19,10 @@
     font-family: 'Open Sans';
     font-size: 18px;
     font-weight: 500;
-    margin: 0px calc(14px + 18 * (100vw / 1440));
+    margin: 0px calc(10px + 14 * (100vw / 1440));
 
     @media (max-width: 769px) {
-      margin: 0px calc(14px + 18 * ((100vw - 320px) / 1440));
+      margin: 0px calc(10px + 14 * ((100vw - 320px) / 1440));
       font-size: 16px;
     }
 

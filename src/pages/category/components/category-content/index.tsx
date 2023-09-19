@@ -8,7 +8,7 @@ import { ClothingBlock } from 'widgets/clothing-block'
 // Api
 import { ClothingInterface, getClothingItemsByPageAndSort } from 'app/api'
 // Lib
-import { filterData, getCommonVariantsFromArrays, sortTypes } from '../lib'
+import { filterData, getCommonVariantsFromArrays, sortTypes } from '../../lib'
 // import { FilterPopup } from 'shared/ui'
 
 export const CategoryContent: FC = (props) => {
@@ -54,12 +54,18 @@ export const CategoryContent: FC = (props) => {
   // Filtering by price
   const dataSortedByPrice = filterData(data, (item) => item.price >= minPrice && item.price <= maxPrice);
 
-  const generalArray: ClothingInterface[][] = [];
+  // Creating a general array
+  const generalArray: ClothingInterface[][] = []; // This will be an array that contains other arrays with ClothingInterface items
   dataSortedByColor && generalArray.push(dataSortedByColor);
   dataSortedBySize && generalArray.push(dataSortedBySize);
   dataSortedByPrice && generalArray.push(dataSortedByPrice);
 
-  const sortedData: ClothingInterface[] = getCommonVariantsFromArrays(generalArray);
+  // Active filter counter
+  let numberOfActiveFilters = 1; // Price is always active
+  selectedColorsList.length && numberOfActiveFilters++;
+  selectedSizesList.length && numberOfActiveFilters++;
+
+  const sortedData: ClothingInterface[] = getCommonVariantsFromArrays(generalArray, numberOfActiveFilters);
 
   return (
     <div className={style.content}>

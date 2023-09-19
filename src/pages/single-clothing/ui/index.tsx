@@ -23,13 +23,11 @@ export const SingleClothingPage: FC = (props) => {
 
   return (
     <main className={style.block}>
-      <div className={style.body}>
-        <Header />
-        <ClothingConstructor clothId={id} />
-        <Tabs tabsList={tabsList} />
-        <NewsSubscription/>
-        <Footer/>
-      </div>
+      <Header />
+      <ClothingConstructor clothId={id} />
+      <Tabs tabsList={tabsList} />
+      <NewsSubscription />
+      <Footer />
     </main>
   );
 };

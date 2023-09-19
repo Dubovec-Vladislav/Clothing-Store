@@ -1,6 +1,7 @@
 .block {
   flex: 0 1 25%;
   padding: 0px 10px;
+  margin: 0px 0px calc(50px + 30 * (100vw / 1440)) 0px;
 
   @media (max-width: 1241px) {
     flex: 0 1 30%;
@@ -17,15 +18,18 @@
     z-index: 2;
     background-color: #fff;
     width: 100%;
-    padding: 80px 0px 0px 0px;
-    margin: 0px 0px 30px 0px;
+    padding: 80px 0px 30px 0px;
     visibility: hidden;
     opacity: 0;
     transition: 0.7s ease;
   }
 
+  @media (max-width: 769px) {
+    margin: 0px 0px calc(50px + 30 * ((100vw - 320px) / 1440)) 0px;
+  }
+
   @media (max-width: 526px) {
-    padding: 64px 0px 0px 0px;
+    padding: 64px 0px 30px 0px;
   }
 }
 
@@ -70,6 +74,11 @@
   &:first-child {
     margin: 0px 0px 28px 0px;
     padding: 0px 0px 28px 0px;
+  }
+
+  &:last-child {
+    border-bottom: none;
+    margin: 0px 0px 0px 0px;
   }
 }
 
