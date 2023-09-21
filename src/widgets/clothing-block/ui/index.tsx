@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { FilterPopup } from 'shared/ui'
 import { ClothingCard } from 'entities/clothing-card'
 // Api
-import { ClothingInterface } from 'app/api'
+import { ClothingInterface } from 'app/commonApi'
 import { Pagination } from 'shared/ui'
 // Skeleton
 import { ClothingCardSkeleton } from 'shared/skeletons'

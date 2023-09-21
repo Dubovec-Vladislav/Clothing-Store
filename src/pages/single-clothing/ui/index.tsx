@@ -24,7 +24,7 @@ export const SingleClothingPage: FC = (props) => {
   return (
     <main className={style.block}>
       <Header />
-      <ClothingConstructor clothId={id} />
+      <ClothingConstructor clothId={id || ''} />
       <Tabs tabsList={tabsList} />
       <NewsSubscription />
       <Footer />

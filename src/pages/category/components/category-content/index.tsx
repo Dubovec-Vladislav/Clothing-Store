@@ -6,7 +6,7 @@ import { useParams } from 'react-router'
 import { Filters } from 'widgets/filters'
 import { ClothingBlock } from 'widgets/clothing-block'
 // Api
-import { ClothingInterface, getClothingItemsByPageAndSort } from 'app/api'
+import { ClothingInterface, getClothingItemsByPageAndSort } from 'app/commonApi'
 // Lib
 import { filterData, getCommonVariantsFromArrays, sortTypes } from '../../lib'
 // import { FilterPopup } from 'shared/ui'

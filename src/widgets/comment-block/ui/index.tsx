@@ -6,7 +6,7 @@ import { FilterPopup } from 'shared/ui'
 import { Button } from 'shared/ui'
 import { CommentCard, CommentInterface } from 'entities/comment'
 // Api
-import { getClothingItemById } from 'app/api'
+import { getClothingItemById } from 'app/commonApi'
 // Lib
 import { sortBySelectedType, sortTypes } from '../lib'
 

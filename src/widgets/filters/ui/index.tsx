@@ -7,7 +7,7 @@ import { ColorSelectionLine } from 'features/color-selection-line'
 import { SizeSelectionLine } from 'features/size-selection-line'
 import { InputRange } from 'shared/ui'
 // Api
-import { ClothingInterface } from 'app/api'
+import { ClothingInterface } from 'app/commonApi'
 // Images
 import filters from '../img/filters.svg'
 

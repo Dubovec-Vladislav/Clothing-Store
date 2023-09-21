@@ -1,4 +1,4 @@
-import { ClothingInterface } from "app/api"
+import { ClothingInterface } from "app/commonApi"
 
 
 export const getCommonVariantsFromArrays = (generalArray: ClothingInterface[][], numberOfActiveFilters: number): ClothingInterface[] => {

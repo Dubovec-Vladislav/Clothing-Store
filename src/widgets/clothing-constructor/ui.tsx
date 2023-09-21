@@ -7,13 +7,17 @@ import { CartCounterBtn } from 'features/cart-counter-btn'
 import { ColorSelectionLine } from 'features/color-selection-line'
 import { SizeSelectionLine } from 'features/size-selection-line'
 // Api
-import { ImageObjectInterface, getClothingItemById } from 'app/api'
+import { ImageObjectInterface, getClothingItemById } from 'app/commonApi'
+import { useDispatch } from 'react-redux'
+// Slcie
+import { addClothingItem } from 'widgets/cart-block'
 
 interface ClothingConstructorProps {
-  clothId: string | undefined,
+  clothId: string,
 }
 
 export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) => {
+  const dispatch = useDispatch()
   const { data, isLoading } = getClothingItemById(clothId!);
 
   const colorsList: string[] = [];
@@ -36,6 +40,17 @@ export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) =
       setActiveImageObject(data.imageObjects[0]);
     }
   }, [data]);
+
+  const handleAddClick = () => {
+    const clothingItem = {
+      id: clothId,
+      price: data?.price || -1,
+      color: selectedColor,
+      size: selectedSize,
+      numberOfPizzas: 1,
+    }
+    dispatch(addClothingItem(clothingItem));
+  }
 
   return (
     <section className={style.block}>
@@ -77,7 +92,7 @@ export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) =
                   </div>
                   <div className={style.footer}>
                     <div className={style.counterBtn}><CartCounterBtn number={numOfClothing} changeNumber={changeNumOfClothing} /></div>
-                    <div className={style.btn}><Button text={"Добавить в корзину"} /></div>
+                    <div className={style.btn} onClick={handleAddClick}><Button text={"Добавить в корзину"} /></div>
                   </div>
                 </div>
               </>

@@ -24,10 +24,10 @@ export const Header: FC = (props) => {
           <div className={style.menuCloseBtn}><div className={style.logo}>Logo</div><span onClick={handleBurgerClick}></span></div>
           <ul className={style.list}>
             <li className={style.item}><Link to="/" className={style.link}>Главная</Link></li>
-            <li className={style.item}><Link to="/category/1" className={style.link}>Деловая</Link></li>
-            <li className={style.item}><Link to="#" className={style.link}>Повседневная</Link></li>
-            <li className={style.item}><Link to="#" className={style.link}>Для развлечений</Link></li>
-            <li className={style.item}><Link to="#" className={style.link}>Для зала</Link></li>
+            <li className={style.item}><Link to="/category/1" className={style.link} target={"_blank"}>Деловая</Link></li>
+            <li className={style.item}><Link to="#" className={style.link} target={"_blank"}>Повседневная</Link></li>
+            <li className={style.item}><Link to="#" className={style.link} target={"_blank"}>Для развлечений</Link></li>
+            <li className={style.item}><Link to="#" className={style.link} target={"_blank"}>Для зала</Link></li>
           </ul>
         </nav>
         <div className={isSearchActive ? `${style.searchInput} ${style.activeSearchInput}` : `${style.searchInput}`}>

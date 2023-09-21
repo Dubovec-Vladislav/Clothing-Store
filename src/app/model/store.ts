@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { clothApi } from 'app/api'
+import { cartSlice } from 'widgets/cart-block'
+import { clothApi } from 'app/commonApi'
 import { topCommentsApi } from 'widgets/comment-slider'
 import { emailsApi } from 'widgets/news-subscription'
 
 export const store = configureStore({
   reducer: {
+    cart: cartSlice.reducer,
     [clothApi.reducerPath]: clothApi.reducer,
     [topCommentsApi.reducerPath]: topCommentsApi.reducer,
     [emailsApi.reducerPath]: emailsApi.reducer,

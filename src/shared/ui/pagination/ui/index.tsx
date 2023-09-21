@@ -2,7 +2,7 @@
 import React, { FC } from 'react'
 import style from './index.module.scss'
 // APi
-import { getClothingItems } from 'app/api'
+import { getClothingItems } from 'app/commonApi'
 // Lib
 import { defineNumberOfPages } from '../lib'
 // Images

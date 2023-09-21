@@ -8,6 +8,7 @@ export interface ImageObjectInterface {
 }
 
 export interface ClothingInterface {
+  id: string,
   imageObjects: ImageObjectInterface[],
   name: string,
   description: string,
@@ -17,7 +18,6 @@ export interface ClothingInterface {
   commentsList: CommentInterface[],
   category: number,
   rating: number,
-  id: string,
   salesIndex: number,
 }
 
