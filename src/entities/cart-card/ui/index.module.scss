@@ -63,7 +63,6 @@
 }
 
 .color {
-  flex-grow: 1;
   display: flex;
   color: #000;
   align-items: center;
@@ -88,7 +87,10 @@
 }
 
 .price {
+  flex-grow: 1;
+  display: flex;
   color: #000;
+  align-items: flex-end;
   font-family: 'Open Sans';
   font-size: 24px;
   font-weight: 700;

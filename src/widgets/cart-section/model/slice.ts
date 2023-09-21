@@ -1,13 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import { act } from '@testing-library/react';
 import { RootState } from 'app/model'
 
 export interface ClothingItem {
   id: string,
+  previewImg: string,
+  name: string,
   price: number,
   color: string,
   size: number,
-  numberOfPizzas: number,
+  numOfClothing: number,
 }
 
 interface CartState {
@@ -42,11 +45,11 @@ export const cartSlice = createSlice({
     addClothingItem: (state, action: PayloadAction<ClothingItem>) => {
       const existingClothingItemIndex = findExistingClothingItemIndex(state, action.payload);
 
-      if (existingClothingItemIndex !== -1) state.clothingItems[existingClothingItemIndex].numberOfPizzas += 1;
+      if (existingClothingItemIndex !== -1) state.clothingItems[existingClothingItemIndex].numOfClothing += action.payload.numOfClothing;
       else state.clothingItems = ([...state.clothingItems, action.payload]);
-      console.log(state.clothingItems);
-      state.totalNumber += 1;
-      state.totalPrice += action.payload.price;
+      // console.log(state.clothingItems);
+      state.totalNumber += action.payload.numOfClothing;
+      state.totalPrice += action.payload.numOfClothing * action.payload.price;
     },
 
     // // Update
@@ -90,8 +93,8 @@ export const cartSlice = createSlice({
 export const { addClothingItem } = cartSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectCartPizzas = (state: RootState) => state.cart.clothingItems;
+export const selectCartClothingItems = (state: RootState) => state.cart.clothingItems;
 // export const selectBasketTotalNumber = (state: RootState) => state.cart.totalNumber;
-// export const selectBasketTotalPrice = (state: RootState) => state.cart.totalPrice;
+export const selectCartTotalPrice = (state: RootState) => state.cart.totalPrice;
 
 export default cartSlice.reducer;

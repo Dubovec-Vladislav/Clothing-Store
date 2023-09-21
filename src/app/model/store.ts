@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { cartSlice } from 'widgets/cart-block'
+import { cartSlice } from 'widgets/cart-section'
 import { clothApi } from 'app/commonApi'
 import { topCommentsApi } from 'widgets/comment-slider'
 import { emailsApi } from 'widgets/news-subscription'

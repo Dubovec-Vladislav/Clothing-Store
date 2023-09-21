@@ -4,7 +4,7 @@ import style from './index.module.scss'
 import { useParams } from 'react-router'
 // Components
 import { Filters } from 'widgets/filters'
-import { ClothingBlock } from 'widgets/clothing-block'
+import { ClothingBlock } from 'widgets/clothing-section'
 // Api
 import { ClothingInterface, getClothingItemsByPageAndSort } from 'app/commonApi'
 // Lib

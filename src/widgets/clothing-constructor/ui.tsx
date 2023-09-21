@@ -10,7 +10,7 @@ import { SizeSelectionLine } from 'features/size-selection-line'
 import { ImageObjectInterface, getClothingItemById } from 'app/commonApi'
 import { useDispatch } from 'react-redux'
 // Slcie
-import { addClothingItem } from 'widgets/cart-block'
+import { addClothingItem } from 'widgets/cart-section'
 
 interface ClothingConstructorProps {
   clothId: string,
@@ -19,6 +19,14 @@ interface ClothingConstructorProps {
 export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) => {
   const dispatch = useDispatch()
   const { data, isLoading } = getClothingItemById(clothId!);
+
+  useEffect(() => {
+    if (data) {
+      changeSelectedColor(data.imageObjects[0].color);
+      changeSelectedSize(data.sizesList[0]);
+      setActiveImageObject(data.imageObjects[0]);
+    }
+  }, [data]);
 
   const colorsList: string[] = [];
   data?.imageObjects.forEach(imageObject => colorsList.push(imageObject.color));
@@ -33,21 +41,15 @@ export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) =
     setActiveImageObject(data?.imageObjects[i]);
   };
 
-  useEffect(() => {
-    if (data) {
-      changeSelectedColor(data.imageObjects[0].color);
-      changeSelectedSize(data.sizesList[0]);
-      setActiveImageObject(data.imageObjects[0]);
-    }
-  }, [data]);
-
-  const handleAddClick = () => {
+  const handleAddToCartClick = () => {
     const clothingItem = {
       id: clothId,
+      previewImg: activeImageObject?.previewImg || "",
+      name: data?.name || "",
       price: data?.price || -1,
       color: selectedColor,
       size: selectedSize,
-      numberOfPizzas: 1,
+      numOfClothing: numOfClothing,
     }
     dispatch(addClothingItem(clothingItem));
   }
@@ -92,7 +94,7 @@ export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) =
                   </div>
                   <div className={style.footer}>
                     <div className={style.counterBtn}><CartCounterBtn number={numOfClothing} changeNumber={changeNumOfClothing} /></div>
-                    <div className={style.btn} onClick={handleAddClick}><Button text={"Добавить в корзину"} /></div>
+                    <div className={style.btn} onClick={handleAddToCartClick}><Button text={"Добавить в корзину"} /></div>
                   </div>
                 </div>
               </>

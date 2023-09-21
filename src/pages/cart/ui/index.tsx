@@ -3,8 +3,8 @@ import React, { FC, useEffect } from 'react'
 import style from './index.module.scss'
 // Components
 import { Header } from 'widgets/header'
-import { CartBlock } from 'widgets/cart-block'
-import { CheckBlock } from 'widgets/check-block'
+import { CartBlock } from 'widgets/cart-section'
+import { CheckBlock } from 'widgets/check-section'
 import { NewsSubscription } from 'widgets/news-subscription'
 import { Footer } from 'widgets/footer'
 

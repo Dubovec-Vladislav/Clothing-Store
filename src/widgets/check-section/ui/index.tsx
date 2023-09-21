@@ -2,8 +2,11 @@ import React, { FC } from 'react'
 import style from './index.module.scss'
 import { Button } from 'shared/ui'
 import tag from '../img/tag.svg'
+import { useAppSelector } from 'app/model'
+import { selectCartTotalPrice } from 'widgets/cart-section'
 
 export const CheckBlock: FC = (props) => {
+  const totalPrice = useAppSelector(selectCartTotalPrice)
   return (
     <section className={style.block}>
       <div className={style.body}>
@@ -11,7 +14,7 @@ export const CheckBlock: FC = (props) => {
         <div className={style.positions}>
           <div className={style.position}>
             <div className={style.text}>Промежуточный итог</div>
-            <div className={style.price}>4300₽</div>
+            <div className={style.price}>{totalPrice}₽</div>
           </div>
           <div className={style.position}>
             <div className={style.text}>Скидка</div>

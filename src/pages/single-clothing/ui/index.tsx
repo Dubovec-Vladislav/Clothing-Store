@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom'
 import { Header } from 'widgets/header'
 import { ClothingConstructor } from 'widgets/clothing-constructor'
 import { TabItemInterface, Tabs } from 'shared/ui'
-import { CommentBlock } from 'widgets/comment-block'
+import { CommentBlock } from 'widgets/comment-section'
 import { NewsSubscription } from 'widgets/news-subscription'
 import { Footer } from 'widgets/footer'
 
