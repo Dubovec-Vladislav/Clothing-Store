@@ -6,9 +6,10 @@ interface ButtonProps {
   color?: string,
   fill?: string,
   borderFill?: string,
+  hoverFill?: string,
 }
 
-export const Button: FC<ButtonProps> = ({ text, color, fill, borderFill }) => {
+export const Button: FC<ButtonProps> = ({ text, color, fill, borderFill, hoverFill }) => {
   const propsStyle = {
     color: color || '#fff',
     backgroundColor: fill || '#000',
@@ -16,6 +17,9 @@ export const Button: FC<ButtonProps> = ({ text, color, fill, borderFill }) => {
   };
 
   return (
-    <div className={style.block} style={propsStyle}>{text}</div>
+    <div className={style.block} style={propsStyle}>
+      {text}
+      <span className={style.border} style={{ borderColor: hoverFill || "#fff" }}></span>
+    </div>
   );
 };

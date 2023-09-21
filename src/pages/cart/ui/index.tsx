@@ -3,8 +3,8 @@ import React, { FC, useEffect } from 'react'
 import style from './index.module.scss'
 // Components
 import { Header } from 'widgets/header'
-import { CartBlock } from 'widgets/cart-section'
-import { CheckBlock } from 'widgets/check-section'
+import { CartSection } from 'widgets/cart-section'
+import { CheckSection } from 'widgets/check-section'
 import { NewsSubscription } from 'widgets/news-subscription'
 import { Footer } from 'widgets/footer'
 
@@ -16,8 +16,8 @@ export const CartPage: FC = (props) => {
       <Header />
       <div className={style.content}>
         <div className={style.title}>Ваша корзина</div>
-        <CartBlock />
-        <CheckBlock />
+        <CartSection />
+        <CheckSection />
       </div>
       <NewsSubscription />
       <Footer />

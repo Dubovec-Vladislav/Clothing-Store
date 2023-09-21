@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { act } from '@testing-library/react';
 import { RootState } from 'app/model'
 
 export interface ClothingItem {

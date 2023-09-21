@@ -5,7 +5,7 @@ import tag from '../img/tag.svg'
 import { useAppSelector } from 'app/model'
 import { selectCartTotalPrice } from 'widgets/cart-section'
 
-export const CheckBlock: FC = (props) => {
+export const CheckSection: FC = (props) => {
   const totalPrice = useAppSelector(selectCartTotalPrice)
   return (
     <section className={style.block}>

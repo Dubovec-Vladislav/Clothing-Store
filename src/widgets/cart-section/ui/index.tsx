@@ -4,7 +4,7 @@ import { CartCard } from 'entities/cart-card'
 import { useAppSelector } from 'app/model'
 import { selectCartClothingItems } from '../model'
 
-export const CartBlock: FC = (props) => {
+export const CartSection: FC = (props) => {
   const clothingItems = useAppSelector(selectCartClothingItems);
   console.log(clothingItems);
   return (

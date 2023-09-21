@@ -1,1 +1,1 @@
-export { CommentBlock } from './ui'
+export { CommentSection } from './ui'

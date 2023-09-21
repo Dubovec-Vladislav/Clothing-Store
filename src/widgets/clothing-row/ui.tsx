@@ -30,7 +30,7 @@ export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, new
             ? <div>Идет загрузка одежды...</div>
             : data
               ? data.map((item: ClothingInterface) =>
-                <Link to={`/cloth/${item.id}`} key={item.id} className={style.item} target={"_blank"}>
+                <Link to={`/cloth/${item.id}`} key={item.id} className={style.item}>
                   <ClothingCard
                     imageUrl={item.imageObjects[0].previewImg}
                     name={item.name}
@@ -44,7 +44,7 @@ export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, new
           }
         </div>
         {limit < 8 && <div className={style.btn} onClick={() => setLimit(limit + 4)}>
-          <Button text={'Посмотреть ещё'} color={'#000'} fill={'#fff'} borderFill={'rgba(0, 0, 0, 0.10)'} />
+          <Button text={"Посмотреть ещё"} color={"#000"} fill={"#fff"} borderFill={"#E6E6E6"} hoverFill={"#E6E6E6"}/>
         </div>}
       </div>
       {endBlockLine && <div className={style.endLine}></div>}

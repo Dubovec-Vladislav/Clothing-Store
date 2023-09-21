@@ -10,11 +10,11 @@ import { getClothingItemById } from 'app/commonApi'
 // Lib
 import { sortBySelectedType, sortTypes } from '../lib'
 
-interface CommentBlockProps {
+interface CommentSectionProps {
   clothId: string | undefined,
 }
 
-export const CommentBlock: FC<CommentBlockProps> = ({ clothId }) => {
+export const CommentSection: FC<CommentSectionProps> = ({ clothId }) => {
   const [limit, setLimit] = useState<number>(2);
   const [indexOfActiveSortType, setIndexOfActiveSortType] = useState<number>(0);
   const [sortedData, setSortedData] = useState<CommentInterface[]>();
@@ -69,7 +69,7 @@ export const CommentBlock: FC<CommentBlockProps> = ({ clothId }) => {
         </div>
         {sortedDataLength > limit
           && <div className={style.btn} onClick={() => setLimit(limit + 2)}>
-            <Button text={"Загрузить больше"} color={"#000"} fill={"#fff"} borderFill={"#0000001A"} />
+            <Button text={"Загрузить больше"} color={"#000"} fill={"#fff"} borderFill={"#E6E6E6"} />
           </div>}
       </div>
     </section>

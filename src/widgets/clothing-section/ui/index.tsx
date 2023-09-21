@@ -15,7 +15,7 @@ import filters from '../img/filters.svg'
 // Types
 import { FilterPopupProps, sortType } from 'shared/ui/filter-popup'
 
-interface ClothingBlockProps extends FilterPopupProps {
+interface ClothingSectionProps extends FilterPopupProps {
   data: ClothingInterface[] | undefined,
   isLoading: boolean,
   currentPage: number,
@@ -25,7 +25,7 @@ interface ClothingBlockProps extends FilterPopupProps {
   toggleIsFilteringMenuActive: (isActive: boolean) => void;
 }
 
-export const ClothingBlock: FC<ClothingBlockProps> = (
+export const ClothingSection: FC<ClothingSectionProps> = (
   { data, isLoading, currentPage, setCurrentPage, pageLimit,
     indexOfActiveSortType, setIndexOfActiveSortType, activeSortTypeName, sortTypes,
     toggleIsFilteringMenuActive }
@@ -52,7 +52,7 @@ export const ClothingBlock: FC<ClothingBlockProps> = (
             : data
               ? data.length !== 0
                 ? data.map((item: ClothingInterface) => (
-                  <Link to={`/cloth/${item.id}`} key={item.id} className={style.item} target={"_blank"}>
+                  <Link to={`/cloth/${item.id}`} key={item.id} className={style.item}>
                     <ClothingCard
                       imageUrl={item.imageObjects[0].previewImg}
                       name={item.name}
