@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import search1 from '../img/search1.svg'
 import cart from '../img/cart.svg'
 import search2 from '../img/search2.svg'
+import { NavLink } from 'react-router-dom'
 
 export const Header: FC = (props) => {
   const [isBurgerActive, changeBurgerActive] = useState<boolean>(false);
@@ -23,11 +24,11 @@ export const Header: FC = (props) => {
         <nav className={isBurgerActive ? `${style.menu} ${style.activeMenu}` : `${style.menu}`}>
           <div className={style.menuCloseBtn}><div className={style.logo}>Logo</div><span onClick={handleBurgerClick}></span></div>
           <ul className={style.list}>
-            <li className={style.item}><Link to="/" className={style.link}>Главная</Link></li>
-            <li className={style.item}><Link to="/category/1" className={style.link}>Деловая</Link></li>
-            <li className={style.item}><Link to="#" className={style.link}>Повседневная</Link></li>
-            <li className={style.item}><Link to="#" className={style.link}>Для развлечений</Link></li>
-            <li className={style.item}><Link to="#" className={style.link}>Для зала</Link></li>
+            <li className={style.item}><NavLink to="/" className={({ isActive }) => isActive ? `${style.link} ${style.activeLink}` : `${style.link}`}>Главная</NavLink></li>
+            <li className={style.item}><NavLink to="/category/1" className={({ isActive }) => isActive ? `${style.link} ${style.activeLink}` : `${style.link}`}>Деловая</NavLink></li>
+            <li className={style.item}><NavLink to="/category/2" className={({ isActive }) => isActive ? `${style.link} ${style.activeLink}` : `${style.link}`}>Повседневная</NavLink></li>
+            <li className={style.item}><NavLink to="/category/3" className={({ isActive }) => isActive ? `${style.link} ${style.activeLink}` : `${style.link}`}>Для развлечений</NavLink></li>
+            <li className={style.item}><NavLink to="/category/4" className={({ isActive }) => isActive ? `${style.link} ${style.activeLink}` : `${style.link}`}>Для зала</NavLink></li>
           </ul>
         </nav>
         <div className={isSearchActive ? `${style.searchInput} ${style.activeSearchInput}` : `${style.searchInput}`}>

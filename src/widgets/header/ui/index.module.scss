@@ -161,6 +161,13 @@
   }
 }
 
+.activeLink {
+  &::before {
+    width: 100%;
+  }
+}
+
+
 .searchInput {
   flex-grow: 1;
   position: relative;
