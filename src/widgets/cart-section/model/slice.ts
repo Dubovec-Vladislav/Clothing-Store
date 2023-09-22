@@ -56,6 +56,7 @@ export const cartSlice = createSlice({
       state.totalPrice = calcTotalPrice(state.clothingItems);
     },
 
+    
     // Update
     changeNumberOfClothingItems: (state, action: PayloadAction<{ id: string, color: string, size: number, numOfClothing: number }>) => {
       const item = { id: action.payload.id, color: action.payload.color, size: action.payload.size };
@@ -66,22 +67,17 @@ export const cartSlice = createSlice({
       state.totalPrice = calcTotalPrice(state.clothingItems);
     },
 
-    calcTotalAmount: (state) => {
-      state.totalItems = state.clothingItems.reduce((sum, pizza) => sum + pizza.numOfClothing, 0);
-    },
-
 
     // // Delete
-    // removePizza: (state, action: PayloadAction<{ id: string, price: number }>) => {
-    //   const pizzaIndex = state.pizzas.findIndex(
-    //     pizza => pizza.id === action.payload.id && pizza.price === action.payload.price
-    //   );
-    //   const numberOfPizzas = state.pizzas[pizzaIndex].numberOfPizzas;
+    removeClothingItem: (state, action: PayloadAction<{ id: string, color: string, size: number, numOfClothing: number }>) => {
+      const item = { id: action.payload.id, color: action.payload.color, size: action.payload.size };
+      const existingClothingItemIndex = findExistingClothingItemIndex(state, item);
 
-    //   state.totalNumber -= numberOfPizzas;
-    //   state.totalPrice -= numberOfPizzas * action.payload.price;
-    //   state.pizzas.splice(pizzaIndex, 1);
-    // },
+      state.clothingItems.splice(existingClothingItemIndex, 1);
+
+      state.totalItems = calcTotalAmount(state.clothingItems);
+      state.totalPrice = calcTotalPrice(state.clothingItems);
+    },
     // clearPizzas: (state) => {
     //   state.pizzas = [];
     //   state.totalNumber = 0;
@@ -91,7 +87,7 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addClothingItem, changeNumberOfClothingItems } = cartSlice.actions;
+export const { addClothingItem, changeNumberOfClothingItems, removeClothingItem } = cartSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCartClothingItems = (state: RootState) => state.cart.clothingItems;
