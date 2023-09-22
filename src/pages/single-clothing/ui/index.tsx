@@ -5,7 +5,7 @@ import style from './index.module.scss'
 import { useParams } from 'react-router-dom'
 // Components
 import { Header } from 'widgets/header'
-import { ClothingConstructor } from 'widgets/clothing-constructor'
+import { ClothingSingleSection } from 'widgets/clothing-single-section'
 import { TabItemInterface, Tabs } from 'shared/ui'
 import { CommentSection } from 'widgets/comment-section'
 import { NewsSubscription } from 'widgets/news-subscription'
@@ -24,7 +24,7 @@ export const SingleClothingPage: FC = (props) => {
   return (
     <main className={style.block}>
       <Header />
-      <ClothingConstructor clothId={id || ''} />
+      <ClothingSingleSection clothId={id || ''} />
       <Tabs tabsList={tabsList} />
       <NewsSubscription />
       <Footer />

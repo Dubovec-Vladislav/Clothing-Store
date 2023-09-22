@@ -69,7 +69,7 @@ export const CommentSection: FC<CommentSectionProps> = ({ clothId }) => {
         </div>
         {sortedDataLength > limit
           && <div className={style.btn} onClick={() => setLimit(limit + 2)}>
-            <Button text={"Загрузить больше"} color={"#000"} fill={"#fff"} borderFill={"#E6E6E6"} />
+            <Button text={"Загрузить больше"} color={"#000"} fill={"#fff"} borderFill={"#E6E6E6"} hoverFill={"#E6E6E6"} />
           </div>}
       </div>
     </section>

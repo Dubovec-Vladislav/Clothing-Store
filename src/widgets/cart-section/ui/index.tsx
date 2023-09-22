@@ -6,7 +6,6 @@ import { selectCartClothingItems } from '../model'
 
 export const CartSection: FC = (props) => {
   const clothingItems = useAppSelector(selectCartClothingItems);
-  console.log(clothingItems);
   return (
     <section className={style.block}>
       <div className={style.body}>

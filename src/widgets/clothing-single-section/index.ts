@@ -1,0 +1,1 @@
+export { ClothingSingleSection } from './ui'

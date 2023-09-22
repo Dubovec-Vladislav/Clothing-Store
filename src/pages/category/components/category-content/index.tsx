@@ -1,7 +1,8 @@
 // General
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState, useRef } from 'react'
 import style from './index.module.scss'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
+import qs from 'qs'
 // Components
 import { Filters } from 'widgets/filters'
 import { ClothingSection } from 'widgets/clothing-section'
@@ -29,6 +30,32 @@ export const CategoryContent: FC = (props) => {
     changeSelectedColorsList([]); // Clear list
     changeSelectedSizesList([]); // Clear list
   }, [currentPage]);
+  // --------------------------------------------- //
+
+
+  // ------------- Working with URL -------------- //
+  // Setting URL
+  const isMounted = useRef(false);
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (window.location.search) {
+      // Get params
+      const params = qs.parse(window.location.search.substring(1));
+      // Updating page
+      setCurrentPage(Number(params.page))
+    };
+  }, []);
+
+  // URL Path
+  useEffect(() => {
+    if (isMounted.current) {
+      const queryString = qs.stringify({
+        page: currentPage,
+      }); // => currentPage=1
+      navigate(`?${queryString}`)
+    };
+    isMounted.current = true;
+  }, [currentPage, navigate]);
   // --------------------------------------------- //
 
 

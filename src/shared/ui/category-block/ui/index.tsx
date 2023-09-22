@@ -24,7 +24,7 @@ export const CategoryBlock: FC = (props) => {
   const photosMas: PhotoItem[] = [
     { src: formal, name: 'Деловая' },
     { src: casual, name: 'Повседневная' },
-    { src: party, name: 'Для развлечений' },
+    { src: party, name: 'На вечеринку' },
     { src: gym, name: 'Для зала' },
   ]
 
@@ -73,6 +73,7 @@ export const CategoryBlock: FC = (props) => {
               key={i}
               className={`${itemState.size === 'large' ? style.largeItem : style.smallItem} ${itemState.animated ? style._anim : ''}`}
               onClick={() => toggleAnimation(i)}
+              target={"_blank"}
             >
               <div className={style.itemBody}>
                 <div className={style.text}>{photosMas[i].name}</div>

@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'app/model'
+// Lib
+import { getCartFromLocalStorage } from '../lib/getCartFromLocalStorage'
 
 export interface ClothingItem {
   id: string,
@@ -15,15 +17,15 @@ export interface ClothingItem {
 interface CartState {
   clothingItems: ClothingItem[],
   totalPrice: number,
-  totalNumber: number,
+  totalItems: number,
 };
 
-// const { pizzas, totalPrice, totalNumber } = getBasketFromLocalStorage();
+const { clothingItems, totalPrice, totalItems } = getCartFromLocalStorage();
 
 const initialState: CartState = {
-  clothingItems: [],
-  totalPrice: 0,
-  totalNumber: 0,
+  clothingItems,
+  totalPrice,
+  totalItems,
 };
 
 function findExistingClothingItemIndex(state: CartState, newItem: ClothingItem): number {
@@ -46,8 +48,8 @@ export const cartSlice = createSlice({
 
       if (existingClothingItemIndex !== -1) state.clothingItems[existingClothingItemIndex].numOfClothing += action.payload.numOfClothing;
       else state.clothingItems = ([...state.clothingItems, action.payload]);
-      // console.log(state.clothingItems);
-      state.totalNumber += action.payload.numOfClothing;
+
+      state.totalItems += action.payload.numOfClothing;
       state.totalPrice += action.payload.numOfClothing * action.payload.price;
     },
 
@@ -93,7 +95,7 @@ export const { addClothingItem } = cartSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCartClothingItems = (state: RootState) => state.cart.clothingItems;
-// export const selectBasketTotalNumber = (state: RootState) => state.cart.totalNumber;
+export const selectCartTotalItems = (state: RootState) => state.cart.totalItems;
 export const selectCartTotalPrice = (state: RootState) => state.cart.totalPrice;
 
 export default cartSlice.reducer;

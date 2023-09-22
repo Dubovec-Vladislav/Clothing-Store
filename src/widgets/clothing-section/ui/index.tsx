@@ -52,7 +52,7 @@ export const ClothingSection: FC<ClothingSectionProps> = (
             : data
               ? data.length !== 0
                 ? data.map((item: ClothingInterface) => (
-                  <Link to={`/cloth/${item.id}`} key={item.id} className={style.item}>
+                  <Link to={`/cloth/${item.id}`} key={item.id} className={style.item} target={""}>
                     <ClothingCard
                       imageUrl={item.imageObjects[0].previewImg}
                       name={item.name}

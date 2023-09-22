@@ -12,11 +12,11 @@ import { useDispatch } from 'react-redux'
 // Slcie
 import { addClothingItem } from 'widgets/cart-section'
 
-interface ClothingConstructorProps {
+interface ClothingSingleSectionProps {
   clothId: string,
 }
 
-export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) => {
+export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId }) => {
   const dispatch = useDispatch()
   const { data, isLoading } = getClothingItemById(clothId!);
 
@@ -58,7 +58,7 @@ export const ClothingConstructor: FC<ClothingConstructorProps> = ({ clothId }) =
     <section className={style.block}>
       <div className={style.body}>
         <div className={style.breadCrumbs}><BreadCrumbs /></div>
-        <div className={style.clothingConstructor}>
+        <div className={style.ClothingSingleSection}>
           {isLoading
             ? <div style={{ paddingLeft: "20px" }}>Идет загрузка одежды...</div>
             : data

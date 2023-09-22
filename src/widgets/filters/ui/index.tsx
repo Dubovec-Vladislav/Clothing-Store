@@ -104,7 +104,7 @@ export const Filters: FC<FiltersProps> = (
           <div className={style.item}>
             <div className={style.title}>Другие категории</div>
             <Link to={'#'} className={style.categoryItem}>Повседневная</Link>
-            <Link to={'#'} className={style.categoryItem}>Для развлечений</Link>
+            <Link to={'#'} className={style.categoryItem}>На вечеринку</Link>
             <Link to={'#'} className={style.categoryItem}>Для зала</Link>
           </div>
         </div>
