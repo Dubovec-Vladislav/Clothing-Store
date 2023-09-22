@@ -11,8 +11,10 @@ export const CartSection: FC = (props) => {
       <div className={style.body}>
         <div className={style.content}>
           {clothingItems.length
-            ? clothingItems.map(clothingItem =>
+            ? clothingItems.map((clothingItem, i) =>
               <CartCard
+                key={i}
+                id={clothingItem.id}
                 previewImg={clothingItem.previewImg}
                 name={clothingItem.name}
                 price={clothingItem.price}

@@ -1,9 +1,12 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import style from './index.module.scss'
 import { CartCounterBtn } from 'features/cart-counter-btn'
 import cart from '../img/cart.svg'
+import { changeNumberOfClothingItems } from 'widgets/cart-section'
+import { useDispatch } from 'react-redux'
 
 interface CartCardProps {
+  id: string,
   previewImg: string,
   name: string,
   price: number,
@@ -12,8 +15,14 @@ interface CartCardProps {
   numOfClothing: number,
 }
 
-export const CartCard: FC<CartCardProps> = ({ previewImg, name, price, color, size, numOfClothing }) => {
+export const CartCard: FC<CartCardProps> = ({ id, previewImg, name, price, color, size, numOfClothing }) => {
+  const dispatch = useDispatch()
   const [numberOfClothing, changeNumOfClothing] = useState<number>(numOfClothing);
+
+  useEffect(() => {
+    const clothingItem = { id, color, size, numOfClothing: numberOfClothing };
+    dispatch(changeNumberOfClothingItems(clothingItem));
+  }, [numberOfClothing])
 
   return (
     <div className={style.block}>

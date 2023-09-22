@@ -3,6 +3,8 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'app/model'
 // Lib
 import { getCartFromLocalStorage } from '../lib/getCartFromLocalStorage'
+import { calcTotalAmount } from '../lib/calcTotalAmount';
+import { calcTotalPrice } from '../lib/calcTotalPrice';
 
 export interface ClothingItem {
   id: string,
@@ -28,8 +30,8 @@ const initialState: CartState = {
   totalItems,
 };
 
-function findExistingClothingItemIndex(state: CartState, newItem: ClothingItem): number {
-  const { id, color, size } = newItem;
+function findExistingClothingItemIndex(state: CartState, item: { id: string, color: string, size: number }): number {
+  const { id, color, size } = item;
   return state.clothingItems.findIndex(clothingItem =>
     clothingItem.id === id
     && clothingItem.color === color
@@ -44,32 +46,30 @@ export const cartSlice = createSlice({
 
     // Create
     addClothingItem: (state, action: PayloadAction<ClothingItem>) => {
-      const existingClothingItemIndex = findExistingClothingItemIndex(state, action.payload);
+      const item = { id: action.payload.id, color: action.payload.color, size: action.payload.size };
+      const existingClothingItemIndex = findExistingClothingItemIndex(state, item);
 
       if (existingClothingItemIndex !== -1) state.clothingItems[existingClothingItemIndex].numOfClothing += action.payload.numOfClothing;
       else state.clothingItems = ([...state.clothingItems, action.payload]);
 
-      state.totalItems += action.payload.numOfClothing;
-      state.totalPrice += action.payload.numOfClothing * action.payload.price;
+      state.totalItems = calcTotalAmount(state.clothingItems);
+      state.totalPrice = calcTotalPrice(state.clothingItems);
     },
 
-    // // Update
-    // changeNumberOfPizzas: (state, action: PayloadAction<{ id: string, price: number, action: string }>) => {
-    //   const pizzaIndex = state.pizzas.findIndex(
-    //     pizza => pizza.id === action.payload.id && pizza.price === action.payload.price
-    //   );
-    //   if (action.payload.action === '+') {
-    //     state.pizzas[pizzaIndex].numberOfPizzas += 1;
-    //     state.totalNumber += 1;
-    //     state.totalPrice += action.payload.price;
-    //   }
-    //   else if (action.payload.action === '-') {
-    //     state.pizzas[pizzaIndex].numberOfPizzas -= 1;
-    //     state.totalNumber -= 1;
-    //     state.totalPrice -= action.payload.price;
-    //     if (state.pizzas[pizzaIndex].numberOfPizzas === 0) state.pizzas.splice(pizzaIndex, 1);
-    //   };
-    // },
+    // Update
+    changeNumberOfClothingItems: (state, action: PayloadAction<{ id: string, color: string, size: number, numOfClothing: number }>) => {
+      const item = { id: action.payload.id, color: action.payload.color, size: action.payload.size };
+      const existingClothingItemIndex = findExistingClothingItemIndex(state, item);
+
+      state.clothingItems[existingClothingItemIndex].numOfClothing = action.payload.numOfClothing;
+      state.totalItems = calcTotalAmount(state.clothingItems);
+      state.totalPrice = calcTotalPrice(state.clothingItems);
+    },
+
+    calcTotalAmount: (state) => {
+      state.totalItems = state.clothingItems.reduce((sum, pizza) => sum + pizza.numOfClothing, 0);
+    },
+
 
     // // Delete
     // removePizza: (state, action: PayloadAction<{ id: string, price: number }>) => {
@@ -91,7 +91,7 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addClothingItem } = cartSlice.actions;
+export const { addClothingItem, changeNumberOfClothingItems } = cartSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCartClothingItems = (state: RootState) => state.cart.clothingItems;

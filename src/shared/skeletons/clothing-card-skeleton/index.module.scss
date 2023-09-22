@@ -6,4 +6,8 @@
   @media (max-width: 1053px) {
     flex: 0 1 50%;
   }
+
+  @media (max-width: 400px) {
+    flex: 0 1 100%;
+  }
 }

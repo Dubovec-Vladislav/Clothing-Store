@@ -7,7 +7,7 @@ import { CategoryContent } from '../components'
 import { NewsSubscription } from 'widgets/news-subscription'
 import { Footer } from 'widgets/footer'
 
-export const CategoryPage: FC = (props) => {
+export const CategoryPage: FC = () => {
   return (
     <main className={style.block}>
       <Header />
