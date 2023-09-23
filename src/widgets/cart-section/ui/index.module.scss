@@ -8,3 +8,12 @@
   border: solid 1px #E6E6E6;
   border-radius: 20px;
 }
+
+.btn {
+  display: flex;
+  justify-content: center;
+
+  * {
+    max-width: 300px;
+  }
+}
