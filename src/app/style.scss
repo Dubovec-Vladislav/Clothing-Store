@@ -4,9 +4,9 @@
   position: relative;
   overflow: hidden;
   min-height: 100dvh;
-  padding: 0px calc(16px + 84 * (100vw / 1440));
+  padding: 0px calc(16px + 64 * (100vw / 1440));
 
   @media (max-width: 769px) {
-    padding: 0px calc(16px + 84 * ((100vw - 320px) / 1440));
+    padding: 0px calc(16px + 64 * ((100vw - 320px) / 1440));
   }
 }

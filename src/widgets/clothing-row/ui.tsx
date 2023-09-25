@@ -7,6 +7,8 @@ import { BlockTitle, Button } from 'shared/ui'
 import { ClothingCard } from 'entities/clothing-card'
 // Api
 import { ClothingInterface, getClothingItems, getNewClothing, getTopSellingClothing } from 'app/commonApi'
+// Skeleton
+import { ClothingCardSkeleton } from 'shared/skeletons'
 
 interface ClothingRowProps {
   titleText: string,
@@ -27,7 +29,10 @@ export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, new
       <div className={style.body}>
         <div className={style.row}>
           {isLoading
-            ? <div>Идет загрузка одежды...</div>
+            ? <div className={style.skeletons}>
+              {[...new Array(4)].map((_, index) =>
+                <div className={style.skeleton}><ClothingCardSkeleton key={index} /></div>
+              )}</div>
             : data
               ? data.map((item: ClothingInterface) =>
                 <Link to={`/cloth/${item.id}`} key={item.id} className={style.item}>
@@ -44,7 +49,7 @@ export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, new
           }
         </div>
         {limit < 8 && <div className={style.btn} onClick={() => setLimit(limit + 4)}>
-          <Button text={"Посмотреть ещё"} color={"#000"} fill={"#fff"} borderFill={"#E6E6E6"} hoverFill={"#E6E6E6"}/>
+          <Button text={"Посмотреть ещё (4)"} color={"#000"} fill={"#fff"} borderFill={"#E6E6E6"} hoverFill={"#E6E6E6"} />
         </div>}
       </div>
       {endBlockLine && <div className={style.endLine}></div>}

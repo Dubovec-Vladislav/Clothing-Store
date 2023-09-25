@@ -22,11 +22,30 @@
 .row {
   display: flex;
   margin: -10px -10px calc(24px + 12 * (100vw / 1440)) -10px;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
 
   @media (max-width: 769px) {
     margin: -10px -10px calc(24px + 12 * ((100vw - 320px) / 1440)) -10px;
+  }
+}
+
+.skeletons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.skeleton {
+  flex: 0 1 25%;
+  padding: 10px;
+
+  @media (max-width: 1021px) {
+    flex: 0 1 50%;
+  }
+
+  @media (max-width: 484px) {
+    flex: 0 1 100%;
   }
 }
 
@@ -34,7 +53,7 @@
   flex: 0 1 25%;
   padding: 10px;
 
-  @media (max-width: 1025px) {
+  @media (max-width: 1021px) {
     flex: 0 1 50%;
   }
 

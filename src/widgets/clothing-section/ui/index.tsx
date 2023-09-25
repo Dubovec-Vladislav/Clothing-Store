@@ -48,7 +48,10 @@ export const ClothingSection: FC<ClothingSectionProps> = (
         </div>
         <div className={style.row}>
           {isLoading
-            ? <div className={style.skeletons}>{[...new Array(pageLimit)].map((_, index) => <ClothingCardSkeleton key={index} />)}</div>
+            ? <div className={style.skeletons}>
+              {[...new Array(pageLimit)].map((_, index) =>
+                <div className={style.skeleton}><ClothingCardSkeleton key={index} /></div>)}
+            </div>
             : data
               ? data.length !== 0
                 ? data.map((item: ClothingInterface) => (
