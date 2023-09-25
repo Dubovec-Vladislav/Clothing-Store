@@ -1,6 +1,12 @@
 .block {
-  flex: 0 1 60%;
+  flex: 0 1 55%;
   padding: 0px 10px;
+
+  @media (max-width: 862px) {
+    flex: 0 1 100%;
+    padding: 0px 0px 0px 0px;
+    order: 3;
+  }
 }
 
 .body {
@@ -9,11 +15,36 @@
   border-radius: 20px;
 }
 
-.btn {
+.btnBlock {
+  position: relative;
   display: flex;
   justify-content: center;
+}
+
+.moreBtn {
+  display: flex;
 
   * {
     max-width: 300px;
+  }
+}
+
+.allBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #000;
+  border: solid 2px #E6E6E6;
+  padding: 5px 6px 7px 6px;
+  border-radius: 100%;
+  transition: 0.2s ease;
+  cursor: pointer;
+
+  font-family: 'Open Sans';
+  font-size: 12px;
+
+  &:hover {
+    border-color: #000;
+    // background-color: #E6E6E6;
   }
 }

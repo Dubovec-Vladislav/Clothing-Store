@@ -1,7 +1,7 @@
 .block {
   flex: 0 1 75%;
   padding: 0px 10px;
-  margin: 0px 0px calc(50px + 30 * (100vw / 1440)) 0px;
+  margin: 0px 0px calc(60px + 30 * (100vw / 1440)) 0px;
 
   @media (max-width: 1241px) {
     flex: 0 1 70%;
@@ -16,7 +16,7 @@
   }
 
   @media (max-width: 769px) {
-    margin: 0px 0px calc(50px + 30 * ((100vw - 320px) / 1440)) 0px;
+    margin: 0px 0px calc(60px + 30 * ((100vw - 320px) / 1440)) 0px;
   }
 }
 
@@ -29,6 +29,7 @@
 
   @media (max-width: 492px) {
     justify-content: space-between;
+    margin: 0px 0px 7px 0px;
   }
 }
 
@@ -100,7 +101,7 @@
   }
 
   @media (max-width: 426px) {
-    margin: -8px -3px 20px -3px;
+    margin: -12px 0px 12px 0px;
   }
 }
 
@@ -118,7 +119,7 @@
 
   @media (max-width: 426px) {
     flex: 0 1 100%;
-    padding: 0px 0px 0px 0px;
+    padding: 12px 0px;
   }
 }
 

@@ -1,16 +1,21 @@
 .content {
   display: flex;
   flex-wrap: wrap;
-  padding: calc(84px + 46 * (100vw / 1440)) 0px 0px 0px;
+  padding: calc(100px + 46 * (100vw / 1440)) 0px 0px 0px;
   margin: 0px -10px calc(40px + 40 * (100vw / 1440)) -10px;
 
+  @media (max-width: 862px) {
+    margin: -10px 0px calc(40px + 40 * (100vw / 1440)) 0px;
+  }
+
   @media (max-width: 769px) {
-    padding: calc(84px + 46 * ((100vw - 320px) / 1440)) 0px 0px 0px;
+    padding: calc(100px + 46 * ((100vw - 320px) / 1440)) 0px 0px 0px;
     margin: 0px 0px calc(40px + 40 * (100vw / 1440)) 0px;
   }
 }
 
 .title {
+  order: 1;
   flex: 0 1 100%;
   color: #000;
   padding: 0px 10px;
@@ -21,6 +26,7 @@
   line-height: normal;
 
   @media (max-width: 769px) {
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 16px 0px;
+    font-size: 26px;
   }
 }

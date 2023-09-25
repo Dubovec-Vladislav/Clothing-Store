@@ -95,6 +95,10 @@
   font-size: 24px;
   font-weight: 700;
   line-height: normal;
+
+  @media (max-width: 769px) {
+    font-size: 18px;
+  }
 }
 
 .widgets {

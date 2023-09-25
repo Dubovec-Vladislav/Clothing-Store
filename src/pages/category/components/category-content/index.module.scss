@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   margin: 0px -10px;
-  padding: calc(80px + 50 * (100vw / 1440)) 0px 0px 0px;
+  padding: calc(90px + 50 * (100vw / 1440)) 0px 0px 0px;
 
   @media (max-width: 813px) {
     flex-wrap: wrap;
@@ -10,6 +10,6 @@
   }
 
   @media (max-width: 769px) {
-    padding: calc(80px + 50 * ((100vw - 320px) / 1440)) 0px 0px 0px;
+    padding: calc(90px + 50 * ((100vw - 320px) / 1440)) 0px 0px 0px;
   }
 }

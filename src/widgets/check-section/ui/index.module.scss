@@ -1,6 +1,13 @@
 .block {
-  flex: 0 1 40%;
+  flex: 0 1 45%;
   padding: 0px 10px;
+
+  @media (max-width: 862px) {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 16px 0px;
+    flex: 0 1 100%;
+    order: 2;
+  }
 }
 
 .body {
@@ -119,7 +126,7 @@
   flex-grow: 1;
   display: flex;
   background-color: #F0F0F0;
-  padding: 14px 12px;
+  padding: 10px 12px;
   margin: 0px 10px 0px 0px;
   border-radius: 62px;
 
@@ -148,6 +155,10 @@
 .inputBtn {
   * {
     font-size: 14px;
+
+    @media (max-width: 769px) {
+      padding: 14px 20px;
+    }
   }
 }
 

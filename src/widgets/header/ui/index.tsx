@@ -42,9 +42,13 @@ export const Header: FC = (props) => {
             {/* <HeaderLink path={"/category/4"} text={"Для зала"} /> */}
           </ul>
         </nav>
+
+
         <div className={isSearchActive ? `${style.searchInput} ${style.activeSearchInput}` : `${style.searchInput}`}>
           <img src={search1} alt="search1" /><input type="text" placeholder="Search for products..." />
         </div>
+
+        
         <div className={style.searchIcon} onClick={() => changeSearchActive(!isSearchActive)}><img src={search2} alt="search2" /></div>
         <Link to="/cart" className={style.cart}><img src={cart} alt="cart" /><span>{totalItems}</span></Link>
       </div>
