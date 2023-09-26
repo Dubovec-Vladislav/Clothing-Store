@@ -1,1 +1,1 @@
-export { CategoryContent } from './category-content'
+export { ClothingContent } from './clothing-content'

@@ -18,6 +18,7 @@ import { FilterPopupProps, sortType } from 'shared/ui/filter-popup'
 interface ClothingSectionProps extends FilterPopupProps {
   data: ClothingInterface[] | undefined,
   isLoading: boolean,
+  title: string,
   currentPage: number,
   setCurrentPage: (newPageNumber: number) => void,
   pageLimit: number,
@@ -26,7 +27,7 @@ interface ClothingSectionProps extends FilterPopupProps {
 }
 
 export const ClothingSection: FC<ClothingSectionProps> = (
-  { data, isLoading, currentPage, setCurrentPage, pageLimit,
+  { data, isLoading, title, currentPage, setCurrentPage, pageLimit,
     indexOfActiveSortType, setIndexOfActiveSortType, activeSortTypeName, sortTypes,
     toggleIsFilteringMenuActive }
 ) => {
@@ -34,7 +35,7 @@ export const ClothingSection: FC<ClothingSectionProps> = (
     <section className={style.block}>
       <div className={style.body}>
         <div className={style.popupBlock}>
-          <div className={style.title}>Деловая</div>
+          <div className={style.title}>{title}</div>
           <div className={style.text}>Показаны 1–8 из 14 товаров</div>
           <div className={style.popup}>
             <FilterPopup
@@ -50,7 +51,7 @@ export const ClothingSection: FC<ClothingSectionProps> = (
           {isLoading
             ? <div className={style.skeletons}>
               {[...new Array(pageLimit)].map((_, index) =>
-                <div className={style.skeleton}><ClothingCardSkeleton key={index} /></div>)}
+                <div key={index} className={style.skeleton}><ClothingCardSkeleton /></div>)}
             </div>
             : data
               ? data.length !== 0

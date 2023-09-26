@@ -1,7 +1,7 @@
 // General
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useEffect, useState, KeyboardEvent } from 'react'
 import style from './index.module.scss'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, useNavigate } from 'react-router-dom'
 // Slice
 import { useAppSelector } from 'app/model'
 import { selectCartClothingItems, selectCartTotalItems } from 'widgets/cart-section'
@@ -9,6 +9,7 @@ import { selectCartClothingItems, selectCartTotalItems } from 'widgets/cart-sect
 import search1 from '../img/search1.svg'
 import cart from '../img/cart.svg'
 import search2 from '../img/search2.svg'
+import { SearchInput } from 'features/search'
 
 export const Header: FC = (props) => {
   const totalItems = useAppSelector(selectCartTotalItems);
@@ -27,6 +28,8 @@ export const Header: FC = (props) => {
     document.body.classList.toggle('_lock');
   }
 
+  const navigate = useNavigate()
+
   return (
     <header className={style.block}>
       <div className={style.body}>
@@ -43,12 +46,8 @@ export const Header: FC = (props) => {
           </ul>
         </nav>
 
+        <SearchInput isSearchActive={isSearchActive} />
 
-        <div className={isSearchActive ? `${style.searchInput} ${style.activeSearchInput}` : `${style.searchInput}`}>
-          <img src={search1} alt="search1" /><input type="text" placeholder="Search for products..." />
-        </div>
-
-        
         <div className={style.searchIcon} onClick={() => changeSearchActive(!isSearchActive)}><img src={search2} alt="search2" /></div>
         <Link to="/cart" className={style.cart}><img src={cart} alt="cart" /><span>{totalItems}</span></Link>
       </div>

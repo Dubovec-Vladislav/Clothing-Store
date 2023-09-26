@@ -47,7 +47,7 @@ export const CartSection: FC = (props) => {
                 />
               </div>
               <div className={style.allBtn} onClick={() => changeCartLimit(clothingItems.length)}>
-                <span>({clothingItems.length})</span>
+                <span>Все ({clothingItems.length})</span>
               </div>
             </div>
           }

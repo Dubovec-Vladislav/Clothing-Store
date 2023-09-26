@@ -7,12 +7,14 @@ import qs from 'qs'
 import { Filters } from 'widgets/filters'
 import { ClothingSection } from 'widgets/clothing-section'
 // Api
-import { ClothingInterface, getClothingItemsByPageAndSort } from 'app/commonApi'
+import { ClothingInterface, getClothingItemsByPageAndSort, getClothingBySearchAndPage } from 'app/commonApi'
+// Slice
+import { useAppSelector } from 'app/model'
+import { selectSearchString } from 'features/search'
 // Lib
 import { filterData, getCommonVariantsFromArrays, sortTypes } from '../../lib'
-// import { FilterPopup } from 'shared/ui'
 
-export const CategoryContent: FC = (props) => {
+export const ClothingContent: FC = (props) => {
 
   // ---------- Filters Block data and hooks ----------- //
   const { id } = useParams<{ id: string }>();
@@ -118,6 +120,7 @@ export const CategoryContent: FC = (props) => {
         data={sortedData}
         isLoading={isFetching}
 
+        title={"Деловая"}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         pageLimit={pageLimit}

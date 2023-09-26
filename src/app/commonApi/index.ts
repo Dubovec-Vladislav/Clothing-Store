@@ -6,5 +6,6 @@ export {
   useGetClothingItemByIDQuery as getClothingItemById,
   useGetTopSellingClothingQuery as getTopSellingClothing,
   useGetNewClothingQuery as getNewClothing,
+  useGetClothingBySearchAndPageQuery as getClothingBySearchAndPage,
 } from './clothApi'
-export type { ClothingInterface, ImageObjectInterface} from './clothApi'
+export type { ClothingInterface, ImageObjectInterface } from './clothApi'

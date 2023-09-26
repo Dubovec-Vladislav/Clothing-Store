@@ -17,7 +17,7 @@ export const CommentCard: FC<Comment> = ({ rating, name, text, timeSinceCreatedD
         <div className={style.rating}><Rating rating={rating} /></div>
         <div className={style.name}>{name}<img src={check} alt="check" /></div>
         <div className={style.text}>“{text}”</div>
-        <div className={style.data}>Опубликовано {timeSinceCreatedDate} дня (дней) назад</div>
+        {timeSinceCreatedDate && <div className={style.data}>Опубликовано {timeSinceCreatedDate} дня (дней) назад</div>}
       </div>
     </div>
   );

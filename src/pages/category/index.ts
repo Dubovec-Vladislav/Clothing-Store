@@ -1,3 +1,3 @@
-import { CategoryPage } from './ui'
+import { ClothingPage } from './ui'
 
-export default CategoryPage;
+export default ClothingPage;

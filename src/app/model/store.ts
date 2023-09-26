@@ -3,10 +3,12 @@ import { cartSlice } from 'widgets/cart-section'
 import { clothApi } from 'app/commonApi'
 import { topCommentsApi } from 'widgets/comment-slider'
 import { emailsApi } from 'widgets/news-subscription'
+import { searchSlice } from 'features/search/model'
 
 export const store = configureStore({
   reducer: {
     cart: cartSlice.reducer,
+    search: searchSlice.reducer,
     [clothApi.reducerPath]: clothApi.reducer,
     [topCommentsApi.reducerPath]: topCommentsApi.reducer,
     [emailsApi.reducerPath]: emailsApi.reducer,

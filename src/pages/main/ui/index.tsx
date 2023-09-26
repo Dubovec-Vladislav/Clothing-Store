@@ -10,21 +10,20 @@ import { CategoryBlock } from 'shared/ui'
 import { CommentSlider } from 'widgets/comment-slider'
 import { NewsSubscription } from 'widgets/news-subscription'
 import { Footer } from 'widgets/footer'
+import { Navigate } from 'react-router'
 
 export const MainPage: FC = (props) => {
   return (
     <main className={style.block}>
-      <div className={style.body}>
-        <Header />
-        <Hello />
-        <BrandsLine />
-        <ClothingRow titleText={'Новые поступления'} endBlockLine newClothing />
-        <ClothingRow titleText={'Лучшие продажи'} topClothing />
-        <CategoryBlock />
-        <CommentSlider />
-        <NewsSubscription />
-        <Footer />
-      </div>
+      <Header />
+      <Hello />
+      <BrandsLine />
+      <ClothingRow titleText={'Новые поступления'} endBlockLine newClothing />
+      <ClothingRow titleText={'Лучшие продажи'} topClothing />
+      <CategoryBlock />
+      <CommentSlider />
+      <NewsSubscription />
+      <Footer />
     </main>
   );
 };

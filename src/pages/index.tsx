@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom"
 
 const MainPage = lazy(() => import("./main"));
 const SingleClothingPage = lazy(() => import("./single-clothing"));
-const CategoryPage = lazy(() => import("./category"));
+const ClothingPage = lazy(() => import("./category"));
 const CartPage = lazy(() => import("./cart"));
 
 export const Routing = () => {
@@ -11,7 +11,8 @@ export const Routing = () => {
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/cloth/:id" element={<SingleClothingPage />} />
-      <Route path="/category/:id" element={<CategoryPage />} />
+      <Route path="/category/:id" element={<ClothingPage />} />
+      <Route path="/search/*" element={<ClothingPage />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
