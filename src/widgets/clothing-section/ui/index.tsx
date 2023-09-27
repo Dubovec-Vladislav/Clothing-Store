@@ -23,13 +23,15 @@ interface ClothingSectionProps extends FilterPopupProps {
   setCurrentPage: (newPageNumber: number) => void,
   pageLimit: number,
   sortTypes: sortType[],
-  toggleIsFilteringMenuActive: (isActive: boolean) => void;
-}
+  toggleIsFilteringMenuActive: (isActive: boolean) => void,
+  pageName: "category" | "search",
+  categoryId: string,
+};
 
 export const ClothingSection: FC<ClothingSectionProps> = (
   { data, isLoading, title, currentPage, setCurrentPage, pageLimit,
-    indexOfActiveSortType, setIndexOfActiveSortType, activeSortTypeName, sortTypes,
-    toggleIsFilteringMenuActive }
+    indexOfActiveSortType, setIndexOfActiveSortType, activeSortTypeName,
+    sortTypes, toggleIsFilteringMenuActive, pageName, categoryId }
 ) => {
   return (
     <section className={style.block}>
@@ -69,7 +71,13 @@ export const ClothingSection: FC<ClothingSectionProps> = (
               : <div>Упс... кажется что-то пошло не так</div>
           }
         </div>
-        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} pageLimit={pageLimit} />
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          pageLimit={pageLimit}
+          pageName={pageName}
+          categoryId={categoryId}
+        />
       </div>
     </section>
   );

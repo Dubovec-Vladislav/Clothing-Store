@@ -7,12 +7,15 @@ import { ClothingContent } from '../components'
 import { NewsSubscription } from 'widgets/news-subscription'
 import { Footer } from 'widgets/footer'
 
-export const ClothingPage: FC = () => {
-  
+interface ClothingPageProps {
+  pageName: "category" | "search"
+};
+
+export const ClothingPage: FC<ClothingPageProps> = ({ pageName }) => {
   return (
     <main className={style.block}>
       <Header />
-      <ClothingContent/>
+      <ClothingContent pageName={pageName}/>
       <NewsSubscription />
       <Footer />
     </main>

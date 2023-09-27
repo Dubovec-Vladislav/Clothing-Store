@@ -7,17 +7,22 @@ import qs from 'qs'
 import { Filters } from 'widgets/filters'
 import { ClothingSection } from 'widgets/clothing-section'
 // Api
-import { ClothingInterface, getClothingItemsByPageAndSort, getClothingBySearchAndPage } from 'app/commonApi'
+import { ClothingInterface, getClothingItemsByCategoryAndPageAndSort, getClothingItemsBySearchAndPage, getClothingItems } from 'app/commonApi'
 // Slice
 import { useAppSelector } from 'app/model'
 import { selectSearchString } from 'features/search'
 // Lib
 import { filterData, getCommonVariantsFromArrays, sortTypes } from '../../lib'
 
-export const ClothingContent: FC = (props) => {
+interface ClothingContentProps {
+  pageName: "category" | "search"
+};
+
+export const ClothingContent: FC<ClothingContentProps> = ({ pageName }) => {
 
   // ---------- Filters Block data and hooks ----------- //
   const { id } = useParams<{ id: string }>();
+  const searchStr = useAppSelector(selectSearchString)
   const [selectedColorsList, changeSelectedColorsList] = useState<string[]>([]);
   const [selectedSizesList, changeSelectedSizesList] = useState<number[]>([]);
   // --------------------------------------------- //
@@ -54,7 +59,7 @@ export const ClothingContent: FC = (props) => {
       const queryString = qs.stringify({
         page: currentPage,
       }); // => currentPage=1
-      navigate(`?${queryString}`)
+      navigate(`?${queryString}`);
     };
     isMounted.current = true;
   }, [currentPage, navigate]);
@@ -72,9 +77,21 @@ export const ClothingContent: FC = (props) => {
   const [isFilteringMenuActive, toggleIsFilteringMenuActive] = useState<boolean>(false);
   const activeSortType = sortTypes[indexOfActiveSortType];
 
-  const { data, isFetching } = getClothingItemsByPageAndSort(
-    { category: id, page: currentPage, limit: pageLimit, sortBy: activeSortType.urlName, order: activeSortType.order }
-  );
+  const { data, isFetching } = pageName === "category"
+    ? getClothingItemsByCategoryAndPageAndSort(
+      { category: id, page: currentPage, limit: pageLimit, sortBy: activeSortType.urlName, order: activeSortType.order })
+    : pageName === "search"
+      ? getClothingItemsBySearchAndPage({ str: searchStr, page: currentPage, limit: pageLimit })
+      : getClothingItems('');
+
+  pageName === "category"
+    ? console.log('getClothingItemsByCategoryAndPageAndSort')
+    : pageName === "search"
+      ? console.log('getClothingItemsBySearchAndPage')
+      : console.log('getClothingItems');
+
+  // const { data, isFetching } = getClothingItemsByCategoryAndPageAndSort(
+  //   { category: id, page: currentPage, limit: pageLimit, sortBy: activeSortType.urlName, order: activeSortType.order })
 
   // Filtering by color
   const dataSortedByColor = filterData(data, (item) => selectedColorsList.includes(item.imageObjects[0].color));
@@ -101,36 +118,31 @@ export const ClothingContent: FC = (props) => {
       <Filters
         data={data}
         isLoading={isFetching}
-
         selectedColorsList={selectedColorsList}
         changeSelectedColorsList={changeSelectedColorsList}
-
         selectedSizesList={selectedSizesList}
         changeSelectedSizesList={changeSelectedSizesList}
-
         minPrice={minPrice}
         setMinPrice={setMinPrice}
         maxPrice={maxPrice}
         setMaxPrice={setMaxPrice}
-        // Toggle menu active
         isFilteringMenuActive={isFilteringMenuActive}
         toggleIsFilteringMenuActive={toggleIsFilteringMenuActive}
       />
       <ClothingSection
         data={sortedData}
         isLoading={isFetching}
-
         title={"Деловая"}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         pageLimit={pageLimit}
-
         indexOfActiveSortType={indexOfActiveSortType}
         setIndexOfActiveSortType={setIndexOfActiveSortType}
         activeSortTypeName={activeSortType.name}
         sortTypes={sortTypes}
-        // Toggle menu active
         toggleIsFilteringMenuActive={toggleIsFilteringMenuActive}
+        pageName={pageName}
+        categoryId={id || ""}
       />
     </div>
   );

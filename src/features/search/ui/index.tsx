@@ -1,7 +1,8 @@
 // General
-import React, { ChangeEvent, FC, useState, useEffect, useRef } from 'react'
+import React, { ChangeEvent, FC, useState, useEffect, useRef, useCallback } from 'react'
 import style from './index.module.scss'
 import { useNavigate } from 'react-router-dom'
+import debounce from 'lodash.debounce'
 // Slice
 import { selectSearchString, setSearchString } from '../model'
 // Img
@@ -11,19 +12,23 @@ import { useAppSelector } from 'app/model'
 
 interface SearchInputProps {
   isSearchActive: boolean,
-}
+};
 
 export const SearchInput: FC<SearchInputProps> = ({ isSearchActive }) => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const searchStr = useAppSelector(selectSearchString);
-  const [value, setValue] = useState(searchStr)
+  const [value, setValue] = useState(searchStr);
+
+  const updateSearchStr = useCallback(debounce((str: string) => {
+    dispatch(setSearchString(str))
+    navigate(`/search/${str}`);
+  }, 400), [dispatch, navigate]);
 
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-    dispatch(setSearchString(e.target.value));
-    navigate(`/search`);
+    updateSearchStr(e.target.value);
   }
 
   const inputRef = useRef<HTMLInputElement>(null);

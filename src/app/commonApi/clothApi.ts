@@ -37,6 +37,7 @@ interface PaginationAndSorting {
 
 interface SearchAndPagination {
   str: string,
+  page: number,
   limit: number,
 }
 
@@ -48,10 +49,13 @@ export const clothApi = createApi({
     getClothingItems: builder.query<ClothingInterface[], number | ''>({
       query: (limit) => `items?page=1&limit=${limit}`,
     }),
-    getClothingItemsByPage: builder.query<ClothingInterface[], Pagination>({
+    getClothingItemsByCategory: builder.query<ClothingInterface[], string>({
+      query: (category) => `items?category=${category}`,
+    }),
+    getClothingItemsByCategoryAndPage: builder.query<ClothingInterface[], Pagination>({
       query: ({ category, page, limit }) => `items?category=${category}&page=${page}&limit=${limit}`,
     }),
-    getClothingItemsByPageAndSort: builder.query<ClothingInterface[], PaginationAndSorting>({
+    getClothingItemsByCategoryAndPageAndSort: builder.query<ClothingInterface[], PaginationAndSorting>({
       query: ({ category, page, limit, sortBy, order }) => `items?category=${category}&page=${page}&limit=${limit}&sortBy=${sortBy}&order=${order}`,
     }),
     getClothingItemByID: builder.query<ClothingInterface, string>({
@@ -63,8 +67,11 @@ export const clothApi = createApi({
     getNewClothing: builder.query<ClothingInterface[], number>({
       query: (limit) => `items?sortBy=timeSinceReleaseDate&order=asc&page=1&limit=${limit}`,
     }),
-    getClothingBySearchAndPage: builder.query<ClothingInterface[], SearchAndPagination>({
-      query: ({ str, limit }) => `items?name=${str}&page=1&limit=${limit}`,
+    getClothingItemsBySearch: builder.query<ClothingInterface[], string>({
+      query: (str) => `items?name=${str}`,
+    }),
+    getClothingItemsBySearchAndPage: builder.query<ClothingInterface[], SearchAndPagination>({
+      query: ({ str, page, limit }) => `items?name=${str}&page=${page}&limit=${limit}`,
     }),
   }),
 });
@@ -73,10 +80,12 @@ export const clothApi = createApi({
 // auto-generated based on the defined endpoints
 export const {
   useGetClothingItemsQuery,
-  useGetClothingItemsByPageQuery,
-  useGetClothingItemsByPageAndSortQuery,
+  useGetClothingItemsByCategoryQuery,
+  useGetClothingItemsByCategoryAndPageQuery,
+  useGetClothingItemsByCategoryAndPageAndSortQuery,
   useGetClothingItemByIDQuery,
   useGetTopSellingClothingQuery,
   useGetNewClothingQuery,
-  useGetClothingBySearchAndPageQuery,
+  useGetClothingItemsBySearchQuery,
+  useGetClothingItemsBySearchAndPageQuery,
 } = clothApi;

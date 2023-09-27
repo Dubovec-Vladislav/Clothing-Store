@@ -1,11 +1,13 @@
 export {
   clothApi,
   useGetClothingItemsQuery as getClothingItems,
-  useGetClothingItemsByPageQuery as getClothingItemsByPage,
-  useGetClothingItemsByPageAndSortQuery as getClothingItemsByPageAndSort,
+  useGetClothingItemsByCategoryQuery as getClothingItemsByCategory,
+  useGetClothingItemsByCategoryAndPageQuery as getClothingItemsByCategoryAndPage,
+  useGetClothingItemsByCategoryAndPageAndSortQuery as getClothingItemsByCategoryAndPageAndSort,
   useGetClothingItemByIDQuery as getClothingItemById,
   useGetTopSellingClothingQuery as getTopSellingClothing,
   useGetNewClothingQuery as getNewClothing,
-  useGetClothingBySearchAndPageQuery as getClothingBySearchAndPage,
+  useGetClothingItemsBySearchQuery as getClothingItemsBySearch,
+  useGetClothingItemsBySearchAndPageQuery as getClothingItemsBySearchAndPage,
 } from './clothApi'
 export type { ClothingInterface, ImageObjectInterface } from './clothApi'

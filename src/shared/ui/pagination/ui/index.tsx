@@ -1,8 +1,12 @@
 // General
 import React, { FC } from 'react'
 import style from './index.module.scss'
+import { useParams } from 'react-router'
 // APi
-import { getClothingItems } from 'app/commonApi'
+import { getClothingItems, getClothingItemsByCategory, getClothingItemsBySearch } from 'app/commonApi'
+// Slice
+import { useAppSelector } from 'app/model'
+import { selectSearchString } from 'features/search'
 // Lib
 import { defineNumberOfPages } from '../lib'
 // Images
@@ -13,10 +17,20 @@ interface PaginationProps {
   currentPage: number,
   setCurrentPage: (newPageNumber: number) => void,
   pageLimit: number,
-}
+  pageName: "category" | "search",
+  categoryId: string,
+};
 
-export const Pagination: FC<PaginationProps> = ({ currentPage, setCurrentPage, pageLimit }) => {
-  const { data, isLoading } = getClothingItems('');
+export const Pagination: FC<PaginationProps> = ({ currentPage, setCurrentPage, pageLimit, pageName, categoryId }) => {
+  const { id } = useParams<{ id: string }>();
+  const searchStr = useAppSelector(selectSearchString)
+
+  const { data, isLoading } = pageName === "category"
+    ? getClothingItemsByCategory(categoryId || "")
+    : pageName === "search"
+      ? getClothingItemsBySearch(searchStr)
+      : getClothingItems("");
+
   const dataLength: number | undefined = data?.length;
   const arrayOfPages = dataLength && defineNumberOfPages(dataLength, pageLimit, currentPage);
 
