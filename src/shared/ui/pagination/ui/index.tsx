@@ -1,7 +1,6 @@
 // General
 import React, { FC } from 'react'
 import style from './index.module.scss'
-import { useParams } from 'react-router'
 // APi
 import { getClothingItems, getClothingItemsByCategory, getClothingItemsBySearch } from 'app/commonApi'
 // Slice
@@ -22,7 +21,6 @@ interface PaginationProps {
 };
 
 export const Pagination: FC<PaginationProps> = ({ currentPage, setCurrentPage, pageLimit, pageName, categoryId }) => {
-  const { id } = useParams<{ id: string }>();
   const searchStr = useAppSelector(selectSearchString)
 
   const { data, isLoading } = pageName === "category"

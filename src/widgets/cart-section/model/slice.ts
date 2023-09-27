@@ -3,8 +3,8 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'app/model'
 // Lib
 import { getCartFromLocalStorage } from '../lib/getCartFromLocalStorage'
-import { calcTotalAmount } from '../lib/calcTotalAmount';
-import { calcTotalPrice } from '../lib/calcTotalPrice';
+import { calcTotalAmount } from '../lib/calcTotalAmount'
+import { calcTotalPrice } from '../lib/calcTotalPrice'
 
 export interface ClothingItem {
   id: string,

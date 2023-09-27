@@ -1,14 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'app/model'
+// Lib
+import { getSearchStrFromLocalStorage } from '../lib/getSearchStrFromLocalStorage'
 
 interface SearchState {
   searchStr: string,
 };
 
-const initialState: SearchState = {
-  searchStr: ''
-};
+const { searchStr } = getSearchStrFromLocalStorage();
+const initialState: SearchState = { searchStr };
 
 export const searchSlice = createSlice({
   name: 'search',

@@ -1,24 +1,26 @@
 // General
-import React, { FC, useEffect, useState, KeyboardEvent } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import style from './index.module.scss'
-import { NavLink, Link, useNavigate } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 // Slice
 import { useAppSelector } from 'app/model'
 import { selectCartClothingItems, selectCartTotalItems } from 'widgets/cart-section'
+import { SearchInput, selectSearchString } from 'features/search'
 // Images
-import search1 from '../img/search1.svg'
 import cart from '../img/cart.svg'
 import search2 from '../img/search2.svg'
-import { SearchInput } from 'features/search'
 
 export const Header: FC = (props) => {
   const totalItems = useAppSelector(selectCartTotalItems);
   const clothingItems = useAppSelector(selectCartClothingItems);
+  const searchStr = useAppSelector(selectSearchString);
 
   useEffect(() => {
-    const json = JSON.stringify(clothingItems);
-    window.localStorage.setItem('basket', json);
-  }, [clothingItems]); // Setting data in local storage
+    const clothingItemsJson = JSON.stringify(clothingItems);
+    const searchStrJson = JSON.stringify(searchStr);
+    window.localStorage.setItem('basket', clothingItemsJson);
+    window.localStorage.setItem('search', searchStrJson);
+  }, [clothingItems, searchStr]); // Setting data in local storage
 
   const [isBurgerActive, changeBurgerActive] = useState<boolean>(false);
   const [isSearchActive, changeSearchActive] = useState<boolean>(false);
@@ -27,8 +29,6 @@ export const Header: FC = (props) => {
     changeBurgerActive(!isBurgerActive);
     document.body.classList.toggle('_lock');
   }
-
-  const navigate = useNavigate()
 
   return (
     <header className={style.block}>
