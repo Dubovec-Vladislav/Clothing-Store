@@ -18,14 +18,11 @@ interface CartCardProps {
 export const CartCard: FC<CartCardProps> = ({ id, previewImg, name, price, color, size, numOfClothing }) => {
   const dispatch = useDispatch()
   const [localNumOfClothing, changeNumOfLocalClothing] = useState<number>(numOfClothing);
-  useEffect(() => {
-    changeNumOfLocalClothing(numOfClothing)
-  }, [numOfClothing]);
 
   useEffect(() => {
     const clothingItem = { id, color, size, numOfClothing: localNumOfClothing };
     dispatch(changeNumberOfClothingItems(clothingItem));
-  }, [id, size, localNumOfClothing, dispatch])
+  }, [id, color, size, localNumOfClothing, dispatch])
 
   const handleDelClick = () => {
     const clothingItem = { id, color, size, numOfClothing: localNumOfClothing };
