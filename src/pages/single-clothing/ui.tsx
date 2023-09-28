@@ -1,6 +1,6 @@
 // General
 import React, { FC, useEffect } from 'react'
-import style from './index.module.scss'
+import style from './style.module.scss'
 // Hooks
 import { useParams } from 'react-router-dom'
 // Components

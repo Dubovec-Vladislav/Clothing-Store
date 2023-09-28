@@ -11,6 +11,7 @@ export const CartSection: FC = (props) => {
 
   const clothingItems = useAppSelector(selectCartClothingItems);
   const limitedClothingItems = useAppSelector(selectCartClothingItems).slice(0, cartLimit);
+  console.log(limitedClothingItems);
 
   const btnPlaceholder = clothingItems.length < cartLimit + DEFAULT_CART_LIMIT
     ? `Посмотреть еще (${clothingItems.length - cartLimit})`

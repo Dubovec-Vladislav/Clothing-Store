@@ -4,11 +4,11 @@ import style from './style.module.scss'
 export interface TabItem {
   tabName: string,
   field: JSX.Element,
-}
+};
 
 interface TabsProps {
   tabsList: TabItem[],
-}
+};
 
 export const Tabs: FC<TabsProps> = ({ tabsList }) => {
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);

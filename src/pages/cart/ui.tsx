@@ -1,6 +1,6 @@
 // General
 import React, { FC, useEffect } from 'react'
-import style from './index.module.scss'
+import style from './style.module.scss'
 // Components
 import { Header } from 'widgets/header'
 import { CartSection } from 'widgets/cart-section'

@@ -69,7 +69,7 @@ export const cartSlice = createSlice({
 
 
     // // Delete
-    removeClothingItem: (state, action: PayloadAction<{ id: string, color: string, size: number, numOfClothing: number }>) => {
+    removeClothingItem: (state, action: PayloadAction<{ id: string, color: string, size: number}>) => {
       const item = { id: action.payload.id, color: action.payload.color, size: action.payload.size };
       const existingClothingItemIndex = findExistingClothingItemIndex(state, item);
 

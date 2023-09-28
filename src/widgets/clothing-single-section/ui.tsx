@@ -2,7 +2,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import style from './style.module.scss'
 // Components
-import { BreadCrumbs, Button, Rating } from 'shared/ui'
+import { Button, Rating } from 'shared/ui'
 import { CartCounterBtn } from 'features/cart-counter-btn'
 import { ColorSelectionLine } from 'features/color-selection-line'
 import { SizeSelectionLine } from 'features/size-selection-line'
@@ -31,7 +31,7 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId 
   const colorsList: string[] = [];
   data?.imageObjects.forEach(imageObject => colorsList.push(imageObject.color));
 
-  const [numOfClothing, changeNumOfClothing] = useState<number>(1);
+  const [numOfClothing, changeNumOfLocalClothing] = useState<number>(1);
   const [selectedColor, changeSelectedColor] = useState<string>('');
   const [selectedSize, changeSelectedSize] = useState<number>(0);
   const [activeImageObject, setActiveImageObject] = useState<ImageObjectInterface>();
@@ -93,7 +93,7 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId 
                     <SizeSelectionLine sizesList={data.sizesList} selectedSize={selectedSize} handleSizeClick={changeSelectedSize} />
                   </div>
                   <div className={style.footer}>
-                    <div className={style.counterBtn}><CartCounterBtn number={numOfClothing} changeNumber={changeNumOfClothing} /></div>
+                    <div className={style.counterBtn}><CartCounterBtn number={numOfClothing} changeNumber={changeNumOfLocalClothing} /></div>
                     <div className={style.btn} onClick={handleAddToCartClick}><Button text={"Добавить в корзину"} /></div>
                   </div>
                 </div>

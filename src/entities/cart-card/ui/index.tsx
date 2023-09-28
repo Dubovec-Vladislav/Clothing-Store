@@ -17,12 +17,15 @@ interface CartCardProps {
 
 export const CartCard: FC<CartCardProps> = ({ id, previewImg, name, price, color, size, numOfClothing }) => {
   const dispatch = useDispatch()
-  const [localNumOfClothing, changeNumOfClothing] = useState<number>(numOfClothing);
+  const [localNumOfClothing, changeNumOfLocalClothing] = useState<number>(numOfClothing);
+  useEffect(() => {
+    changeNumOfLocalClothing(numOfClothing)
+  }, [numOfClothing]);
 
   useEffect(() => {
     const clothingItem = { id, color, size, numOfClothing: localNumOfClothing };
     dispatch(changeNumberOfClothingItems(clothingItem));
-  }, [localNumOfClothing])
+  }, [id, size, localNumOfClothing, dispatch])
 
   const handleDelClick = () => {
     const clothingItem = { id, color, size, numOfClothing: localNumOfClothing };
@@ -40,7 +43,7 @@ export const CartCard: FC<CartCardProps> = ({ id, previewImg, name, price, color
       </div>
       <div className={style.widgets}>
         <img src={cart} alt="del-cart" onClick={handleDelClick} />
-        <div className={style.btn}><CartCounterBtn number={localNumOfClothing} changeNumber={changeNumOfClothing} /></div>
+        <div className={style.btn} ><CartCounterBtn number={localNumOfClothing} changeNumber={changeNumOfLocalClothing} /></div>
       </div>
     </div>
   );
