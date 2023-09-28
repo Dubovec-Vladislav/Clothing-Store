@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom"
 
 const MainPage = lazy(() => import("./main"));
 const SingleClothingPage = lazy(() => import("./single-clothing"));
-const ClothingPage = lazy(() => import("./category"));
+const ClothingPage = lazy(() => import("./clothing-page (category + search)"));
 const CartPage = lazy(() => import("./cart"));
 
 export const Routing = () => {
