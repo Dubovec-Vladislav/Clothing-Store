@@ -7,7 +7,7 @@ interface RatingProps {
   rating: number,
 }
 
-export const Rating: FC<RatingProps> = ({ rating }) => {
+export const Rating: FC<RatingProps> = React.memo(({ rating }) => {
 
   return (
     <div className={style.block}>
@@ -21,4 +21,4 @@ export const Rating: FC<RatingProps> = ({ rating }) => {
       <div className={style.totalGrade}>{rating}/<span>5</span></div>
     </div>
   );
-};
+});

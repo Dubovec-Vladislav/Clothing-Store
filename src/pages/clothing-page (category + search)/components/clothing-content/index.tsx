@@ -84,12 +84,6 @@ export const ClothingContent: FC<ClothingContentProps> = ({ pageName }) => {
       ? getClothingItemsBySearchAndPage({ str: searchStr, page: currentPage, limit: pageLimit })
       : getClothingItems('');
 
-  pageName === "category"
-    ? console.log('getClothingItemsByCategoryAndPageAndSort')
-    : pageName === "search"
-      ? console.log('getClothingItemsBySearchAndPage')
-      : console.log('getClothingItems');
-
   // const { data, isFetching } = getClothingItemsByCategoryAndPageAndSort(
   //   { category: id, page: currentPage, limit: pageLimit, sortBy: activeSortType.urlName, order: activeSortType.order })
 

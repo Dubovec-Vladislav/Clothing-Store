@@ -8,7 +8,7 @@ interface SizeSelectionLineProps {
   handleSizeClick: (newSizeIndex: number) => void,
 }
 
-export const SizeSelectionLine: FC<SizeSelectionLineProps> = ({ sizesList, selectedSize, selectedSizesList, handleSizeClick }) => {
+export const SizeSelectionLine: FC<SizeSelectionLineProps> = React.memo(({ sizesList, selectedSize, selectedSizesList, handleSizeClick }) => {
   return (
     <div className={style.row}>
       {selectedSizesList
@@ -24,4 +24,4 @@ export const SizeSelectionLine: FC<SizeSelectionLineProps> = ({ sizesList, selec
         ))}
     </div>
   );
-};
+});

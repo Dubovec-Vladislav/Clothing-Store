@@ -8,7 +8,7 @@ interface ColorSelectionLineProps {
   handleColorClick: (newColorIndex: number) => void,
 }
 
-export const ColorSelectionLine: FC<ColorSelectionLineProps> = ({ colorsList, selectedColor, selectedColorsList, handleColorClick }) => {
+export const ColorSelectionLine: FC<ColorSelectionLineProps> = React.memo(({ colorsList, selectedColor, selectedColorsList, handleColorClick }) => {
   return (
     <div className={style.row}>
       {selectedColorsList
@@ -24,4 +24,4 @@ export const ColorSelectionLine: FC<ColorSelectionLineProps> = ({ colorsList, se
         ))}
     </div>
   );
-};
+});
