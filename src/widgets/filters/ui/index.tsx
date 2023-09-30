@@ -1,11 +1,11 @@
 // General
 import React, { FC } from 'react'
 import style from './index.module.scss'
-import { Link } from 'react-router-dom'
 // Components
 import { ColorSelectionLine } from 'features/color-selection-line'
 import { SizeSelectionLine } from 'features/size-selection-line'
 import { InputRange } from 'shared/ui'
+import { CategoryItem } from 'shared/ui/category-item'
 // Api
 import { ClothingInterface } from 'app/commonApi'
 // Images
@@ -28,7 +28,7 @@ interface FiltersProps {
   // Toggle menu active
   isFilteringMenuActive: boolean,
   toggleIsFilteringMenuActive: (isActive: boolean) => void;
-}
+};
 
 export const Filters: FC<FiltersProps> = (
   { data, isLoading,
@@ -103,9 +103,10 @@ export const Filters: FC<FiltersProps> = (
           </div>
           <div className={style.item}>
             <div className={style.title}>Другие категории</div>
-            <Link to={'#'} className={style.categoryItem}>Повседневная</Link>
-            <Link to={'#'} className={style.categoryItem}>На вечеринку</Link>
-            <Link to={'#'} className={style.categoryItem}>Для зала</Link>
+            <CategoryItem path={"/category/1"} text={"Деловая"} />
+            <CategoryItem path={"/category/2"} text={"Повседневная"} />
+            <CategoryItem path={"/category/3"} text={"На вечеринку"} />
+            <CategoryItem path={"/category/4"} text={"Для зала"} />
           </div>
         </div>
       </div>

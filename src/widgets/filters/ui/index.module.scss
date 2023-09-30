@@ -142,21 +142,3 @@
     display: block;
   }
 }
-
-.categoryItem {
-  display: block;
-  color: rgba(0, 0, 0, 0.6);
-  margin: 0px 0px 20px 0px;
-  font-family: 'Open Sans';
-  font-size: 16px;
-  line-height: normal;
-  transition: 0.2s ease;
-
-  &:last-child {
-    margin: 0px 0px 0px 0px;
-  }
-
-  &:hover {
-    color: rgba(0, 0, 0, 1);
-  }
-}
