@@ -31,7 +31,7 @@ export const ClothingRow: FC<ClothingRowProps> = ({ titleText, endBlockLine, new
           {isLoading
             ? <div className={style.skeletons}>
               {[...new Array(4)].map((_, index) =>
-                <div className={style.skeleton}><ClothingCardSkeleton key={index} /></div>
+                <div className={style.skeleton} key={index}><ClothingCardSkeleton key={index} /></div>
               )}</div>
             : data
               ? data.map((item: ClothingInterface) =>

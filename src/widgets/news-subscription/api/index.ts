@@ -12,9 +12,16 @@ export const emailsApi = createApi({
         body: { email },
       }),
     }),
+    login: builder.mutation({
+      query: (credentials) => ({
+        url: 'https://64de1332825d19d9bfb20329.mockapi.io/auth', // Замените на URL для входа
+        method: 'POST',
+        body: { credentials },
+      }),
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useAddEmailMutation } = emailsApi;
+export const { useAddEmailMutation, useLoginMutation } = emailsApi;

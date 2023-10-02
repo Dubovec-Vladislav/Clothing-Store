@@ -3,11 +3,12 @@ import React, { FC, useEffect, useState } from 'react'
 import style from './index.module.scss'
 // Components
 import { Button } from 'shared/ui'
-import { useAddEmailMutation } from '../api'
+import { useAddEmailMutation, useLoginMutation } from '../api'
 // Img
 import letter from '../img/letter.svg'
 import spinner from '../img/spinner.svg'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 
 export const NewsSubscription: FC = (props) => {
   const [addEmailMutation, { isLoading, isError }] = useAddEmailMutation();
@@ -31,8 +32,19 @@ export const NewsSubscription: FC = (props) => {
     setFormSubmitted(true);
   };
 
+
+  const [credentials, setCredentials] = useState({ username: 'user', password: 'pass', token: 'token' });
+  const [login] = useLoginMutation();
+
+  const handleLogin = async () => {
+    const response = await login(credentials) as { data: any };
+    console.log(response.data);
+  };
+
+
   return (
     <section className={style.block}>
+      <button onClick={handleLogin}>Login</button>
       <div className={style.body}>
         {isLoading ?
           <div className={style.loadingBlock}>
