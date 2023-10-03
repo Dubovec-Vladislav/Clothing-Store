@@ -31,14 +31,14 @@ export const SearchInput: FC<SearchInputProps> = ({ isSearchActive }) => {
     updateSearchStr(e.target.value);
   }
 
-  const inputRef = useRef<HTMLInputElement>(null);
-  useEffect(() => inputRef.current?.focus(), []); // Autofocus when rendering page
+  // const inputRef = useRef<HTMLInputElement>(null);
+  // useEffect(() => inputRef.current?.focus(), []); // Autofocus when rendering page
 
   return (
     <div className={isSearchActive ? `${style.searchInput} ${style.activeSearchInput}` : `${style.searchInput}`}>
       <img src={search1} alt="search1" />
       <input
-        ref={inputRef}
+        // ref={inputRef}
         type="text"
         placeholder="Search for products..."
         value={value}
