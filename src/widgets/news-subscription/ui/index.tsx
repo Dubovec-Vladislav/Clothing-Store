@@ -44,7 +44,7 @@ export const NewsSubscription: FC = (props) => {
 
   return (
     <section className={style.block}>
-      <button onClick={handleLogin}>Login</button>
+      {/* <button onClick={handleLogin}>Login</button> */}
       <div className={style.body}>
         {isLoading ?
           <div className={style.loadingBlock}>
