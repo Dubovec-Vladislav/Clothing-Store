@@ -12,6 +12,7 @@ import { useDispatch } from 'react-redux'
 // Slice
 import { addClothingItem } from 'widgets/cart-section'
 import { BtnSuccessLoader } from 'shared/loaders/btn-success-loader'
+import { ClothingImgSlider } from 'widgets/clothing-img-slider'
 
 interface ClothingSingleSectionProps {
   clothId: string,
@@ -67,8 +68,11 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId 
     }, 1000);
   }
 
+  console.log(data);
+
   return (
     <section className={style.block}>
+      <div className={style.clothingImgSlider}><ClothingImgSlider activeImageObject={activeImageObject}/></div>
       <div className={style.body}>
         {/* <div className={style.breadCrumbs}><BreadCrumbs /></div> */}
         <div className={style.clothingSingleSection}>

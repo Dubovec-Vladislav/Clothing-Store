@@ -8,13 +8,13 @@ import { swiperOptions } from '../lib/swiper'
 // Components
 import { CommentCard } from 'entities/comment'
 import { BlockTitle } from 'shared/ui'
-// Img
-import arrowLeft from '../img/arrow-left.svg'
-import arrowRight from '../img/arrow-right.svg'
 //Api
 import { useGetTopCommentsQuery } from '../api'
 // Lib
 import { truncateTextInObjects } from '../lib/truncate-text-in-objects'
+// Img
+import arrowLeft from '../img/arrow-left.svg'
+import arrowRight from '../img/arrow-right.svg'
 
 export const CommentSlider: FC = (props) => {
   const { data, isLoading } = useGetTopCommentsQuery('');

@@ -1,0 +1,1 @@
+export { ClothingImgSlider } from './ui'

@@ -7,6 +7,8 @@
   }
 }
 
+.body {}
+
 .header {
   display: flex;
   margin: 0px 0px calc(24px + 16 * (100vw / 1440)) 0px;
@@ -36,13 +38,9 @@
   }
 }
 
-.body {}
-
 .slider {
   display: flex !important;
   overflow: visible !important;
 }
 
-.slide {
-  
-}
+.slide {}
