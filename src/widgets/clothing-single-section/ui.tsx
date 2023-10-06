@@ -9,8 +9,9 @@ import { SizeSelectionLine } from 'features/size-selection-line'
 // Api
 import { ImageObjectInterface, getClothingItemById } from 'app/commonApi'
 import { useDispatch } from 'react-redux'
-// Slcie
+// Slice
 import { addClothingItem } from 'widgets/cart-section'
+import { BtnSuccessLoader } from 'shared/loaders/btn-success-loader'
 
 interface ClothingSingleSectionProps {
   clothId: string,
@@ -35,6 +36,8 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId 
   const [selectedColor, changeSelectedColor] = useState<string>('');
   const [selectedSize, changeSelectedSize] = useState<number>(0);
   const [activeImageObject, setActiveImageObject] = useState<ImageObjectInterface>();
+  const [isSuccessAddition, changeSuccessAddition] = useState<boolean>(false);
+  const [isLoadingAddition, changeLoadingAddition] = useState<boolean>(false);
 
   const handleColorClick = (i: number) => {
     changeSelectedColor(colorsList[i]);
@@ -51,14 +54,23 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId 
       size: selectedSize,
       numOfClothing: numOfClothing,
     }
+
+    changeLoadingAddition(true);
     dispatch(addClothingItem(clothingItem));
+    setTimeout(() => {
+      changeLoadingAddition(false);
+      changeSuccessAddition(true);
+      setTimeout(() => {
+        changeSuccessAddition(false);
+      }, 1500);
+    }, 1000);
   }
 
   return (
     <section className={style.block}>
       <div className={style.body}>
         {/* <div className={style.breadCrumbs}><BreadCrumbs /></div> */}
-        <div className={style.ClothingSingleSection}>
+        <div className={style.clothingSingleSection}>
           {isLoading
             ? <div style={{ paddingLeft: "20px" }}>Идет загрузка одежды...</div>
             : data
@@ -94,7 +106,11 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId 
                   </div>
                   <div className={style.footer}>
                     <div className={style.counterBtn}><CartCounterBtn number={numOfClothing} changeNumber={changeNumOfLocalClothing} /></div>
-                    <div className={style.btn} onClick={handleAddToCartClick}><Button text={"Добавить в корзину"} /></div>
+                    <div className={style.btnBlock}>
+                      {isLoadingAddition && <div className={style.loadingAddition}><BtnSuccessLoader /></div>}
+                      {isSuccessAddition && <div className={style.successAddition}>Добавлено ✔</div>}
+                      <div className={style.btn} onClick={handleAddToCartClick}><Button text={"Добавить в корзину"} /></div>
+                    </div>
                   </div>
                 </div>
               </>

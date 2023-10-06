@@ -27,14 +27,17 @@
     font-size: 12px;
   }
 
-  &:hover {
-    span {
-      top: 5px;
-      left: 6px;
-      right: 6px;
-      bottom: 5px;
+  @media (min-width: 550px) {
+    &:hover {
+      span {
+        top: 5px;
+        left: 6px;
+        right: 6px;
+        bottom: 5px;
+      }
     }
   }
+
 
   // &:hover {
   //   animation: anim 1.2s ease;
