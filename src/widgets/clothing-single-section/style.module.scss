@@ -47,6 +47,12 @@
   }
 }
 
+.loader {
+  // min-height: 86.2vh;
+  font-family: 'Open Sans';
+  font-size: 16px;
+}
+
 .imgPart {
   flex: 0 1 50%;
   display: flex;
@@ -376,8 +382,8 @@
   justify-content: center;
 
   font-family: 'Open Sans';
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 700;
 
   @media (max-width: 500px) {
     font-size: 14px;

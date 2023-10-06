@@ -20,6 +20,7 @@ interface ClothingSingleSectionProps {
 export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId }) => {
   const dispatch = useDispatch()
   const { data, isLoading } = getClothingItemById(clothId!);
+  // const isLoading = true
 
   useEffect(() => {
     if (data) {
@@ -72,7 +73,7 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId 
         {/* <div className={style.breadCrumbs}><BreadCrumbs /></div> */}
         <div className={style.clothingSingleSection}>
           {isLoading
-            ? <div style={{ paddingLeft: "20px" }}>Идет загрузка одежды...</div>
+            ? <div style={{ paddingLeft: "20px" }} className={style.loader}>Идет загрузка одежды...</div>
             : data
               ? <>
                 <div className={style.imgPart}>
