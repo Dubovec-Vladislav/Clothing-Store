@@ -29,6 +29,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
   @media (max-width: 426px) {
     display: none;
@@ -67,12 +68,13 @@
   top: 0;
   right: 0;
   z-index: 2;
-  // background-color: #000;
   width: 25px;
   height: 25px;
   padding: 10px 10px;
   cursor: pointer;
   box-sizing: content-box;
+
+  -webkit-tap-highlight-color: transparent;
 
   img {
     max-width: 100%;

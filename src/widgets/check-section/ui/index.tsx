@@ -24,12 +24,12 @@ export const CheckSection: FC = (props) => {
           </div>
           <div className={style.position}>
             <div className={style.text}>Плата за доставку</div>
-            <div className={style.price}>200₽</div>
+            <div className={style.price}>700₽</div>
           </div>
         </div>
         <div className={style.total}>
           <div className={style.totalText}>Общая сумма</div>
-          <div className={style.totalPrice}>{isTegCorrect ? totalPrice - 550 + 200 : totalPrice + 200}₽</div>
+          <div className={style.totalPrice}>{isTegCorrect ? totalPrice - 550 + 700 : totalPrice + 700}₽</div>
         </div>
         <div className={style.promotionalCode}>
           <div className={style.input}><img src={tag} alt="tag" /><input type="text" placeholder={"Промокод"} /></div>

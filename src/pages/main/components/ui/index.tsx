@@ -4,7 +4,7 @@ import hello1 from '../img/hello1.jpg'
 import hello2 from '../img/hello2.jpg'
 import star1 from '../img/star1.svg'
 import star2 from '../img/star2.svg'
-import { Button } from 'shared/ui'
+// import { Button } from 'shared/ui'
 
 export const Hello: FC = (props) => {
   return (

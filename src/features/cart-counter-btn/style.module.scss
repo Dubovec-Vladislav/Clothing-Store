@@ -38,6 +38,7 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
   @media (max-width: 426px) {
     width: 22px;

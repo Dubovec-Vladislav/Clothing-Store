@@ -42,6 +42,8 @@
   z-index: 2;
   color: #000;
   margin: 0px calc(10px + 20 * (100vw / 1440)) 0px 0px;
+  -webkit-tap-highlight-color: transparent;
+
   font-size: 26px;
   font-family: 'Fira Sans';
   font-weight: 700;
@@ -146,6 +148,7 @@
   font-size: 16px;
   cursor: pointer;
   white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
 
   &::before {
     content: '';
@@ -177,6 +180,7 @@
   z-index: 2;
   margin: 0px 12px 0px 0px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
   @media (max-width: 526px) {
     display: flex;
@@ -191,6 +195,7 @@
   cursor: pointer;
   transition: 0.4s ease;
   border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
 
   &:hover {
     background-color: #F0F0F0;

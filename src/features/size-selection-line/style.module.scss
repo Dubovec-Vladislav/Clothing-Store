@@ -15,7 +15,8 @@
   cursor: pointer;
   white-space: nowrap;
   transition: 0.2s ease;
-
+  -webkit-tap-highlight-color: transparent;
+  
   font-family: 'Open Sans';
   font-size: 16px;
   line-height: normal;

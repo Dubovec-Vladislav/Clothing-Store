@@ -1,11 +1,11 @@
 // General
-import React, { FC, useEffect, useState, useRef } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import style from './style.module.scss'
 // Components
 import { Button, Rating } from 'shared/ui'
-import { CartCounterBtn } from 'features/cart-counter-btn'
 import { ColorSelectionLine } from 'features/color-selection-line'
 import { SizeSelectionLine } from 'features/size-selection-line'
+import { CartCounterBtn } from 'features/cart-counter-btn'
 // Api
 import { ImageObjectInterface, getClothingItemById } from 'app/commonApi'
 import { useDispatch } from 'react-redux'

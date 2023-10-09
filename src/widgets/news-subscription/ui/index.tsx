@@ -3,12 +3,12 @@ import React, { FC, useEffect, useState } from 'react'
 import style from './index.module.scss'
 // Components
 import { Button } from 'shared/ui'
-import { useAddEmailMutation, useLoginMutation } from '../api'
+// import { useAddEmailMutation, useLoginMutation } from '../api'
+import { useAddEmailMutation } from '../api'
 // Img
 import letter from '../img/letter.svg'
 import spinner from '../img/spinner.svg'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
 
 export const NewsSubscription: FC = (props) => {
   const [addEmailMutation, { isLoading, isError }] = useAddEmailMutation();
@@ -33,13 +33,12 @@ export const NewsSubscription: FC = (props) => {
   };
 
 
-  const [credentials, setCredentials] = useState({ username: 'user', password: 'pass', token: 'token' });
-  const [login] = useLoginMutation();
+  // const [credentials] = useState({ username: 'user', password: 'pass', token: 'token' });
+  // const [login] = useLoginMutation();
 
-  const handleLogin = async () => {
-    const response = await login(credentials) as { data: any };
-  };
-
+  // const handleLogin = async () => {
+  //   const response = await login(credentials) as { data: any };
+  // };
 
   return (
     <section className={style.block}>
