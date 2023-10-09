@@ -1,14 +1,10 @@
 import { Navigation, A11y } from 'swiper/modules'
 
-const breakpoints = {
-  // 1300: {
-  //   slidesPerView: 3,
-  //   spaceBetween: 20,
-  // },
-};
+const breakpoints = {};
 
 export const swiperOptions = {
   slidesPerView: 1,
+  spaceBetween: 20,
   loop: true,
   grabCursor: true,
   navigation: {

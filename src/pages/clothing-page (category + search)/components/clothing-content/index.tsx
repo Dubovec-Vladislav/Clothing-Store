@@ -24,7 +24,7 @@ export const ClothingContent: FC<ClothingContentProps> = ({ pageName }) => {
   const { id } = useParams<{ id: string }>();
   const searchStr = useAppSelector(selectSearchString)
   const [selectedColorsList, changeSelectedColorsList] = useState<string[]>([]);
-  const [selectedSizesList, changeSelectedSizesList] = useState<number[]>([]);
+  const [selectedSizesList, setSelectedSizesList] = useState<number[]>([]);
   // --------------------------------------------- //
 
 
@@ -35,7 +35,7 @@ export const ClothingContent: FC<ClothingContentProps> = ({ pageName }) => {
   useEffect(() => {
     window.scrollTo(0, 0) // Scroll to top of the page, when changing the current page
     changeSelectedColorsList([]); // Clear list
-    changeSelectedSizesList([]); // Clear list
+    setSelectedSizesList([]); // Clear list
   }, [currentPage]);
   // --------------------------------------------- //
 
@@ -115,7 +115,7 @@ export const ClothingContent: FC<ClothingContentProps> = ({ pageName }) => {
         selectedColorsList={selectedColorsList}
         changeSelectedColorsList={changeSelectedColorsList}
         selectedSizesList={selectedSizesList}
-        changeSelectedSizesList={changeSelectedSizesList}
+        setSelectedSizesList={setSelectedSizesList}
         minPrice={minPrice}
         setMinPrice={setMinPrice}
         maxPrice={maxPrice}

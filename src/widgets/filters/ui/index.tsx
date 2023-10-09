@@ -19,7 +19,7 @@ interface FiltersProps {
   changeSelectedColorsList: (newList: string[]) => void,
 
   selectedSizesList: number[],
-  changeSelectedSizesList: (newList: number[]) => void,
+  setSelectedSizesList: (newList: number[]) => void,
 
   minPrice: number,
   setMinPrice: (newPrice: number) => void,
@@ -33,7 +33,7 @@ interface FiltersProps {
 export const Filters: FC<FiltersProps> = (
   { data, isLoading,
     selectedColorsList, changeSelectedColorsList,
-    selectedSizesList, changeSelectedSizesList,
+    selectedSizesList, setSelectedSizesList,
     minPrice, setMinPrice, maxPrice, setMaxPrice,
     isFilteringMenuActive, toggleIsFilteringMenuActive }
 ) => {
@@ -53,8 +53,8 @@ export const Filters: FC<FiltersProps> = (
   const handleSizeClick = (i: number) => {
     const size = sizesList[i];
     selectedSizesList.includes(size)
-      ? changeSelectedSizesList(selectedSizesList.filter(item => item !== size)) // If includes, remove it
-      : changeSelectedSizesList([...selectedSizesList, size]) // if not included, expand the old array and add a new element
+      ? setSelectedSizesList(selectedSizesList.filter(item => item !== size)) // If includes, remove it
+      : setSelectedSizesList([...selectedSizesList, size]) // if not included, expand the old array and add a new element
   };
 
   return (

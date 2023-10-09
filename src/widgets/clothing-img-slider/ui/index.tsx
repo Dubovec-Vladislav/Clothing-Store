@@ -9,21 +9,23 @@ import { swiperOptions } from '../lib/swiper'
 import arrowLeft from '../img/arrow-left.svg'
 import arrowRight from '../img/arrow-right.svg'
 import cross from '../img/cross.svg'
-// Interfaces
-import { ImageObjectInterface } from 'app/commonApi'
 
 interface ClothingImgSliderProps {
   sliderList: string[] | undefined,
-  changeSliderActive: (bool: boolean) => void,
+  toggleSliderActive: (bool: boolean) => void,
+  activeSlideImg: string,
 }
 
-export const ClothingImgSlider: FC<ClothingImgSliderProps> = ({ sliderList, changeSliderActive }) => {
+export const ClothingImgSlider: FC<ClothingImgSliderProps> = ({ sliderList, toggleSliderActive, activeSlideImg }) => {
+  const newSliderList = sliderList?.filter(slideImg => slideImg !== activeSlideImg); // Remove the activeSlideImg from the list
+  newSliderList?.unshift(activeSlideImg); // And add it to the beginning
+
   return (
     <section className={style.block}>
       <div className={style.body}>
         <div className={`${style.arrow} clothing-img-slider__arrow-left`}><img src={arrowLeft} alt="arrow-left" /></div>
         <Swiper className={style.slider} {...swiperOptions}>
-          {sliderList?.map((img, i) => (
+          {newSliderList?.map((img, i) => (
             <SwiperSlide className={style.slide} key={i}>
               <img src={img} alt={`cloth-img ${i}`} />
             </SwiperSlide>
@@ -31,7 +33,7 @@ export const ClothingImgSlider: FC<ClothingImgSliderProps> = ({ sliderList, chan
         </Swiper>
 
         <div className={`${style.arrow} clothing-img-slider__arrow-right`}><img src={arrowRight} alt="arrow-right" /></div>
-        <div className={style.cross} onClick={() => changeSliderActive(false)}><img src={cross} alt="cross" /></div>
+        <div className={style.cross} onClick={() => toggleSliderActive(false)}><img src={cross} alt="cross" /></div>
       </div>
     </section>
   );
