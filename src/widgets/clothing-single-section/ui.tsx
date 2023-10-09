@@ -40,6 +40,7 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId 
   const [activeImageObject, setActiveImageObject] = useState<ImageObjectInterface>();
   const [isSuccessAddition, changeSuccessAddition] = useState<boolean>(false);
   const [isLoadingAddition, changeLoadingAddition] = useState<boolean>(false);
+  const [isSliderActive, changeSliderActive] = useState<boolean>(false);
 
   const handleColorClick = (i: number) => {
     changeSelectedColor(colorsList[i]);
@@ -55,7 +56,7 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId 
       color: selectedColor,
       size: selectedSize,
       numOfClothing: numOfClothing,
-    }
+    };
 
     changeLoadingAddition(true);
     dispatch(addClothingItem(clothingItem));
@@ -66,13 +67,21 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId 
         changeSuccessAddition(false);
       }, 1500);
     }, 1000);
-  }
+  };
 
-  console.log(data);
+  const sliderList = activeImageObject && [activeImageObject.previewImg, ...activeImageObject.images];
+  console.log(sliderList);
+
+  const handleImgClick = () => {
+    changeSliderActive(true);
+
+  };
 
   return (
     <section className={style.block}>
-      <div className={style.clothingImgSlider}><ClothingImgSlider activeImageObject={activeImageObject}/></div>
+      <div className={isSliderActive ? `${style.activeClothingImgSlider} ${style.clothingImgSlider}` : `${style.clothingImgSlider}`}>
+        <ClothingImgSlider sliderList={sliderList} changeSliderActive={changeSliderActive} />
+      </div>
       <div className={style.body}>
         {/* <div className={style.breadCrumbs}><BreadCrumbs /></div> */}
         <div className={style.clothingSingleSection}>
@@ -80,7 +89,7 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({ clothId 
             ? <div style={{ paddingLeft: "20px" }} className={style.loader}>Идет загрузка одежды...</div>
             : data
               ? <>
-                <div className={style.imgPart}>
+                <div className={style.imgPart} onClick={() => changeSliderActive(true)}>
                   <div className={style.images}>
                     {activeImageObject?.images.map((img, i) => (
                       <div key={i} className={style.imgItem}>

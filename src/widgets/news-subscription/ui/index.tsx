@@ -38,7 +38,6 @@ export const NewsSubscription: FC = (props) => {
 
   const handleLogin = async () => {
     const response = await login(credentials) as { data: any };
-    console.log(response.data);
   };
 
 
