@@ -1,5 +1,5 @@
 // General
-import React, { FC, useEffect, useState, useRef } from 'react'
+import React, { FC, useEffect, useState, useRef, useMemo } from 'react'
 import style from './index.module.scss'
 import { useNavigate, useParams } from 'react-router'
 import qs from 'qs'
@@ -20,11 +20,21 @@ interface ClothingContentProps {
 
 export const ClothingContent: FC<ClothingContentProps> = ({ pageName }) => {
 
-  // ---------- Filters Block data and hooks ----------- //
-  const { id } = useParams<{ id: string }>();
-  const searchStr = useAppSelector(selectSearchString)
+  // ------- Filters Block data and hooks -------- //
+  const { id } = useParams<{ id: string | undefined }>();
+
+  const searchStr = useAppSelector(selectSearchString);
   const [selectedColorsList, changeSelectedColorsList] = useState<string[]>([]);
   const [selectedSizesList, setSelectedSizesList] = useState<number[]>([]);
+  // --------------------------------------------- //
+
+
+  // ---------- Work with active title ----------- //
+  const categoriesList = useMemo(() => ['Деловая', 'Повседневная', 'На вечеринку', 'Для зала'], []);
+  const [activeTitle, setActiveTitle] = useState<string>('');
+  useEffect(() => {
+    id ? setActiveTitle(categoriesList[Number(id) - 1]) : setActiveTitle('Поиск');
+  }, [id, categoriesList]);
   // --------------------------------------------- //
 
 
@@ -84,8 +94,6 @@ export const ClothingContent: FC<ClothingContentProps> = ({ pageName }) => {
       ? getClothingItemsBySearchAndPage({ str: searchStr, page: currentPage, limit: pageLimit })
       : getClothingItems('');
 
-  // const { data, isFetching } = getClothingItemsByCategoryAndPageAndSort(
-  //   { category: id, page: currentPage, limit: pageLimit, sortBy: activeSortType.urlName, order: activeSortType.order })
 
   // Filtering by color
   const dataSortedByColor = filterData(data, (item) => selectedColorsList.includes(item.imageObjects[0].color));
@@ -106,6 +114,7 @@ export const ClothingContent: FC<ClothingContentProps> = ({ pageName }) => {
   selectedSizesList.length && numberOfActiveFilters++;
 
   const sortedData: ClothingInterface[] = getCommonVariantsFromArrays(generalArray, numberOfActiveFilters);
+  // --------------------------------------------- //
 
   return (
     <div className={style.content}>
@@ -126,7 +135,7 @@ export const ClothingContent: FC<ClothingContentProps> = ({ pageName }) => {
       <ClothingSection
         data={sortedData}
         isLoading={isFetching}
-        title={"Деловая"}
+        title={activeTitle}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         pageLimit={pageLimit}

@@ -33,9 +33,9 @@ export const CommentSlider: FC = (props) => {
       <div className={style.body}>
         {isLoading
           ? <div>Идет загрузка комментариев...</div>
-          : <Swiper className={style.slider} {...swiperOptions}>
-            {newData
-              ? newData.map((item, i) => (
+          : newData
+            ? <Swiper className={style.slider} {...swiperOptions}>
+              {newData.map((item, i) =>
                 <SwiperSlide className={style.slide} key={i}>
                   <CommentCard
                     rating={item.rating}
@@ -43,11 +43,9 @@ export const CommentSlider: FC = (props) => {
                     text={item.text}
                   />
                 </SwiperSlide>
-              ))
-              : <div>Упс... кажется что-то пошло не так</div>
-            }
-          </Swiper>
-        }
+              )}
+            </Swiper>
+            : <div>Упс... кажется что-то пошло не так</div>}
       </div>
     </section>
   );
