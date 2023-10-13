@@ -114,6 +114,13 @@ export const ClothingContent: FC<ClothingContentProps> = ({ pageName }) => {
   selectedSizesList.length && numberOfActiveFilters++;
 
   const sortedData: ClothingInterface[] = getCommonVariantsFromArrays(generalArray, numberOfActiveFilters);
+
+  useEffect(() => {
+    changeSelectedColorsList([]);
+    setSelectedSizesList([]);
+    setMinPrice(1000);
+    setMaxPrice(4000);
+  }, [activeSortType]); //When changing the activeSortType, clear the filters
   // --------------------------------------------- //
 
   return (
