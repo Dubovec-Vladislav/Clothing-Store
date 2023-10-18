@@ -1,12 +1,13 @@
-export { Button } from './button'
-export { BrandsLine } from './brands-line'
-export { Rating } from './rating'
-export { BlockTitle } from './block-title'
-export { CategoryBlock } from './category-block'
-export * from './icons'
-export { BreadCrumbs } from './bread-crumbs'
-export { Tabs } from './tabs'
-export type { TabItem as TabItemInterface } from './tabs'
-export { FilterPopup } from './filter-popup'
-export { Pagination } from './pagination'
-export { InputRange } from './input-range'
+export { Button } from "./button";
+export { BrandsLine } from "./brands-line";
+export { Rating } from "./rating";
+export { BlockTitle } from "./block-title";
+export { CategoryBlock } from "./category-block";
+export * from "./icons";
+export { BreadCrumbs } from "./bread-crumbs";
+export { Tabs } from "./tabs";
+export type { TabItem as TabItemInterface } from "./tabs";
+export { FilterPopup } from "./filter-popup";
+export { Pagination } from "./pagination";
+export { InputRange } from "./input-range";
+export { PayPopup } from "./pay-popup";

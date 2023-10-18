@@ -3,6 +3,7 @@ import React, { ChangeEvent, FC, useState, useCallback, useRef, useEffect } from
 import style from './index.module.scss'
 import { useNavigate } from 'react-router-dom'
 import debounce from 'lodash.debounce'
+import * as a from 'lodash'
 // Slice
 import { selectSearchString, setSearchString } from '../model'
 // Img
