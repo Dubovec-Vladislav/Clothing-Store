@@ -43,6 +43,7 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
           <img src={cross} alt="cross" />
         </div>
         <form className={style.items} onSubmit={handleSubmit(onSubmit)}>
+          {/* ---------------- Card Number ---------------- */}
           <div className={style.item}>
             <div className={style.label}>Номер карты</div>
             <InputMask
@@ -62,7 +63,9 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
               {errors?.cardNumber && String(errors?.cardNumber?.message)}
             </div>
           </div>
+          {/* -------------- End card number -------------- */}
 
+          {/* ----------------- Card Name ----------------- */}
           <div className={style.item}>
             <div className={style.label}>Имя держателя карты</div>
             <input
@@ -105,7 +108,9 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
               {errors?.cardName && String(errors?.cardName?.message)}
             </div>
           </div>
+          {/* --------------- End card name --------------- */}
 
+          {/* ----------------- Card Data ----------------- */}
           <div className={style.item}>
             <div className={style.label}>Срок действия</div>
             <InputMask
@@ -125,6 +130,9 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
               {errors?.cardData && String(errors?.cardData?.message)}
             </div>
           </div>
+          {/* --------------- End card data --------------- */}
+
+          {/* ----------------- Form btn ------------------ */}
           <button className={style.btn} type="submit">
             <Button text="Подтвердить" />
             {isLoadingAddition && (
@@ -136,6 +144,7 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
               <div className={style.successAddition}>Оплачено ✔</div>
             )}
           </button>
+          {/* --------------- End form btn ---------------- */}
         </form>
       </div>
     </section>
