@@ -10,7 +10,6 @@ import { CategoryBlock } from 'shared/ui'
 import { CommentSlider } from 'widgets/comment-slider'
 import { NewsSubscription } from 'widgets/news-subscription'
 import { Footer } from 'widgets/footer'
-import { Navigate } from 'react-router'
 
 export const MainPage: FC = (props) => {
   return (

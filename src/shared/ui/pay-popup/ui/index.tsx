@@ -2,7 +2,7 @@
 import React, { ChangeEvent, FC, useState } from "react";
 import style from "./index.module.scss";
 import { useForm } from "react-hook-form";
-import InputMask from "react-input-mask";
+import InputMask from "comigo-tech-react-input-mask";
 // Components
 import { Button } from "shared/ui/button";
 import { PaySuccessLoader } from "shared/loaders/pay-success-loader";
@@ -50,7 +50,7 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
               className={style.input}
               placeholder="0123 4567 8901 2345"
               mask="9999 9999 9999 9999"
-              maskChar=""
+              maskPlaceholder=""
               {...register("cardNumber", {
                 required: "Поле с номером обязательно",
                 minLength: {
@@ -117,7 +117,7 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
               className={style.input}
               placeholder="07/25"
               mask="99/99"
-              maskChar=""
+              maskPlaceholder=""
               {...register("cardData", {
                 required: "Поле со сроком действия обязательно",
                 minLength: {

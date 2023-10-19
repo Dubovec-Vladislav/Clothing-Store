@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import style from "./index.module.scss";
-import { Button, PayPopup } from "shared/ui";
+import { Button } from "shared/ui";
 import tag from "../img/tag.svg";
 import { useAppSelector } from "app/model";
 import { selectCartTotalPrice } from "widgets/cart-section";
