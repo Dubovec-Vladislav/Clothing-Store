@@ -55,7 +55,7 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
             <InputMask
               className={style.input}
               placeholder="0123 4567 8901 2345"
-              mask="9999 9999 9999 9999"
+              mask="9999 9999 9999"
               maskPlaceholder=""
               {...register("cardNumber", {
                 required: "Поле с номером обязательно",
@@ -76,7 +76,7 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
             <div className={style.label}>Имя и фамилия держателя карты</div>
             <input
               className={style.input}
-              placeholder="BAZAROV OLEG"
+              placeholder="KONDRATIEV OLEG"
               {...register("cardName", {
                 required: "Поле с именем обязательно",
                 maxLength: {
@@ -121,14 +121,26 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
             <div className={style.label}>Срок действия</div>
             <InputMask
               className={style.input}
-              placeholder="07/25"
-              mask="99/99"
+              placeholder="07/2025"
+              mask="99/9999"
               maskPlaceholder=""
               {...register("cardData", {
                 required: "Поле со сроком действия обязательно",
                 minLength: {
                   value: 5, // 4 number + 1 spaces
-                  message: "Дата должна состоять из 4 цифр (месяц/год)",
+                  message: "Дата должна состоять из 6 цифр (месяц/год)",
+                },
+                validate: (value) => {
+                  const [month, year] = value.split("/");
+                  const currentYear = new Date().getFullYear();
+                  const currentMonth = new Date().getMonth() + 1;
+
+                  if (
+                    year < currentYear ||
+                    month > 12 ||
+                    (Number(year) === currentYear && month < currentMonth)
+                  )
+                    return "Недействительная дата или истекший срок действия";
                 },
               })}
             ></InputMask>
