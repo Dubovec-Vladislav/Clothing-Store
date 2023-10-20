@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import style from "./index.module.scss";
 import { Button } from "shared/ui";
 import tag from "../img/tag.svg";
@@ -13,6 +13,7 @@ export const CheckSection: FC<CheckSectionProps> = ({
   toggleIsPopupActive,
 }) => {
   const totalPrice = useAppSelector(selectCartTotalPrice);
+  const [tegValue, setTegValue] = useState<string>("");
   const [isTegCorrect, changeIsTegCorrect] = useState<boolean>(false);
 
   return (
@@ -44,11 +45,18 @@ export const CheckSection: FC<CheckSectionProps> = ({
         <div className={style.promotionalCode}>
           <div className={style.input}>
             <img src={tag} alt="tag" />
-            <input type="text" placeholder={"Промокод"} />
+            <input
+              type="text"
+              value={tegValue}
+              placeholder={"Промокод"}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setTegValue(e.target.value)
+              }
+            />
           </div>
           <div
             className={style.inputBtn}
-            onClick={() => changeIsTegCorrect(true)}
+            onClick={() => tegValue !== "" && changeIsTegCorrect(true)}
           >
             <Button text={"Ввести"} />
           </div>
