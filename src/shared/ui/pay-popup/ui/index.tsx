@@ -1,11 +1,15 @@
 // General
 import React, { ChangeEvent, FC, useState } from "react";
 import style from "./index.module.scss";
+import { useDispatch } from "react-redux";
+// Form libs
 import { useForm } from "react-hook-form";
 import InputMask from "comigo-tech-react-input-mask";
 // Components
 import { Button } from "shared/ui/button";
 import { PaySuccessLoader } from "shared/loaders/pay-success-loader";
+// Slice
+import { clearClothingItems } from "widgets/cart-section";
 // Img
 import cross from "../img/cross.svg";
 
@@ -14,6 +18,7 @@ interface PayPopupProps {
 }
 
 export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
+  const dispatch = useDispatch();
   const [isSuccessAddition, toggleSuccessAddition] = useState<boolean>(false);
   const [isLoadingAddition, toggleLoadingAddition] = useState<boolean>(false);
 
@@ -22,6 +27,7 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
     setTimeout(() => {
       toggleLoadingAddition(false);
       toggleSuccessAddition(true);
+      dispatch(clearClothingItems());
       setTimeout(() => {
         toggleSuccessAddition(false);
         toggleIsPopupActive(false);
@@ -67,7 +73,7 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
 
           {/* ----------------- Card Name ----------------- */}
           <div className={style.item}>
-            <div className={style.label}>Имя держателя карты</div>
+            <div className={style.label}>Имя и фамилия держателя карты</div>
             <input
               className={style.input}
               placeholder="BAZAROV OLEG"
