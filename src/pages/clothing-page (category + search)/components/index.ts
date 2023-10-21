@@ -1,1 +1,1 @@
-export { ClothingContent } from './clothing-content'
+export { ClothingContent } from "./clothing-content";

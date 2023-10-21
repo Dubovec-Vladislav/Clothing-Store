@@ -1,1 +1,1 @@
-export { PayPopup } from "./ui"
+export { PayPopup } from "./ui";

@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
-import style from './index.module.scss'
-import hello1 from '../img/hello1.jpg'
-import hello2 from '../img/hello2.jpg'
-import star1 from '../img/star1.svg'
-import star2 from '../img/star2.svg'
+import React, { FC } from "react";
+import style from "./index.module.scss";
+import hello1 from "../img/hello1.jpg";
+import hello2 from "../img/hello2.jpg";
+import star1 from "../img/star1.svg";
+import star2 from "../img/star2.svg";
 // import { Button } from 'shared/ui'
 
 export const Hello: FC = (props) => {
@@ -11,10 +11,14 @@ export const Hello: FC = (props) => {
     <section className={style.block}>
       <div className={style.body}>
         <div className={style.textBlock}>
-          <div className={style.title}><span>НАЙДИТЕ ОДЕЖДУ</span> <span>СООТВЕТСТВУЮЩУЮ</span> <span>ВАШЕМУ СТИЛЮ</span></div>
+          <div className={style.title}>
+            <span>НАЙДИТЕ ОДЕЖДУ</span> <span>СООТВЕТСТВУЮЩУЮ</span>{" "}
+            <span>ВАШЕМУ СТИЛЮ</span>
+          </div>
           <div className={style.subtitle}>
-            Просмотрите наш разнообразный ассортимент тщательно созданной одежды,
-            призванной подчеркнуть вашу индивидуальность и удовлетворить ваше чувство стиля.
+            Просмотрите наш разнообразный ассортимент тщательно созданной
+            одежды, призванной подчеркнуть вашу индивидуальность и удовлетворить
+            ваше чувство стиля.
           </div>
           {/* <div className={style.btn}><Button text={"Купить сейчас"} /></div> */}
           <div className={style.numbers}>
@@ -33,10 +37,18 @@ export const Hello: FC = (props) => {
           </div>
         </div>
         <div className={style.imgBlock}>
-          <div className={style.bigImg} ><img src={hello1} alt="hello1" /></div>
-          <div className={style.smallImg} ><img src={hello2} alt="hello2" /></div>
-          <div className={style.star1}><img src={star1} alt="star1" /></div>
-          <div className={style.star2}><img src={star2} alt="star2" /></div>
+          <div className={style.bigImg}>
+            <img src={hello1} alt="hello1" />
+          </div>
+          <div className={style.smallImg}>
+            <img src={hello2} alt="hello2" />
+          </div>
+          <div className={style.star1}>
+            <img src={star1} alt="star1" />
+          </div>
+          <div className={style.star2}>
+            <img src={star2} alt="star2" />
+          </div>
         </div>
       </div>
     </section>

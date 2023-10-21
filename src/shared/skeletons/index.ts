@@ -1,1 +1,1 @@
-export { ClothingCardSkeleton } from './clothing-card-skeleton'
+export { ClothingCardSkeleton } from "./clothing-card-skeleton";

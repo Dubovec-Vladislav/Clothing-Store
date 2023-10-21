@@ -1,1 +1,1 @@
-export { InputRange } from './ui'
+export { InputRange } from "./ui";

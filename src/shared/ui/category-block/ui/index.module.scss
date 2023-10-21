@@ -1,11 +1,13 @@
 .block {
-  background-color: #F0F0F0;
-  margin: calc(-1 * (40px + 24 * (100vw / 1440))) 0px calc(50px + 30 * (100vw / 1440)) 0px;
+  background-color: #f0f0f0;
+  margin: calc(-1 * (40px + 24 * (100vw / 1440))) 0px
+    calc(50px + 30 * (100vw / 1440)) 0px;
   padding: calc(24px + 46 * (100vw / 1440));
   border-radius: 40px;
 
   @media (max-width: 769px) {
-    margin: calc(-1 * (40px + 24 * ((100vw - 320px) / 1440))) 0px calc(50px + 30 * ((100vw - 320px) / 1440)) 0px;
+    margin: calc(-1 * (40px + 24 * ((100vw - 320px) / 1440))) 0px
+      calc(50px + 30 * ((100vw - 320px) / 1440)) 0px;
     padding: calc(24px + 46 * ((100vw - 320px) / 1440));
   }
 }
@@ -22,7 +24,8 @@
   }
 }
 
-.body {}
+.body {
+}
 
 .row {
   display: flex;
@@ -85,7 +88,7 @@
   top: 9%;
   left: 6%;
   color: #000;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: calc(20px + 8 * (100vw / 1440));
   font-weight: 700;
   line-height: normal;

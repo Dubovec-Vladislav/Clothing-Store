@@ -1,1 +1,1 @@
-export { BtnSuccessLoader } from './ui'
+export { BtnSuccessLoader } from "./ui";

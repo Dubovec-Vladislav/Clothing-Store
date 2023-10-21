@@ -2,7 +2,7 @@
   display: flex;
   margin: 0px 0px 24px 0px;
   padding: 0px 0px 24px 0px;
-  border-bottom: solid 1px #E6E6E6;
+  border-bottom: solid 1px #e6e6e6;
 
   @media (max-width: 769px) {
     margin: 0px 0px 18px 0px;
@@ -16,7 +16,7 @@
 }
 
 .img {
-  background-color: #F0EEED;
+  background-color: #f0eeed;
   margin: 0px 20px 0px 0px;
   border-radius: 20px;
   overflow: hidden;
@@ -43,7 +43,7 @@
 .title {
   color: #000;
   margin: 0px 0px 5px 0px;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-weight: 700;
   line-height: normal;
 
@@ -55,7 +55,7 @@
 .size {
   color: #000;
   margin: 0px 0px 5px 0px;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 14px;
   line-height: normal;
 
@@ -73,7 +73,7 @@
   color: #000;
   align-items: center;
 
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -97,7 +97,7 @@
   display: flex;
   color: #000;
   align-items: flex-end;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 24px;
   font-weight: 700;
   line-height: normal;
@@ -119,4 +119,5 @@
   }
 }
 
-.btn {}
+.btn {
+}

@@ -17,7 +17,8 @@
   }
 }
 
-.body {}
+.body {
+}
 
 .row {
   display: flex;
@@ -67,7 +68,6 @@
   justify-content: center;
 
   * {
-
     @media (max-width: 426px) {
       width: 100%;
     }
@@ -75,7 +75,7 @@
 }
 
 .endLine {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;

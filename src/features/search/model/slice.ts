@@ -1,25 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { RootState } from 'app/model'
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "app/model";
 // Lib
-import { getSearchStrFromLocalStorage } from '../lib/getSearchStrFromLocalStorage'
+import { getSearchStrFromLocalStorage } from "../lib/getSearchStrFromLocalStorage";
 
 interface SearchState {
-  searchStr: string,
-};
+  searchStr: string;
+}
 
 const { searchStr } = getSearchStrFromLocalStorage();
 const initialState: SearchState = { searchStr };
 
 export const searchSlice = createSlice({
-  name: 'search',
+  name: "search",
   initialState,
   reducers: {
-
     setSearchString: (state, action: PayloadAction<string>) => {
-      state.searchStr = action.payload
+      state.searchStr = action.payload;
     },
-
   },
 });
 

@@ -1,17 +1,17 @@
 // General
-import React, { FC, useState, useEffect } from 'react'
-import style from './index.module.scss'
+import React, { FC, useState, useEffect } from "react";
+import style from "./index.module.scss";
 // Components
-import { FilterPopup } from 'shared/ui'
-import { Button } from 'shared/ui'
-import { CommentCard, CommentInterface } from 'entities/comment'
+import { FilterPopup } from "shared/ui";
+import { Button } from "shared/ui";
+import { CommentCard, CommentInterface } from "entities/comment";
 // Api
-import { getClothingItemById } from 'app/commonApi'
+import { getClothingItemById } from "app/commonApi";
 // Lib
-import { sortBySelectedType, sortTypes } from '../lib'
+import { sortBySelectedType, sortTypes } from "../lib";
 
 interface CommentSectionProps {
-  clothId: string | undefined,
+  clothId: string | undefined;
 }
 
 export const CommentSection: FC<CommentSectionProps> = ({ clothId }) => {
@@ -24,7 +24,11 @@ export const CommentSection: FC<CommentSectionProps> = ({ clothId }) => {
 
   useEffect(() => {
     if (data) {
-      const newSortedData = sortBySelectedType(data.commentsList, activeSortType.urlName, activeSortType.order);
+      const newSortedData = sortBySelectedType(
+        data.commentsList,
+        activeSortType.urlName,
+        activeSortType.order
+      );
       setSortedDataLength(newSortedData.length);
       setSortedData(newSortedData.slice(0, limit));
     }
@@ -47,30 +51,46 @@ export const CommentSection: FC<CommentSectionProps> = ({ clothId }) => {
                 sortTypes={sortTypes}
               />
             </div>
-            <div className={style.addComment}><Button text={"Добавить отзыв"} /></div>
+            <div className={style.addComment}>
+              <Button text={"Добавить отзыв"} />
+            </div>
           </div>
         </div>
         <div className={style.comments}>
-          {isLoading
-            ? <div style={{ paddingLeft: "20px" }} className={style.loader}>Идет загрузка комментариев...</div>
-            : sortedData
-              ? sortedData.map((comment, i) => (
-                <div key={i} className={style.comment}>
-                  <CommentCard
-                    rating={comment.rating}
-                    name={comment.name}
-                    text={comment.text}
-                    timeSinceCreatedDate={comment.timeSinceCreatedDate}
-                  />
-                </div>
-              ))
-              : <div>Упс... кажется что-то пошло не так</div>
-          }
+          {isLoading ? (
+            <div style={{ paddingLeft: "20px" }} className={style.loader}>
+              Идет загрузка комментариев...
+            </div>
+          ) : sortedData ? (
+            sortedData.map((comment, i) => (
+              <div key={i} className={style.comment}>
+                <CommentCard
+                  rating={comment.rating}
+                  name={comment.name}
+                  text={comment.text}
+                  timeSinceCreatedDate={comment.timeSinceCreatedDate}
+                />
+              </div>
+            ))
+          ) : (
+            <div>Упс... кажется что-то пошло не так</div>
+          )}
         </div>
-        {sortedDataLength > limit
-          && <div className={style.btn} onClick={() => setLimit(limit + 2)}>
-            <Button text={`Загрузить больше (${sortedDataLength - limit > limit ? limit : sortedDataLength - limit})`} color={"#000"} fill={"#fff"} borderFill={"#E6E6E6"} hoverFill={"#E6E6E6"} />
-          </div>}
+        {sortedDataLength > limit && (
+          <div className={style.btn} onClick={() => setLimit(limit + 2)}>
+            <Button
+              text={`Загрузить больше (${
+                sortedDataLength - limit > limit
+                  ? limit
+                  : sortedDataLength - limit
+              })`}
+              color={"#000"}
+              fill={"#fff"}
+              borderFill={"#E6E6E6"}
+              hoverFill={"#E6E6E6"}
+            />
+          </div>
+        )}
       </div>
     </section>
   );

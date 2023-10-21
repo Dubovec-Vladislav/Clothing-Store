@@ -1,10 +1,10 @@
 .block {
-  background-color: #F2F0F1;
+  background-color: #f2f0f1;
   margin: 0px calc(-1 * (16px + 84 * (100vw / 1440)));
   padding: 0px calc(16px + 84 * (100vw / 1440));
 
   @media (max-width: 769px) {
-    margin: 0px calc(-1 * (16px + 84 * ((100vw - 320px)/ 1440)));
+    margin: 0px calc(-1 * (16px + 84 * ((100vw - 320px) / 1440)));
     padding: 0px calc(16px + 84 * ((100vw - 320px) / 1440));
   }
 }
@@ -98,7 +98,7 @@
   margin: 0px 0px calc(20px + 12 * (100vw / 1440)) 0px;
   padding: calc(136px + 63 * (100vw / 1440)) 0px 0px 0px;
 
-  font-family: 'Fira Sans';
+  font-family: "Fira Sans";
   font-size: calc(24px + 25 * (100vw / 1440));
   font-weight: 700;
 
@@ -121,7 +121,7 @@
   color: rgba(0, 0, 0, 0.6);
   margin: 0px 0px calc(20px + 12 * (100vw / 1440)) 0px;
 
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 16px;
   line-height: 137.5%;
 
@@ -179,7 +179,7 @@
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -198,7 +198,7 @@
 
 .numbersTitle {
   color: #000;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: calc(24px + 16 * (100vw / 1440));
   font-weight: 700;
 
@@ -209,7 +209,7 @@
 
 .numbersSubtitle {
   color: rgba(0, 0, 0, 0.6);
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: calc(12px + 4 * (100vw / 1440));
   line-height: 137.5%;
 

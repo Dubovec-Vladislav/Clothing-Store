@@ -1,1 +1,1 @@
-export { BlockTitle } from './ui'
+export { BlockTitle } from "./ui";

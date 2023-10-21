@@ -1,1 +1,1 @@
-export { ClothingSingleSection } from './ui'
+export { ClothingSingleSection } from "./ui";

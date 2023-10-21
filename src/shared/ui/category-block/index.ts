@@ -1,1 +1,1 @@
-export { CategoryBlock } from './ui'
+export { CategoryBlock } from "./ui";

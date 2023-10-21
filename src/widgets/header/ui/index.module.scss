@@ -18,7 +18,7 @@
   align-items: center;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -45,7 +45,7 @@
   -webkit-tap-highlight-color: transparent;
 
   font-size: 26px;
-  font-family: 'Fira Sans';
+  font-family: "Fira Sans";
   font-weight: 700;
 
   @media (max-width: 769px) {
@@ -68,7 +68,7 @@
     top: 0;
     left: -300px;
     z-index: 3;
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
     width: 300px;
     height: 100dvh;
     padding: 20px;
@@ -101,7 +101,7 @@
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 40%;
       right: 0;
@@ -144,14 +144,14 @@
 .link {
   position: relative;
   color: #000;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 16px;
   cursor: pointer;
-  white-space: nowrap; 
+  white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -15%;
     left: 0;
@@ -198,7 +198,7 @@
   -webkit-tap-highlight-color: transparent;
 
   &:hover {
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
   }
 
   span {
@@ -206,7 +206,7 @@
     top: 2px;
     right: 2px;
     color: #000;
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-size: 12px;
     font-weight: 500;
   }
@@ -227,7 +227,7 @@
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     background-color: #000;
     left: 10%;

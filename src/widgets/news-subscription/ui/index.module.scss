@@ -40,7 +40,7 @@
 
 .messageText {
   color: #fff;
-  font-family: 'Fira Sans';
+  font-family: "Fira Sans";
   font-size: 20px;
   font-weight: 700;
 }
@@ -86,7 +86,7 @@
 
 .text {
   color: #fff;
-  font-family: 'Fira Sans';
+  font-family: "Fira Sans";
   font-size: calc(26px + 14 * (100vw / 1440));
   font-weight: 700;
   line-height: 112.5%;
@@ -113,7 +113,7 @@
   padding: 12px 16px;
   border-radius: 62px;
 
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 16px;
   line-height: normal;
 
@@ -161,7 +161,6 @@
     }
 
     @keyframes blinking {
-
       0%,
       100% {
         opacity: 1;
@@ -213,7 +212,7 @@
 
 .error {
   color: #fff;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 16px;
 
   @media (max-width: 437px) {

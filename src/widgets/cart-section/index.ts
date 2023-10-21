@@ -1,2 +1,2 @@
-export { CartSection } from './ui'
-export * from './model'
+export { CartSection } from "./ui";
+export * from "./model";

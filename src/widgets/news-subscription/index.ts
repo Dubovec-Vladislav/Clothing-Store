@@ -1,2 +1,2 @@
-export { NewsSubscription } from './ui'
-export { emailsApi } from './api'
+export { NewsSubscription } from "./ui";
+export { emailsApi } from "./api";

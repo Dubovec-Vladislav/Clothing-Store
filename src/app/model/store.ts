@@ -1,9 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { cartSlice } from 'widgets/cart-section'
-import { clothApi } from 'app/commonApi'
-import { topCommentsApi } from 'widgets/comment-slider'
-import { emailsApi } from 'widgets/news-subscription'
-import { searchSlice } from 'features/search/model'
+import { configureStore } from "@reduxjs/toolkit";
+import { cartSlice } from "widgets/cart-section";
+import { clothApi } from "app/commonApi";
+import { topCommentsApi } from "widgets/comment-slider";
+import { emailsApi } from "widgets/news-subscription";
+import { searchSlice } from "features/search/model";
 
 export const store = configureStore({
   reducer: {
@@ -14,7 +14,11 @@ export const store = configureStore({
     [emailsApi.reducerPath]: emailsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(clothApi.middleware, topCommentsApi.middleware, emailsApi.middleware),
+    getDefaultMiddleware().concat(
+      clothApi.middleware,
+      topCommentsApi.middleware,
+      emailsApi.middleware
+    ),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

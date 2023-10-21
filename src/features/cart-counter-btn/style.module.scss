@@ -1,6 +1,6 @@
 .block {
   display: flex;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   padding: 10px 16px;
   align-items: center;
   justify-content: space-between;
@@ -16,7 +16,7 @@
 
   span {
     color: #000;
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-size: 18px;
     font-weight: 500;
     margin: 0px calc(10px + 14 * (100vw / 1440));
@@ -46,7 +46,7 @@
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -64,7 +64,7 @@
 
 .plus {
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;

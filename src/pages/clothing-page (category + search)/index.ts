@@ -1,3 +1,3 @@
-import { ClothingPage } from './ui'
+import { ClothingPage } from "./ui";
 
 export default ClothingPage;

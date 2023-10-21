@@ -3,7 +3,7 @@
   display: block;
   color: rgba(0, 0, 0, 0.6);
   margin: 0px 0px 20px 0px;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 16px;
   line-height: normal;
   transition: 0.2s ease;
@@ -17,7 +17,7 @@
     position: relative;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -15%;
       left: 0;

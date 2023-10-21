@@ -1,4 +1,4 @@
-import { Navigation, A11y } from 'swiper/modules'
+import { Navigation, A11y } from "swiper/modules";
 
 const breakpoints = {
   1300: {
@@ -32,8 +32,8 @@ export const swiperOptions = {
   loop: true,
   grabCursor: true,
   navigation: {
-    prevEl: '.comment-slider__arrow-left',
-    nextEl: '.comment-slider__arrow-right',
+    prevEl: ".comment-slider__arrow-left",
+    nextEl: ".comment-slider__arrow-right",
   },
   breakpoints: { ...breakpoints },
   modules: [Navigation, A11y],

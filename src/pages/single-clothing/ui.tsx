@@ -1,15 +1,15 @@
 // General
-import React, { FC, useEffect } from 'react'
-import style from './style.module.scss'
+import React, { FC, useEffect } from "react";
+import style from "./style.module.scss";
 // Hooks
-import { useParams } from 'react-router-dom'
+import { useParams } from "react-router-dom";
 // Components
-import { Header } from 'widgets/header'
-import { ClothingSingleSection } from 'widgets/clothing-single-section'
-import { TabItemInterface, Tabs } from 'shared/ui'
-import { CommentSection } from 'widgets/comment-section'
-import { NewsSubscription } from 'widgets/news-subscription'
-import { Footer } from 'widgets/footer'
+import { Header } from "widgets/header";
+import { ClothingSingleSection } from "widgets/clothing-single-section";
+import { TabItemInterface, Tabs } from "shared/ui";
+import { CommentSection } from "widgets/comment-section";
+import { NewsSubscription } from "widgets/news-subscription";
+import { Footer } from "widgets/footer";
 
 export const SingleClothingPage: FC = (props) => {
   useEffect(() => window.scrollTo(0, 0), []); // Scroll to top of page
@@ -24,7 +24,7 @@ export const SingleClothingPage: FC = (props) => {
   return (
     <main className={style.block}>
       <Header />
-      <ClothingSingleSection clothId={id || ''} />
+      <ClothingSingleSection clothId={id || ""} />
       <Tabs tabsList={tabsList} />
       <NewsSubscription />
       <Footer />

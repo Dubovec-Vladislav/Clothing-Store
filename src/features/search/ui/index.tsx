@@ -1,18 +1,25 @@
 // General
-import React, { ChangeEvent, FC, useState, useCallback, useRef, useEffect } from 'react'
-import style from './index.module.scss'
-import { useNavigate } from 'react-router-dom'
-import debounce from 'lodash.debounce'
+import React, {
+  ChangeEvent,
+  FC,
+  useState,
+  useCallback,
+  useRef,
+  useEffect,
+} from "react";
+import style from "./index.module.scss";
+import { useNavigate } from "react-router-dom";
+import debounce from "lodash.debounce";
 // Slice
-import { selectSearchString, setSearchString } from '../model'
+import { selectSearchString, setSearchString } from "../model";
 // Img
-import search1 from '../img/search1.svg'
-import { useDispatch } from 'react-redux'
-import { useAppSelector } from 'app/model'
+import search1 from "../img/search1.svg";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "app/model";
 
 interface SearchInputProps {
-  isSearchActive: boolean,
-};
+  isSearchActive: boolean;
+}
 
 export const SearchInput: FC<SearchInputProps> = ({ isSearchActive }) => {
   const navigate = useNavigate();
@@ -21,15 +28,18 @@ export const SearchInput: FC<SearchInputProps> = ({ isSearchActive }) => {
   const searchStr = useAppSelector(selectSearchString);
   const [value, setValue] = useState(searchStr);
 
-  const updateSearchStr = useCallback(debounce((str: string) => {
-    dispatch(setSearchString(str))
-    str.length && navigate(`/search/${str}`);
-  }, 400), [dispatch, navigate]);
+  const updateSearchStr = useCallback(
+    debounce((str: string) => {
+      dispatch(setSearchString(str));
+      str.length && navigate(`/search/${str}`);
+    }, 400),
+    [dispatch, navigate]
+  );
 
   const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
     updateSearchStr(e.target.value);
-  }
+  };
 
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -37,7 +47,13 @@ export const SearchInput: FC<SearchInputProps> = ({ isSearchActive }) => {
   }, [searchStr]); // Autofocus when rendering home page or search
 
   return (
-    <div className={isSearchActive ? `${style.searchInput} ${style.activeSearchInput}` : `${style.searchInput}`}>
+    <div
+      className={
+        isSearchActive
+          ? `${style.searchInput} ${style.activeSearchInput}`
+          : `${style.searchInput}`
+      }
+    >
       <img src={search1} alt="search1" />
       <input
         ref={inputRef}

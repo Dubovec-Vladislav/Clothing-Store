@@ -1,1 +1,1 @@
-export { CheckSection } from './ui'
+export { CheckSection } from "./ui";

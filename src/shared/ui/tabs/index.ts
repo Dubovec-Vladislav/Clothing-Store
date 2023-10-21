@@ -1,2 +1,2 @@
-export { Tabs } from './ui'
-export type { TabItem } from './ui'
+export { Tabs } from "./ui";
+export type { TabItem } from "./ui";

@@ -1,4 +1,4 @@
-import { Navigation, A11y } from 'swiper/modules'
+import { Navigation, A11y } from "swiper/modules";
 
 const breakpoints = {};
 
@@ -8,8 +8,8 @@ export const swiperOptions = {
   loop: true,
   grabCursor: true,
   navigation: {
-    prevEl: '.clothing-img-slider__arrow-left',
-    nextEl: '.clothing-img-slider__arrow-right',
+    prevEl: ".clothing-img-slider__arrow-left",
+    nextEl: ".clothing-img-slider__arrow-right",
   },
   breakpoints: { ...breakpoints },
   modules: [Navigation, A11y],

@@ -1,1 +1,1 @@
-export { ClothingImgSlider } from './ui'
+export { ClothingImgSlider } from "./ui";

@@ -1,26 +1,35 @@
-import { ClothingInterface } from "app/commonApi"
+import { ClothingInterface } from "app/commonApi";
 
-
-export const getCommonVariantsFromArrays = (generalArray: ClothingInterface[][], numberOfActiveFilters: number): ClothingInterface[] => {
-  
+export const getCommonVariantsFromArrays = (
+  generalArray: ClothingInterface[][],
+  numberOfActiveFilters: number
+): ClothingInterface[] => {
   // Combining arrays
-  const combinedArray: ClothingInterface[] = generalArray.reduce((result, currentArray) => result.concat(currentArray), []);
+  const combinedArray: ClothingInterface[] = generalArray.reduce(
+    (result, currentArray) => result.concat(currentArray),
+    []
+  );
   // Count the number of repeating elements (create a collection, key - item, value - amount)
-  const itemCountMap = combinedArray.reduce((map, item) => map.set(item, (map.get(item) || 0) + 1),
+  const itemCountMap = combinedArray.reduce(
+    (map, item) => map.set(item, (map.get(item) || 0) + 1),
     new Map<ClothingInterface, number>()
   );
 
   const commonClothingVariants: ClothingInterface[] = [];
-  itemCountMap.forEach((key, value) => key === numberOfActiveFilters && commonClothingVariants.push(value))
+  itemCountMap.forEach(
+    (key, value) =>
+      key === numberOfActiveFilters && commonClothingVariants.push(value)
+  );
 
   return commonClothingVariants;
 };
 
-
-export const filterData = (data: ClothingInterface[] | undefined, filterFunction: (item: ClothingInterface) => boolean) => {
+export const filterData = (
+  data: ClothingInterface[] | undefined,
+  filterFunction: (item: ClothingInterface) => boolean
+) => {
   return data?.filter(filterFunction) || [];
 };
-
 
 export const sortTypes = [
   { name: "новые", urlName: "timeSinceReleaseDate", order: "asc" },

@@ -3,7 +3,7 @@
   position: relative;
   display: flex;
   z-index: 2;
-  background-color: #F0F0F0;
+  background-color: #f0f0f0;
   margin: 0px calc(6px + 14 * (100vw / 1440)) 0px 0px;
   padding: 12px 16px;
   border-radius: 62px;
@@ -24,7 +24,7 @@
     background-color: #fff;
     width: 100%;
     padding: 16px calc(16px + 84 * ((100vw - 320px) / 1440));
-    border-top: solid 1px #F2F0F1;
+    border-top: solid 1px #f2f0f1;
     border-radius: 0px;
     opacity: 0;
     transition: 0.5s ease;
@@ -37,9 +37,9 @@
   input {
     flex-grow: 1;
     color: #00000066;
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
     min-height: 24px;
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     font-size: 16px;
 
     @media (max-width: 526px) {
