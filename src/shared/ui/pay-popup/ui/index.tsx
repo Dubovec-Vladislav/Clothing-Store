@@ -55,7 +55,7 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
             <InputMask
               className={style.input}
               placeholder="0123 4567 8901 2345"
-              mask="9999 9999 9999"
+              mask="9999 9999 9999 9999"
               maskPlaceholder=""
               {...register("cardNumber", {
                 required: "Поле с номером обязательно",
@@ -80,8 +80,8 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
               {...register("cardName", {
                 required: "Поле с именем обязательно",
                 maxLength: {
-                  value: 16,
-                  message: "Введите корректное имя",
+                  value: 21,
+                  message: "Введите имя корректной длины",
                 },
                 pattern: {
                   value: /^[a-zA-Z]+ [a-zA-Z]+$/,
@@ -121,14 +121,14 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
             <div className={style.label}>Срок действия</div>
             <InputMask
               className={style.input}
-              placeholder="07/2025"
-              mask="99/9999"
+              placeholder="07/27"
+              mask="99/99"
               maskPlaceholder=""
               {...register("cardData", {
                 required: "Поле со сроком действия обязательно",
                 minLength: {
                   value: 5, // 4 number + 1 spaces
-                  message: "Дата должна состоять из 6 цифр (месяц/год)",
+                  message: "Дата должна состоять из 4 цифр (месяц/год)",
                 },
                 validate: (value) => {
                   const [month, year] = value.split("/");
@@ -136,9 +136,10 @@ export const PayPopup: FC<PayPopupProps> = ({ toggleIsPopupActive }) => {
                   const currentMonth = new Date().getMonth() + 1;
 
                   if (
-                    year < currentYear ||
+                    year + 2000 < currentYear || // 27 + 2000 = 2027
                     month > 12 ||
-                    (Number(year) === currentYear && month < currentMonth)
+                    (Number(year) + 2000 === currentYear &&
+                      month < currentMonth)
                   )
                     return "Недействительная дата или истекший срок действия";
                 },
