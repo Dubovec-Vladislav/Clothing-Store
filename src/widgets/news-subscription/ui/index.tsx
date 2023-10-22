@@ -38,16 +38,8 @@ export const NewsSubscription: FC = (props) => {
     setFormSubmitted(true);
   };
 
-  // const [credentials] = useState({ username: 'user', password: 'pass', token: 'token' });
-  // const [login] = useLoginMutation();
-
-  // const handleLogin = async () => {
-  //   const response = await login(credentials) as { data: any };
-  // };
-
   return (
     <section className={style.block}>
-      {/* <button onClick={handleLogin}>Login</button> */}
       <div className={style.body}>
         {isLoading ? (
           <div className={style.loadingBlock}>

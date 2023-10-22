@@ -29,7 +29,9 @@ export const ClothingCard: FC<ClothingCardProps> = ({
       <div className={style.priceBlock}>
         <div className={style.price}>{price}₽</div>
         <div className={style.prevPrice}>{prevPrice}₽</div>
-        <div className={style.percent}>-30%</div>
+        <div className={style.percent}>
+          -{Math.round(100 - (price * 100) / prevPrice)}%
+        </div>
       </div>
     </div>
   );

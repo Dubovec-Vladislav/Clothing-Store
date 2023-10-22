@@ -82,8 +82,8 @@ export const ClothingContent: FC<ClothingContentProps> = ({ pageName }) => {
   // --------------------------------------------- //
 
   // ------------- Price Block data -------------- //
-  const [minPrice, setMinPrice] = useState(1000);
-  const [maxPrice, setMaxPrice] = useState(4000);
+  const [minPrice, setMinPrice] = useState<number>(1000);
+  const [maxPrice, setMaxPrice] = useState<number>(4000);
   // --------------------------------------------- //
 
   // ---------- General data and hooks ----------- //

@@ -129,7 +129,7 @@ export const Filters: FC<FiltersProps> = ({
             <CategoryItem path={"/category/1"} text={"Деловая"} />
             <CategoryItem path={"/category/2"} text={"Повседневная"} />
             <CategoryItem path={"/category/3"} text={"На вечеринку"} />
-            <CategoryItem path={"/category/4"} text={"Для зала"} />
+            {/* <CategoryItem path={"/category/4"} text={"Для зала"} /> */}
           </div>
         </div>
       </div>

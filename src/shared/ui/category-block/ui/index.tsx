@@ -18,6 +18,7 @@ export interface PhotoItem {
 export interface ItemState {
   animated: boolean;
   size?: "large" | "small";
+  disable?: boolean;
 }
 
 export const CategoryBlock: FC = (props) => {
@@ -32,7 +33,7 @@ export const CategoryBlock: FC = (props) => {
     { animated: false },
     { animated: false, size: "large" },
     { animated: false, size: "large" },
-    { animated: false },
+    { animated: false, disable: true },
   ];
 
   const [itemStates, setItemStates] = useState<ItemState[]>([
@@ -72,24 +73,39 @@ export const CategoryBlock: FC = (props) => {
       </div>
       <div className={style.body}>
         <div className={style.row} ref={rowRef}>
-          {itemStates.map((itemState, i) => (
-            <Link
-              to={`/category/${i + 1}`}
-              key={i}
-              className={`${
-                itemState.size === "large" ? style.largeItem : style.smallItem
-              } ${itemState.animated ? style._anim : ""}`}
-              onClick={() => toggleAnimation(i)}
-              // target={"_blank"}
-            >
-              <div className={style.itemBody}>
-                <div className={style.text}>{photosMas[i].name}</div>
-                <div className={style.img}>
-                  <img src={photosMas[i].src} alt={photosMas[i].name} />
+          {itemStates.map((itemState, i) =>
+            itemState.disable ? (
+              <div
+                key={i}
+                className={`${
+                  itemState.size === "large" ? style.largeItem : style.smallItem
+                }`}
+              >
+                <div className={`${style.itemBody} ${style.disableItem}`}>
+                  <div className={style.text}>{photosMas[i].name}</div>
+                  <div className={style.img}>
+                    <img src={photosMas[i].src} alt={photosMas[i].name} />
+                  </div>
                 </div>
               </div>
-            </Link>
-          ))}
+            ) : (
+              <Link
+                to={`/category/${i + 1}`}
+                key={i}
+                className={`${
+                  itemState.size === "large" ? style.largeItem : style.smallItem
+                } ${itemState.animated ? style._anim : ""}`}
+                onClick={() => toggleAnimation(i)}
+              >
+                <div className={style.itemBody}>
+                  <div className={style.text}>{photosMas[i].name}</div>
+                  <div className={style.img}>
+                    <img src={photosMas[i].src} alt={photosMas[i].name} />
+                  </div>
+                </div>
+              </Link>
+            )
+          )}
         </div>
       </div>
     </div>

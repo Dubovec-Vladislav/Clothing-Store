@@ -26,7 +26,7 @@ export const SearchInput: FC<SearchInputProps> = ({ isSearchActive }) => {
   const dispatch = useDispatch();
 
   const searchStr = useAppSelector(selectSearchString);
-  const [value, setValue] = useState(searchStr);
+  const [value, setValue] = useState<string>(searchStr);
 
   const updateSearchStr = useCallback(
     debounce((str: string) => {
