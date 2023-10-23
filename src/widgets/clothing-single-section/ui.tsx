@@ -108,6 +108,7 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({
           sliderList={sliderList}
           toggleSliderActive={toggleSliderActive}
           indexActiveSlideImg={indexActiveSlideImg}
+          setIndexActiveSlideImg={setIndexActiveSlideImg}
         />
       </div>
       <div className={style.body}>

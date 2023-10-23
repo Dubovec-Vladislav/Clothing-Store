@@ -14,24 +14,38 @@ interface ClothingImgSliderProps {
   sliderList: string[] | undefined;
   toggleSliderActive: (bool: boolean) => void;
   indexActiveSlideImg: number;
+  setIndexActiveSlideImg: (index: number) => void;
 }
 
 export const ClothingImgSlider: FC<ClothingImgSliderProps> = React.memo(
-  ({ sliderList, toggleSliderActive, indexActiveSlideImg }) => {
+  ({
+    sliderList,
+    toggleSliderActive,
+    indexActiveSlideImg,
+    setIndexActiveSlideImg,
+  }) => {
     const newSliderList = sliderList && [...sliderList];
     const activeSlide = sliderList && sliderList[indexActiveSlideImg];
 
     newSliderList?.splice(indexActiveSlideImg, 1); // Удаляем активный элемент из исходной позиции
     newSliderList && activeSlide && newSliderList.unshift(activeSlide); // Переносим его в начало массива
 
-    console.log(newSliderList);
+    console.log(indexActiveSlideImg);
 
     return (
       <section className={style.block}>
         <div className={style.body}>
-          <div className={`${style.arrow} clothing-img-slider__arrow-left`}>
+          <div
+            className={`${style.arrow} clothing-img-slider__arrow-left`}
+            onClick={() =>
+              indexActiveSlideImg > 0
+                ? setIndexActiveSlideImg(indexActiveSlideImg - 1)
+                : newSliderList && setIndexActiveSlideImg(newSliderList?.length)
+            }
+          >
             <img src={arrowLeft} alt="arrow-left" />
           </div>
+
           <Swiper className={style.slider} {...swiperOptions}>
             {newSliderList?.map((img, i) => (
               <SwiperSlide className={style.slide} key={i}>
@@ -40,7 +54,10 @@ export const ClothingImgSlider: FC<ClothingImgSliderProps> = React.memo(
             ))}
           </Swiper>
 
-          <div className={`${style.arrow} clothing-img-slider__arrow-right`}>
+          <div
+            className={`${style.arrow} clothing-img-slider__arrow-right`}
+            // onClick={() => setIndexActiveSlideImg(indexActiveSlideImg + 1)}
+          >
             <img src={arrowRight} alt="arrow-right" />
           </div>
           <div
