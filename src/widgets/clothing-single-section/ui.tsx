@@ -46,7 +46,7 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({
   const [isSuccessAddition, toggleSuccessAddition] = useState<boolean>(false);
   const [isLoadingAddition, toggleLoadingAddition] = useState<boolean>(false);
   const [isSliderActive, toggleSliderActive] = useState<boolean>(false);
-  const [activeSlideImg, setActiveSlideImg] = useState<string>("");
+  const [indexActiveSlideImg, setIndexActiveSlideImg] = useState<number>(0);
 
   const handleColorClick = (i: number) => {
     changeSelectedColor(colorsList[i]);
@@ -82,7 +82,7 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({
 
   const handleImgClick = (activeSlideImg: string) => {
     toggleSliderActive(true);
-    setActiveSlideImg(activeSlideImg);
+    sliderList && setIndexActiveSlideImg(sliderList.indexOf(activeSlideImg));
   };
 
   // const imgPartRef = useRef(null);
@@ -107,7 +107,7 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({
         <ClothingImgSlider
           sliderList={sliderList}
           toggleSliderActive={toggleSliderActive}
-          activeSlideImg={activeSlideImg}
+          indexActiveSlideImg={indexActiveSlideImg}
         />
       </div>
       <div className={style.body}>
