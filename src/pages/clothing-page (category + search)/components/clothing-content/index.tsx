@@ -48,6 +48,7 @@ export const ClothingContent: FC<ClothingContentProps> = ({ pageName }) => {
   // ------- Clothing Block data and hooks ------- //
   const DEFAULT_PAGE_LIMIT = 8;
   const [currentPage, setCurrentPage] = useState<number>(1);
+  useEffect(() => setCurrentPage(1), [id]); // When the id (category) changes, reset the page number
   const [pageLimit] = useState<number>(DEFAULT_PAGE_LIMIT);
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to top of the page, when changing the current page
