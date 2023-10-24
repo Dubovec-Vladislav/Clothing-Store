@@ -34,15 +34,12 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({
   }, [data]);
 
   const colorsList: string[] = [];
-  data?.imageObjects.forEach((imageObject) =>
-    colorsList.push(imageObject.color)
-  );
+  data?.imageObjects.forEach((imageObject) => colorsList.push(imageObject.color));
 
   const [numOfClothing, changeNumOfLocalClothing] = useState<number>(1);
   const [selectedColor, changeSelectedColor] = useState<string>("");
   const [selectedSize, setSelectedSize] = useState<number>(0);
-  const [activeImageObject, setActiveImageObject] =
-    useState<ImageObjectInterface>();
+  const [activeImageObject, setActiveImageObject] = useState<ImageObjectInterface>();
   const [isSuccessAddition, toggleSuccessAddition] = useState<boolean>(false);
   const [isLoadingAddition, toggleLoadingAddition] = useState<boolean>(false);
   const [isSliderActive, toggleSliderActive] = useState<boolean>(false);
@@ -137,10 +134,7 @@ export const ClothingSingleSection: FC<ClothingSingleSectionProps> = ({
                   onClick={() => handleImgClick(activeImageObject!.previewImg)}
                 >
                   <div className={style.previewItem}>
-                    <img
-                      src={activeImageObject?.previewImg}
-                      alt="preview-img"
-                    />
+                    <img src={activeImageObject?.previewImg} alt="preview-img" />
                   </div>
                 </div>
               </div>

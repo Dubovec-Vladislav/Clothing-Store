@@ -62,7 +62,7 @@
 
 .clothingSingleSection {
   display: flex;
-  max-height: 570px;
+  max-height: calc(570px + 800 * ((100vw - 1440px) / 2560));
   margin: 0px -20px;
   overflow: hidden;
 

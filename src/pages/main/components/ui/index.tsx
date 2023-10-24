@@ -12,13 +12,11 @@ export const Hello: FC = (props) => {
       <div className={style.body}>
         <div className={style.textBlock}>
           <div className={style.title}>
-            <span>НАЙДИТЕ ОДЕЖДУ</span> <span>СООТВЕТСТВУЮЩУЮ</span>{" "}
-            <span>ВАШЕМУ СТИЛЮ</span>
+            <span>НАЙДИТЕ ОДЕЖДУ</span> <span>СООТВЕТСТВУЮЩУЮ</span> <span>ВАШЕМУ СТИЛЮ</span>
           </div>
           <div className={style.subtitle}>
-            Просмотрите наш разнообразный ассортимент тщательно созданной
-            одежды, призванной подчеркнуть вашу индивидуальность и удовлетворить
-            ваше чувство стиля.
+            Просмотрите наш разнообразный ассортимент тщательно созданной одежды, призванной
+            подчеркнуть вашу индивидуальность и удовлетворить ваше чувство стиля.
           </div>
           {/* <div className={style.btn}><Button text={"Купить сейчас"} /></div> */}
           <div className={style.numbers}>

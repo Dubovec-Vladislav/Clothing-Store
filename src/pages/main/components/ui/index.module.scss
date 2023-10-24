@@ -11,13 +11,13 @@
 
 .body {
   display: flex;
-  max-height: 671px;
+  max-height: calc(671px + 800 * ((100vw - 1440px) / 2560));
   margin: 0px calc(-1 * (16px + 84 * (100vw / 1440))) 0px -1.74vw;
   overflow: hidden;
 
   @media (max-width: 945px) {
     flex-wrap: wrap;
-    max-height: max-content;
+    max-height: none;
     margin: 0px 0px;
   }
 }
