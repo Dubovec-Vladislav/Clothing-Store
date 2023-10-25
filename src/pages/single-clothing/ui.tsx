@@ -17,8 +17,8 @@ export const SingleClothingPage: FC = (props) => {
 
   const tabsList: TabItemInterface[] = [
     { tabName: "Рейтинг и отзывы", field: <CommentSection clothId={id} /> },
-    { tabName: "О продукте", field: <div>О продукте</div> },
-    { tabName: "Вопросы о товаре", field: <div>Вопросы о товаре</div> },
+    // { tabName: "О продукте", field: <div>О продукте</div> },
+    // { tabName: "Вопросы о товаре", field: <div>Вопросы о товаре</div> },
   ];
 
   return (

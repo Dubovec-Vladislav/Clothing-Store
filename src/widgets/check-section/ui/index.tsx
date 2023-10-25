@@ -9,9 +9,7 @@ interface CheckSectionProps {
   toggleIsPopupActive: (newValue: boolean) => void;
 }
 
-export const CheckSection: FC<CheckSectionProps> = ({
-  toggleIsPopupActive,
-}) => {
+export const CheckSection: FC<CheckSectionProps> = ({ toggleIsPopupActive }) => {
   const totalPrice = useAppSelector(selectCartTotalPrice);
   const [tegValue, setTegValue] = useState<string>("");
   const [isTegCorrect, changeIsTegCorrect] = useState<boolean>(false);

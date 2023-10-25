@@ -48,19 +48,19 @@ export const Footer: FC = (props) => {
           <div className={style.item}>
             <FooterItem
               title={"Помощь"}
-              links={["О нас", "Функции", "Работы", "Карьера"]}
+              links={["Поддержка", "Доставка", "Команда", "Приватность"]}
             />
           </div>
           <div className={style.item}>
             <FooterItem
               title={"Вопросы"}
-              links={["О нас", "Функции", "Работы", "Карьера"]}
+              links={["Аккаунт", "Расположение", "Порядок", "Оплата"]}
             />
           </div>
           <div className={style.item}>
             <FooterItem
               title={"Ресурсы"}
-              links={["О нас", "Функции", "Работы", "Карьера"]}
+              links={["Книги", "Туториал", "Блог", "Плейлист"]}
             />
           </div>
         </div>
