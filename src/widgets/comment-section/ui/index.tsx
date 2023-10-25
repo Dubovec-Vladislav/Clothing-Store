@@ -51,9 +51,9 @@ export const CommentSection: FC<CommentSectionProps> = ({ clothId }) => {
                 sortTypes={sortTypes}
               />
             </div>
-            <div className={style.addComment}>
+            {/* <div className={style.addComment}>
               <Button text={"Добавить отзыв"} />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className={style.comments}>
