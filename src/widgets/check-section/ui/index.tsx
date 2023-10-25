@@ -10,6 +10,7 @@ interface CheckSectionProps {
 }
 
 export const CheckSection: FC<CheckSectionProps> = ({ toggleIsPopupActive }) => {
+  const deliveryPrice = 700;
   const totalPrice = useAppSelector(selectCartTotalPrice);
   const [tegValue, setTegValue] = useState<string>("");
   const [isTegCorrect, changeIsTegCorrect] = useState<boolean>(false);
@@ -31,13 +32,16 @@ export const CheckSection: FC<CheckSectionProps> = ({ toggleIsPopupActive }) => 
           </div>
           <div className={style.position}>
             <div className={style.text}>Плата за доставку</div>
-            <div className={style.price}>700₽</div>
+            <div className={style.price}>{deliveryPrice}₽</div>
           </div>
         </div>
         <div className={style.total}>
           <div className={style.totalText}>Общая сумма</div>
           <div className={style.totalPrice}>
-            {isTegCorrect ? totalPrice - 550 + 700 : totalPrice + 700}₽
+            {isTegCorrect
+              ? totalPrice - 550 + deliveryPrice
+              : totalPrice + deliveryPrice}
+            ₽
           </div>
         </div>
         <div className={style.promotionalCode}>
@@ -59,8 +63,10 @@ export const CheckSection: FC<CheckSectionProps> = ({ toggleIsPopupActive }) => 
             <Button text={"Ввести"} />
           </div>
         </div>
-        <div className={style.btn} onClick={() => toggleIsPopupActive(true)}>
-          <Button text={"Перейти к оформлению"} />
+        <div className={totalPrice > 0 ? `${style.btnBlock}` : `${style.btnBlock} ${style.disableBtnBlock}`}>
+          <div className={style.btn} onClick={() => toggleIsPopupActive(true)}>
+            <Button text={"Перейти к оформлению"} />
+          </div>
         </div>
       </div>
     </section>
